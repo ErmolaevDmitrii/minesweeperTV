@@ -55,6 +55,8 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
+void EXTI2_TSC_IRQHandler(void);
+void EXTI4_IRQHandler(void);
 void DMA1_Channel3_IRQHandler(void);
 void TIM1_UP_TIM16_IRQHandler(void);
 void SPI1_IRQHandler(void);

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc8ULYBp.s 			page 1
+ARM GAS  /tmp/ccm3fqCX.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc8ULYBp.s 			page 1
   28:Core/Src/stm32f3xx_it.c **** /* USER CODE BEGIN TD */
   29:Core/Src/stm32f3xx_it.c **** 
   30:Core/Src/stm32f3xx_it.c **** /* USER CODE END TD */
-ARM GAS  /tmp/cc8ULYBp.s 			page 2
+ARM GAS  /tmp/ccm3fqCX.s 			page 2
 
 
   31:Core/Src/stm32f3xx_it.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc8ULYBp.s 			page 1
   36              		.loc 1 77 3 discriminator 1 view .LVU1
   78:Core/Src/stm32f3xx_it.c ****   {
   79:Core/Src/stm32f3xx_it.c ****   }
-ARM GAS  /tmp/cc8ULYBp.s 			page 3
+ARM GAS  /tmp/ccm3fqCX.s 			page 3
 
 
   37              		.loc 1 79 3 discriminator 1 view .LVU2
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc8ULYBp.s 			page 1
  100:Core/Src/stm32f3xx_it.c ****   */
  101:Core/Src/stm32f3xx_it.c **** void MemManage_Handler(void)
  102:Core/Src/stm32f3xx_it.c **** {
-ARM GAS  /tmp/cc8ULYBp.s 			page 4
+ARM GAS  /tmp/ccm3fqCX.s 			page 4
 
 
   75              		.loc 1 102 1 view -0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc8ULYBp.s 			page 1
  108              		.cfi_endproc
  109              	.LFE133:
  111              		.section	.text.UsageFault_Handler,"ax",%progbits
-ARM GAS  /tmp/cc8ULYBp.s 			page 5
+ARM GAS  /tmp/ccm3fqCX.s 			page 5
 
 
  112              		.align	1
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc8ULYBp.s 			page 1
  147              		@ frame_needed = 0, uses_anonymous_args = 0
  148              		@ link register save eliminated.
  148:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN SVCall_IRQn 0 */
-ARM GAS  /tmp/cc8ULYBp.s 			page 6
+ARM GAS  /tmp/ccm3fqCX.s 			page 6
 
 
  149:Core/Src/stm32f3xx_it.c **** 
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc8ULYBp.s 			page 1
  172:Core/Src/stm32f3xx_it.c **** void PendSV_Handler(void)
  173:Core/Src/stm32f3xx_it.c **** {
  184              		.loc 1 173 1 view -0
-ARM GAS  /tmp/cc8ULYBp.s 			page 7
+ARM GAS  /tmp/ccm3fqCX.s 			page 7
 
 
  185              		.cfi_startproc
@@ -415,17 +415,17 @@ ARM GAS  /tmp/cc8ULYBp.s 			page 1
  217 0006 08BD     		pop	{r3, pc}
  218              		.cfi_endproc
  219              	.LFE138:
- 221              		.section	.text.DMA1_Channel3_IRQHandler,"ax",%progbits
+ 221              		.section	.text.EXTI2_TSC_IRQHandler,"ax",%progbits
  222              		.align	1
- 223              		.global	DMA1_Channel3_IRQHandler
-ARM GAS  /tmp/cc8ULYBp.s 			page 8
+ 223              		.global	EXTI2_TSC_IRQHandler
+ARM GAS  /tmp/ccm3fqCX.s 			page 8
 
 
  224              		.syntax unified
  225              		.thumb
  226              		.thumb_func
  227              		.fpu fpv4-sp-d16
- 229              	DMA1_Channel3_IRQHandler:
+ 229              	EXTI2_TSC_IRQHandler:
  230              	.LFB139:
  195:Core/Src/stm32f3xx_it.c **** 
  196:Core/Src/stm32f3xx_it.c **** /******************************************************************************/
@@ -436,9 +436,9 @@ ARM GAS  /tmp/cc8ULYBp.s 			page 1
  201:Core/Src/stm32f3xx_it.c **** /******************************************************************************/
  202:Core/Src/stm32f3xx_it.c **** 
  203:Core/Src/stm32f3xx_it.c **** /**
- 204:Core/Src/stm32f3xx_it.c ****   * @brief This function handles DMA1 channel3 global interrupt.
+ 204:Core/Src/stm32f3xx_it.c ****   * @brief This function handles EXTI line2 and Touch Sense controller interrupts.
  205:Core/Src/stm32f3xx_it.c ****   */
- 206:Core/Src/stm32f3xx_it.c **** void DMA1_Channel3_IRQHandler(void)
+ 206:Core/Src/stm32f3xx_it.c **** void EXTI2_TSC_IRQHandler(void)
  207:Core/Src/stm32f3xx_it.c **** {
  231              		.loc 1 207 1 is_stmt 1 view -0
  232              		.cfi_startproc
@@ -449,166 +449,258 @@ ARM GAS  /tmp/cc8ULYBp.s 			page 1
  237              		.cfi_def_cfa_offset 8
  238              		.cfi_offset 3, -8
  239              		.cfi_offset 14, -4
- 208:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN DMA1_Channel3_IRQn 0 */
+ 208:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN EXTI2_TSC_IRQn 0 */
  209:Core/Src/stm32f3xx_it.c **** 
- 210:Core/Src/stm32f3xx_it.c ****   /* USER CODE END DMA1_Channel3_IRQn 0 */
- 211:Core/Src/stm32f3xx_it.c ****   HAL_DMA_IRQHandler(&hdma_spi1_tx);
+ 210:Core/Src/stm32f3xx_it.c ****   /* USER CODE END EXTI2_TSC_IRQn 0 */
+ 211:Core/Src/stm32f3xx_it.c ****   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
  240              		.loc 1 211 3 view .LVU25
- 241 0002 0248     		ldr	r0, .L18
- 242 0004 FFF7FEFF 		bl	HAL_DMA_IRQHandler
+ 241 0002 0420     		movs	r0, #4
+ 242 0004 FFF7FEFF 		bl	HAL_GPIO_EXTI_IRQHandler
  243              	.LVL1:
- 212:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN DMA1_Channel3_IRQn 1 */
+ 212:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN EXTI2_TSC_IRQn 1 */
  213:Core/Src/stm32f3xx_it.c **** 
- 214:Core/Src/stm32f3xx_it.c ****   /* USER CODE END DMA1_Channel3_IRQn 1 */
+ 214:Core/Src/stm32f3xx_it.c ****   /* USER CODE END EXTI2_TSC_IRQn 1 */
  215:Core/Src/stm32f3xx_it.c **** }
  244              		.loc 1 215 1 is_stmt 0 view .LVU26
  245 0008 08BD     		pop	{r3, pc}
- 246              	.L19:
- 247 000a 00BF     		.align	2
- 248              	.L18:
- 249 000c 00000000 		.word	hdma_spi1_tx
- 250              		.cfi_endproc
- 251              	.LFE139:
- 253              		.section	.text.TIM1_UP_TIM16_IRQHandler,"ax",%progbits
- 254              		.align	1
- 255              		.global	TIM1_UP_TIM16_IRQHandler
- 256              		.syntax unified
- 257              		.thumb
- 258              		.thumb_func
- 259              		.fpu fpv4-sp-d16
- 261              	TIM1_UP_TIM16_IRQHandler:
- 262              	.LFB140:
-ARM GAS  /tmp/cc8ULYBp.s 			page 9
-
-
+ 246              		.cfi_endproc
+ 247              	.LFE139:
+ 249              		.section	.text.EXTI4_IRQHandler,"ax",%progbits
+ 250              		.align	1
+ 251              		.global	EXTI4_IRQHandler
+ 252              		.syntax unified
+ 253              		.thumb
+ 254              		.thumb_func
+ 255              		.fpu fpv4-sp-d16
+ 257              	EXTI4_IRQHandler:
+ 258              	.LFB140:
  216:Core/Src/stm32f3xx_it.c **** 
  217:Core/Src/stm32f3xx_it.c **** /**
- 218:Core/Src/stm32f3xx_it.c ****   * @brief This function handles TIM1 update and TIM16 interrupts.
+ 218:Core/Src/stm32f3xx_it.c ****   * @brief This function handles EXTI line4 interrupt.
  219:Core/Src/stm32f3xx_it.c ****   */
- 220:Core/Src/stm32f3xx_it.c **** void TIM1_UP_TIM16_IRQHandler(void)
+ARM GAS  /tmp/ccm3fqCX.s 			page 9
+
+
+ 220:Core/Src/stm32f3xx_it.c **** void EXTI4_IRQHandler(void)
  221:Core/Src/stm32f3xx_it.c **** {
- 263              		.loc 1 221 1 is_stmt 1 view -0
- 264              		.cfi_startproc
- 265              		@ args = 0, pretend = 0, frame = 0
- 266              		@ frame_needed = 0, uses_anonymous_args = 0
- 267 0000 08B5     		push	{r3, lr}
- 268              	.LCFI2:
- 269              		.cfi_def_cfa_offset 8
- 270              		.cfi_offset 3, -8
- 271              		.cfi_offset 14, -4
- 222:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 0 */
- 223:Core/Src/stm32f3xx_it.c ****   //HAL_GPIO_TogglePin(TIM_TEST_GPIO_Port, TIM_TEST_Pin);
- 224:Core/Src/stm32f3xx_it.c ****   /* USER CODE END TIM1_UP_TIM16_IRQn 0 */
- 225:Core/Src/stm32f3xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
- 272              		.loc 1 225 3 view .LVU28
- 273 0002 0248     		ldr	r0, .L22
- 274 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
- 275              	.LVL2:
- 226:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 1 */
+ 259              		.loc 1 221 1 is_stmt 1 view -0
+ 260              		.cfi_startproc
+ 261              		@ args = 0, pretend = 0, frame = 0
+ 262              		@ frame_needed = 0, uses_anonymous_args = 0
+ 263 0000 08B5     		push	{r3, lr}
+ 264              	.LCFI2:
+ 265              		.cfi_def_cfa_offset 8
+ 266              		.cfi_offset 3, -8
+ 267              		.cfi_offset 14, -4
+ 222:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN EXTI4_IRQn 0 */
+ 223:Core/Src/stm32f3xx_it.c **** 
+ 224:Core/Src/stm32f3xx_it.c ****   /* USER CODE END EXTI4_IRQn 0 */
+ 225:Core/Src/stm32f3xx_it.c ****   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
+ 268              		.loc 1 225 3 view .LVU28
+ 269 0002 1020     		movs	r0, #16
+ 270 0004 FFF7FEFF 		bl	HAL_GPIO_EXTI_IRQHandler
+ 271              	.LVL2:
+ 226:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN EXTI4_IRQn 1 */
  227:Core/Src/stm32f3xx_it.c **** 
- 228:Core/Src/stm32f3xx_it.c ****   /* USER CODE END TIM1_UP_TIM16_IRQn 1 */
+ 228:Core/Src/stm32f3xx_it.c ****   /* USER CODE END EXTI4_IRQn 1 */
  229:Core/Src/stm32f3xx_it.c **** }
- 276              		.loc 1 229 1 is_stmt 0 view .LVU29
- 277 0008 08BD     		pop	{r3, pc}
- 278              	.L23:
- 279 000a 00BF     		.align	2
- 280              	.L22:
- 281 000c 00000000 		.word	htim1
- 282              		.cfi_endproc
- 283              	.LFE140:
- 285              		.section	.text.SPI1_IRQHandler,"ax",%progbits
- 286              		.align	1
- 287              		.global	SPI1_IRQHandler
- 288              		.syntax unified
- 289              		.thumb
- 290              		.thumb_func
- 291              		.fpu fpv4-sp-d16
- 293              	SPI1_IRQHandler:
- 294              	.LFB141:
+ 272              		.loc 1 229 1 is_stmt 0 view .LVU29
+ 273 0008 08BD     		pop	{r3, pc}
+ 274              		.cfi_endproc
+ 275              	.LFE140:
+ 277              		.section	.text.DMA1_Channel3_IRQHandler,"ax",%progbits
+ 278              		.align	1
+ 279              		.global	DMA1_Channel3_IRQHandler
+ 280              		.syntax unified
+ 281              		.thumb
+ 282              		.thumb_func
+ 283              		.fpu fpv4-sp-d16
+ 285              	DMA1_Channel3_IRQHandler:
+ 286              	.LFB141:
  230:Core/Src/stm32f3xx_it.c **** 
  231:Core/Src/stm32f3xx_it.c **** /**
- 232:Core/Src/stm32f3xx_it.c ****   * @brief This function handles SPI1 global interrupt.
+ 232:Core/Src/stm32f3xx_it.c ****   * @brief This function handles DMA1 channel3 global interrupt.
  233:Core/Src/stm32f3xx_it.c ****   */
- 234:Core/Src/stm32f3xx_it.c **** void SPI1_IRQHandler(void)
+ 234:Core/Src/stm32f3xx_it.c **** void DMA1_Channel3_IRQHandler(void)
  235:Core/Src/stm32f3xx_it.c **** {
- 295              		.loc 1 235 1 is_stmt 1 view -0
- 296              		.cfi_startproc
- 297              		@ args = 0, pretend = 0, frame = 0
- 298              		@ frame_needed = 0, uses_anonymous_args = 0
- 299 0000 08B5     		push	{r3, lr}
- 300              	.LCFI3:
- 301              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/cc8ULYBp.s 			page 10
-
-
- 302              		.cfi_offset 3, -8
- 303              		.cfi_offset 14, -4
- 236:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN SPI1_IRQn 0 */
+ 287              		.loc 1 235 1 is_stmt 1 view -0
+ 288              		.cfi_startproc
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 291 0000 08B5     		push	{r3, lr}
+ 292              	.LCFI3:
+ 293              		.cfi_def_cfa_offset 8
+ 294              		.cfi_offset 3, -8
+ 295              		.cfi_offset 14, -4
+ 236:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN DMA1_Channel3_IRQn 0 */
  237:Core/Src/stm32f3xx_it.c **** 
- 238:Core/Src/stm32f3xx_it.c ****   /* USER CODE END SPI1_IRQn 0 */
- 239:Core/Src/stm32f3xx_it.c ****   HAL_SPI_IRQHandler(&hspi1);
- 304              		.loc 1 239 3 view .LVU31
- 305 0002 0248     		ldr	r0, .L26
- 306 0004 FFF7FEFF 		bl	HAL_SPI_IRQHandler
- 307              	.LVL3:
- 240:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN SPI1_IRQn 1 */
+ 238:Core/Src/stm32f3xx_it.c ****   /* USER CODE END DMA1_Channel3_IRQn 0 */
+ 239:Core/Src/stm32f3xx_it.c ****   HAL_DMA_IRQHandler(&hdma_spi1_tx);
+ 296              		.loc 1 239 3 view .LVU31
+ 297 0002 0248     		ldr	r0, .L22
+ARM GAS  /tmp/ccm3fqCX.s 			page 10
+
+
+ 298 0004 FFF7FEFF 		bl	HAL_DMA_IRQHandler
+ 299              	.LVL3:
+ 240:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN DMA1_Channel3_IRQn 1 */
  241:Core/Src/stm32f3xx_it.c **** 
- 242:Core/Src/stm32f3xx_it.c ****   /* USER CODE END SPI1_IRQn 1 */
+ 242:Core/Src/stm32f3xx_it.c ****   /* USER CODE END DMA1_Channel3_IRQn 1 */
  243:Core/Src/stm32f3xx_it.c **** }
- 308              		.loc 1 243 1 is_stmt 0 view .LVU32
- 309 0008 08BD     		pop	{r3, pc}
- 310              	.L27:
- 311 000a 00BF     		.align	2
- 312              	.L26:
- 313 000c 00000000 		.word	hspi1
- 314              		.cfi_endproc
- 315              	.LFE141:
- 317              		.text
- 318              	.Letext0:
- 319              		.file 2 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stdint.h"
- 320              		.file 3 "Drivers/CMSIS/Include/core_cm4.h"
- 321              		.file 4 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
- 322              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h"
- 323              		.file 6 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
- 324              		.file 7 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
- 325              		.file 8 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
- 326              		.file 9 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h"
- 327              		.file 10 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
-ARM GAS  /tmp/cc8ULYBp.s 			page 11
+ 300              		.loc 1 243 1 is_stmt 0 view .LVU32
+ 301 0008 08BD     		pop	{r3, pc}
+ 302              	.L23:
+ 303 000a 00BF     		.align	2
+ 304              	.L22:
+ 305 000c 00000000 		.word	hdma_spi1_tx
+ 306              		.cfi_endproc
+ 307              	.LFE141:
+ 309              		.section	.text.TIM1_UP_TIM16_IRQHandler,"ax",%progbits
+ 310              		.align	1
+ 311              		.global	TIM1_UP_TIM16_IRQHandler
+ 312              		.syntax unified
+ 313              		.thumb
+ 314              		.thumb_func
+ 315              		.fpu fpv4-sp-d16
+ 317              	TIM1_UP_TIM16_IRQHandler:
+ 318              	.LFB142:
+ 244:Core/Src/stm32f3xx_it.c **** 
+ 245:Core/Src/stm32f3xx_it.c **** /**
+ 246:Core/Src/stm32f3xx_it.c ****   * @brief This function handles TIM1 update and TIM16 interrupts.
+ 247:Core/Src/stm32f3xx_it.c ****   */
+ 248:Core/Src/stm32f3xx_it.c **** void TIM1_UP_TIM16_IRQHandler(void)
+ 249:Core/Src/stm32f3xx_it.c **** {
+ 319              		.loc 1 249 1 is_stmt 1 view -0
+ 320              		.cfi_startproc
+ 321              		@ args = 0, pretend = 0, frame = 0
+ 322              		@ frame_needed = 0, uses_anonymous_args = 0
+ 323 0000 08B5     		push	{r3, lr}
+ 324              	.LCFI4:
+ 325              		.cfi_def_cfa_offset 8
+ 326              		.cfi_offset 3, -8
+ 327              		.cfi_offset 14, -4
+ 250:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 0 */
+ 251:Core/Src/stm32f3xx_it.c ****   //HAL_GPIO_TogglePin(TIM_TEST_GPIO_Port, TIM_TEST_Pin);
+ 252:Core/Src/stm32f3xx_it.c ****   /* USER CODE END TIM1_UP_TIM16_IRQn 0 */
+ 253:Core/Src/stm32f3xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
+ 328              		.loc 1 253 3 view .LVU34
+ 329 0002 0248     		ldr	r0, .L26
+ 330 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 331              	.LVL4:
+ 254:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 1 */
+ 255:Core/Src/stm32f3xx_it.c **** 
+ 256:Core/Src/stm32f3xx_it.c ****   /* USER CODE END TIM1_UP_TIM16_IRQn 1 */
+ 257:Core/Src/stm32f3xx_it.c **** }
+ 332              		.loc 1 257 1 is_stmt 0 view .LVU35
+ 333 0008 08BD     		pop	{r3, pc}
+ 334              	.L27:
+ 335 000a 00BF     		.align	2
+ 336              	.L26:
+ 337 000c 00000000 		.word	htim1
+ 338              		.cfi_endproc
+ARM GAS  /tmp/ccm3fqCX.s 			page 11
+
+
+ 339              	.LFE142:
+ 341              		.section	.text.SPI1_IRQHandler,"ax",%progbits
+ 342              		.align	1
+ 343              		.global	SPI1_IRQHandler
+ 344              		.syntax unified
+ 345              		.thumb
+ 346              		.thumb_func
+ 347              		.fpu fpv4-sp-d16
+ 349              	SPI1_IRQHandler:
+ 350              	.LFB143:
+ 258:Core/Src/stm32f3xx_it.c **** 
+ 259:Core/Src/stm32f3xx_it.c **** /**
+ 260:Core/Src/stm32f3xx_it.c ****   * @brief This function handles SPI1 global interrupt.
+ 261:Core/Src/stm32f3xx_it.c ****   */
+ 262:Core/Src/stm32f3xx_it.c **** void SPI1_IRQHandler(void)
+ 263:Core/Src/stm32f3xx_it.c **** {
+ 351              		.loc 1 263 1 is_stmt 1 view -0
+ 352              		.cfi_startproc
+ 353              		@ args = 0, pretend = 0, frame = 0
+ 354              		@ frame_needed = 0, uses_anonymous_args = 0
+ 355 0000 08B5     		push	{r3, lr}
+ 356              	.LCFI5:
+ 357              		.cfi_def_cfa_offset 8
+ 358              		.cfi_offset 3, -8
+ 359              		.cfi_offset 14, -4
+ 264:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN SPI1_IRQn 0 */
+ 265:Core/Src/stm32f3xx_it.c **** 
+ 266:Core/Src/stm32f3xx_it.c ****   /* USER CODE END SPI1_IRQn 0 */
+ 267:Core/Src/stm32f3xx_it.c ****   HAL_SPI_IRQHandler(&hspi1);
+ 360              		.loc 1 267 3 view .LVU37
+ 361 0002 0248     		ldr	r0, .L30
+ 362 0004 FFF7FEFF 		bl	HAL_SPI_IRQHandler
+ 363              	.LVL5:
+ 268:Core/Src/stm32f3xx_it.c ****   /* USER CODE BEGIN SPI1_IRQn 1 */
+ 269:Core/Src/stm32f3xx_it.c **** 
+ 270:Core/Src/stm32f3xx_it.c ****   /* USER CODE END SPI1_IRQn 1 */
+ 271:Core/Src/stm32f3xx_it.c **** }
+ 364              		.loc 1 271 1 is_stmt 0 view .LVU38
+ 365 0008 08BD     		pop	{r3, pc}
+ 366              	.L31:
+ 367 000a 00BF     		.align	2
+ 368              	.L30:
+ 369 000c 00000000 		.word	hspi1
+ 370              		.cfi_endproc
+ 371              	.LFE143:
+ 373              		.text
+ 374              	.Letext0:
+ 375              		.file 2 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stdint.h"
+ 376              		.file 3 "Drivers/CMSIS/Include/core_cm4.h"
+ 377              		.file 4 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ 378              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h"
+ 379              		.file 6 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 380              		.file 7 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
+ 381              		.file 8 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
+ 382              		.file 9 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h"
+ 383              		.file 10 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ 384              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
+ARM GAS  /tmp/ccm3fqCX.s 			page 12
+
+
+ARM GAS  /tmp/ccm3fqCX.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f3xx_it.c
-     /tmp/cc8ULYBp.s:18     .text.NMI_Handler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:26     .text.NMI_Handler:0000000000000000 NMI_Handler
-     /tmp/cc8ULYBp.s:43     .text.HardFault_Handler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:50     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-     /tmp/cc8ULYBp.s:66     .text.MemManage_Handler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:73     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-     /tmp/cc8ULYBp.s:89     .text.BusFault_Handler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:96     .text.BusFault_Handler:0000000000000000 BusFault_Handler
-     /tmp/cc8ULYBp.s:112    .text.UsageFault_Handler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:119    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-     /tmp/cc8ULYBp.s:135    .text.SVC_Handler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:142    .text.SVC_Handler:0000000000000000 SVC_Handler
-     /tmp/cc8ULYBp.s:155    .text.DebugMon_Handler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:162    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-     /tmp/cc8ULYBp.s:175    .text.PendSV_Handler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:182    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-     /tmp/cc8ULYBp.s:195    .text.SysTick_Handler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:202    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-     /tmp/cc8ULYBp.s:222    .text.DMA1_Channel3_IRQHandler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:229    .text.DMA1_Channel3_IRQHandler:0000000000000000 DMA1_Channel3_IRQHandler
-     /tmp/cc8ULYBp.s:249    .text.DMA1_Channel3_IRQHandler:000000000000000c $d
-     /tmp/cc8ULYBp.s:254    .text.TIM1_UP_TIM16_IRQHandler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:261    .text.TIM1_UP_TIM16_IRQHandler:0000000000000000 TIM1_UP_TIM16_IRQHandler
-     /tmp/cc8ULYBp.s:281    .text.TIM1_UP_TIM16_IRQHandler:000000000000000c $d
-     /tmp/cc8ULYBp.s:286    .text.SPI1_IRQHandler:0000000000000000 $t
-     /tmp/cc8ULYBp.s:293    .text.SPI1_IRQHandler:0000000000000000 SPI1_IRQHandler
-     /tmp/cc8ULYBp.s:313    .text.SPI1_IRQHandler:000000000000000c $d
+     /tmp/ccm3fqCX.s:18     .text.NMI_Handler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:26     .text.NMI_Handler:0000000000000000 NMI_Handler
+     /tmp/ccm3fqCX.s:43     .text.HardFault_Handler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:50     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/ccm3fqCX.s:66     .text.MemManage_Handler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:73     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+     /tmp/ccm3fqCX.s:89     .text.BusFault_Handler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:96     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+     /tmp/ccm3fqCX.s:112    .text.UsageFault_Handler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:119    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+     /tmp/ccm3fqCX.s:135    .text.SVC_Handler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:142    .text.SVC_Handler:0000000000000000 SVC_Handler
+     /tmp/ccm3fqCX.s:155    .text.DebugMon_Handler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:162    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+     /tmp/ccm3fqCX.s:175    .text.PendSV_Handler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:182    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+     /tmp/ccm3fqCX.s:195    .text.SysTick_Handler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:202    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+     /tmp/ccm3fqCX.s:222    .text.EXTI2_TSC_IRQHandler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:229    .text.EXTI2_TSC_IRQHandler:0000000000000000 EXTI2_TSC_IRQHandler
+     /tmp/ccm3fqCX.s:250    .text.EXTI4_IRQHandler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:257    .text.EXTI4_IRQHandler:0000000000000000 EXTI4_IRQHandler
+     /tmp/ccm3fqCX.s:278    .text.DMA1_Channel3_IRQHandler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:285    .text.DMA1_Channel3_IRQHandler:0000000000000000 DMA1_Channel3_IRQHandler
+     /tmp/ccm3fqCX.s:305    .text.DMA1_Channel3_IRQHandler:000000000000000c $d
+     /tmp/ccm3fqCX.s:310    .text.TIM1_UP_TIM16_IRQHandler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:317    .text.TIM1_UP_TIM16_IRQHandler:0000000000000000 TIM1_UP_TIM16_IRQHandler
+     /tmp/ccm3fqCX.s:337    .text.TIM1_UP_TIM16_IRQHandler:000000000000000c $d
+     /tmp/ccm3fqCX.s:342    .text.SPI1_IRQHandler:0000000000000000 $t
+     /tmp/ccm3fqCX.s:349    .text.SPI1_IRQHandler:0000000000000000 SPI1_IRQHandler
+     /tmp/ccm3fqCX.s:369    .text.SPI1_IRQHandler:000000000000000c $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick
+HAL_GPIO_EXTI_IRQHandler
 HAL_DMA_IRQHandler
 hdma_spi1_tx
 HAL_TIM_IRQHandler
