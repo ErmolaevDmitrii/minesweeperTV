@@ -32,6 +32,7 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "gdi.h"
+#include "game_engine.h"
 
 /* USER CODE END Includes */
 
@@ -58,8 +59,15 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define OPEN_BTN_Pin GPIO_PIN_2
+#define OPEN_BTN_GPIO_Port GPIOE
+#define OPEN_BTN_EXTI_IRQn EXTI2_TSC_IRQn
+#define FLAG_BTN_Pin GPIO_PIN_4
+#define FLAG_BTN_GPIO_Port GPIOE
+#define FLAG_BTN_EXTI_IRQn EXTI4_IRQn
 #define USER_Btn_Pin GPIO_PIN_13
 #define USER_Btn_GPIO_Port GPIOC
+#define USER_Btn_EXTI_IRQn EXTI15_10_IRQn
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOF
 #define TIM_TEST_Pin GPIO_PIN_1
@@ -84,6 +92,18 @@ void Error_Handler(void);
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
+#define RIGHT_BTN_Pin GPIO_PIN_3
+#define RIGHT_BTN_GPIO_Port GPIOD
+#define RIGHT_BTN_EXTI_IRQn EXTI3_IRQn
+#define LEFT_BTN_Pin GPIO_PIN_5
+#define LEFT_BTN_GPIO_Port GPIOD
+#define LEFT_BTN_EXTI_IRQn EXTI9_5_IRQn
+#define UP_BTN_Pin GPIO_PIN_6
+#define UP_BTN_GPIO_Port GPIOD
+#define UP_BTN_EXTI_IRQn EXTI9_5_IRQn
+#define DOWN_BTN_Pin GPIO_PIN_7
+#define DOWN_BTN_GPIO_Port GPIOD
+#define DOWN_BTN_EXTI_IRQn EXTI9_5_IRQn
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
 #define LD2_Pin GPIO_PIN_7

@@ -15,4 +15,7 @@ void set_pixel(uint16_t x, uint16_t y, uint8_t color,
 void draw_picture(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
                   uint8_t *picture, gdi_handle *handle);
 
+void draw_picture_blend(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
+                        uint8_t *picture, gdi_handle *handle);
+
 #endif

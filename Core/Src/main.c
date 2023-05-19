@@ -67,253 +67,7 @@ uint16_t line = 0;
 
 uint8_t image [5750] = {0};
 gdi_handle handle = {image, 23 * 8, 250};
-
-const uint8_t one[] = {
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000011, 0b10000000,
-      0b00000111, 0b10000000,
-      0b00001111, 0b10000000,
-      0b00001101, 0b10000000,
-      0b00001001, 0b10000000,
-      0b00000001, 0b10000000,
-      0b00000001, 0b10000000,
-      0b00000001, 0b10000000,
-      0b00000001, 0b10000000,
-      0b00000001, 0b10000000,
-      0b00001111, 0b11110000,
-      0b00001111, 0b11110000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-  };
-
-  const uint8_t two[] = {
-      0b00000000, 0b00000000,
-      0b00000011, 0b11100000,
-      0b00000111, 0b11110000,
-      0b00001110, 0b01110000,
-      0b00001100, 0b00110000,
-      0b00001100, 0b00110000,
-      0b00000000, 0b01110000,
-      0b00000000, 0b01100000,
-      0b00000000, 0b11100000,
-      0b00000001, 0b11000000,
-      0b00000011, 0b10000000,
-      0b00001111, 0b00000000,
-      0b00001111, 0b11110000,
-      0b00001111, 0b11110000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-  };
-
-  const uint8_t three[] = {
-      0b00000000, 0b00000000,
-      0b00000011, 0b11000000,
-      0b00000111, 0b11100000,
-      0b00001110, 0b01110000,
-      0b00001100, 0b01110000,
-      0b00001100, 0b11100000,
-      0b00000001, 0b11000000,
-      0b00000001, 0b11000000,
-      0b00000000, 0b01110000,
-      0b00000000, 0b00110000,
-      0b00001100, 0b00110000,
-      0b00001100, 0b01110000,
-      0b00001111, 0b11100000,
-      0b00000011, 0b11000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-  };
-
-  const uint8_t four[] = {
-      0b00000000, 0b00000000,
-      0b00000000, 0b01100000,
-      0b00000000, 0b11100000,
-      0b00000001, 0b11100000,
-      0b00000011, 0b01100000,
-      0b00000110, 0b01100000,
-      0b00001110, 0b01100000,
-      0b00001111, 0b11110000,
-      0b00001111, 0b11110000,
-      0b00000000, 0b01100000,
-      0b00000000, 0b01100000,
-      0b00000000, 0b01100000,
-      0b00000000, 0b01100000,
-      0b00000000, 0b01100000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-  };
-
-  const uint8_t five[] = {
-      0b00000000, 0b00000000,
-      0b00000111, 0b11110000,
-      0b00000111, 0b11110000,
-      0b00000110, 0b00000000,
-      0b00000110, 0b00000000,
-      0b00000110, 0b00000000,
-      0b00000111, 0b11000000,
-      0b00000011, 0b11100000,
-      0b00000000, 0b01110000,
-      0b00000000, 0b00110000,
-      0b00000000, 0b00110000,
-      0b00001100, 0b01110000,
-      0b00001111, 0b11100000,
-      0b00000111, 0b11000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-  };
-
-  const uint8_t six[] = {
-      0b00000000, 0b00000000,
-      0b00000111, 0b11000000,
-      0b00001111, 0b11100000,
-      0b00011100, 0b01100000,
-      0b00011000, 0b00000000,
-      0b00011000, 0b00000000,
-      0b00011111, 0b11000000,
-      0b00011111, 0b11100000,
-      0b00011100, 0b01100000,
-      0b00011000, 0b00110000,
-      0b00011000, 0b00110000,
-      0b00001100, 0b01100000,
-      0b00001111, 0b11000000,
-      0b00000111, 0b10000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-  };
-
-  const uint8_t seven[] = {
-      0b00000000, 0b00000000,
-      0b00001111, 0b11111000,
-      0b00001111, 0b11111000,
-      0b00000000, 0b00111000,
-      0b00000000, 0b01110000,
-      0b00000000, 0b01100000,
-      0b00000000, 0b11000000,
-      0b00000000, 0b11000000,
-      0b00000001, 0b10000000,
-      0b00000001, 0b10000000,
-      0b00000011, 0b00000000,
-      0b00000011, 0b00000000,
-      0b00000110, 0b00000000,
-      0b00000110, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-  };
-
-  const uint8_t eight[] = {
-      0b00000000, 0b00000000,
-      0b00000011, 0b11000000,
-      0b00000111, 0b11100000,
-      0b00000100, 0b00100000,
-      0b00000100, 0b00100000,
-      0b00000110, 0b01100000,
-      0b00000111, 0b11100000,
-      0b00000011, 0b11000000,
-      0b00000011, 0b11000000,
-      0b00000110, 0b01100000,
-      0b00001100, 0b00110000,
-      0b00001100, 0b00110000,
-      0b00001111, 0b11110000,
-      0b00000111, 0b11100000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-  };
-
-  const uint8_t flag[] = {
-      0b00000000, 0b00000000,
-      0b00000001, 0b10000000,
-      0b00000011, 0b10000000,
-      0b00000111, 0b10000000,
-      0b00001111, 0b10000000,
-      0b00011111, 0b10000000,
-      0b00001111, 0b10000000,
-      0b00000111, 0b10000000,
-      0b00000011, 0b10000000,
-      0b00000001, 0b10000000,
-      0b00000001, 0b10000000,
-      0b00000001, 0b10000000,
-      0b00001111, 0b11110000,
-      0b00001111, 0b11110000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-  };
-
-  const uint8_t bomb[] = {
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000001, 0b10000000,
-      0b00011001, 0b10011000,
-      0b00011011, 0b11011000,
-      0b00001111, 0b11110000,
-      0b00001111, 0b11110000,
-      0b00111111, 0b11111100,
-      0b00111111, 0b11111100,
-      0b00001111, 0b11110000,
-      0b00001111, 0b11110000,
-      0b00011011, 0b11011000,
-      0b00011001, 0b10011000,
-      0b00000001, 0b10000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-  };
-
-  const uint8_t not_opened_cell[] = {
-      0b11111111, 0b11111111,
-      0b11111111, 0b11111111,
-      0b11001001, 0b00100111,
-      0b11010010, 0b01001011,
-      0b11100100, 0b10010011,
-      0b11001001, 0b00100111,
-      0b11010010, 0b01001011,
-      0b11100100, 0b10010011,
-      0b11001001, 0b00100111,
-      0b11010010, 0b01001011,
-      0b11100100, 0b10010011,
-      0b11001001, 0b00100111,
-      0b11010010, 0b01001011,
-      0b11100100, 0b10010011,
-      0b11111111, 0b11111111,
-      0b11111111, 0b11111111,
-  };
-
-  const uint8_t selected_cell[] = {
-      0b11111111, 0b11111111,
-      0b11110000, 0b10001111,
-      0b11110001, 0b00101111,
-      0b11110010, 0b01001111,
-      0b10000100, 0b10010011,
-      0b10001001, 0b00100101,
-      0b10010010, 0b01001001,
-      0b10100100, 0b10010011,
-      0b11001001, 0b00100101,
-      0b10010010, 0b01001001,
-      0b10100100, 0b10010001,
-      0b11001001, 0b00100001,
-      0b11110010, 0b01001111,
-      0b11110100, 0b10001111,
-      0b11111001, 0b00001111,
-      0b11111111, 0b11111111,
-  };
-
-  const uint8_t zero_cell[] = {
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-      0b00000000, 0b00000000,
-  };
+uint8_t game_field[81] = {0};
 
 void delay_us (uint16_t us)
 {
@@ -324,6 +78,25 @@ void delay_us (uint16_t us)
   //HAL_GPIO_TogglePin(TIM_TEST_GPIO_Port, TIM_TEST_Pin);
 }
 
+typedef struct {
+    uint32_t time_irq;
+    uint8_t flag_irq;
+    uint8_t flag_exec;
+    uint16_t GPIO_pin;
+    IRQn_Type GPIO_EXTI_line;
+    void (*action) (game_handle *);
+} button_handle;
+
+button_handle buttons[] = {
+    {0, 0, 0, DOWN_BTN_Pin , DOWN_BTN_EXTI_IRQn , game_player_move_down },
+    {0, 0, 0, UP_BTN_Pin   , UP_BTN_EXTI_IRQn   , game_player_move_up   },
+    {0, 0, 0, LEFT_BTN_Pin , LEFT_BTN_EXTI_IRQn , game_player_move_left },
+    {0, 0, 0, RIGHT_BTN_Pin, RIGHT_BTN_EXTI_IRQn, game_player_move_right},
+    {0, 0, 0, FLAG_BTN_Pin , FLAG_BTN_EXTI_IRQn , game_player_put_flag  },
+    {0, 0, 0, OPEN_BTN_Pin , OPEN_BTN_EXTI_IRQn , game_player_open_cell },
+};
+
+/*
 uint32_t time1_irq = 0;
 uint8_t flag1_irq = 0;
 uint8_t flag1_exec = 0;
@@ -331,9 +104,22 @@ uint8_t flag1_exec = 0;
 uint32_t time2_irq = 0;
 uint8_t flag2_irq = 0;
 uint8_t flag2_exec = 0;
+*/
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
+    for(uint8_t i = 0; i < (sizeof(buttons) / sizeof(button_handle)); ++i) {
+        if(buttons[i].GPIO_pin == GPIO_Pin) {
+            buttons[i].flag_exec = 0;
+            buttons[i].flag_irq = 1;
+            buttons[i].time_irq = HAL_GetTick();
+            HAL_NVIC_DisableIRQ(buttons[i].GPIO_EXTI_line);
+            break;
+        }
+    }
+
+    return;
+/*
         if(GPIO_Pin == GPIO_PIN_2)
         {
             flag2_exec = 0;
@@ -349,6 +135,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
             time1_irq = HAL_GetTick();
             HAL_NVIC_DisableIRQ(EXTI4_IRQn);
         }
+*/
 }
 
 
@@ -442,7 +229,7 @@ int main(void)
   HAL_TIM_Base_Start(&htim3);
   HAL_TIM_Base_Start_IT(&htim1);
 
-  draw_picture(68, 0, 16, 16, one, &handle);
+  /*draw_picture(68, 0, 16, 16, one, &handle);
   draw_picture(68, 16, 16, 16, two, &handle);
   draw_picture(68, 32, 16, 16, three, &handle);
   draw_picture(68, 48, 16, 16, four, &handle);
@@ -453,19 +240,43 @@ int main(void)
   draw_picture(68, 108, 16, 16, flag, &handle);
   draw_picture(68, 124, 16, 16, bomb, &handle);
   draw_picture(68, 140, 16, 16, not_opened_cell, &handle);
-  draw_picture(68, 156, 16, 16, selected_cell, &handle);
+  //draw_picture(68, 156, 16, 16, selected_cell, &handle);
+  */
+
+  game_handle game = {9, 9, game_field, &handle, };
+  game_start(&game);
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint16_t i = 0, j = 0;
+  //uint16_t i = 0, j = 0;
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    if(flag1_irq && (HAL_GetTick() - time1_irq) > 100)
+    button_handle *temp;
+
+    for(uint8_t i = 0; i < (sizeof(buttons) / sizeof(button_handle)); ++i) {
+        temp = buttons + i;
+
+        if(temp->flag_irq) {
+
+            if(!temp->flag_exec) {
+                temp->action(&game);
+                temp->flag_exec = 1;
+            }
+
+            if((HAL_GetTick() - temp->time_irq) > 150) {
+                __HAL_GPIO_EXTI_CLEAR_IT(temp->GPIO_pin);
+                NVIC_ClearPendingIRQ(temp->GPIO_EXTI_line);
+                HAL_NVIC_EnableIRQ(temp->GPIO_EXTI_line);
+                temp->flag_irq = 0;
+            }
+        }
+    }
+    /*if(flag1_irq && (HAL_GetTick() - time1_irq) > 100)
     {
         if(!flag1_exec) {
             if(i == 0) {
@@ -514,6 +325,7 @@ int main(void)
         HAL_NVIC_EnableIRQ(EXTI2_TSC_IRQn);   // включаем внешнее прерывание
         flag2_irq = 0;
     }
+    */
 
       //image[23*249 + 10]++;
   }
@@ -744,8 +556,8 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(USB_PowerSwitchOn_GPIO_Port, USB_PowerSwitchOn_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : PE2 PE4 */
-  GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_4;
+  /*Configure GPIO pins : OPEN_BTN_Pin FLAG_BTN_Pin */
+  GPIO_InitStruct.Pin = OPEN_BTN_Pin|FLAG_BTN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
@@ -791,12 +603,27 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(USB_OverCurrent_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : RIGHT_BTN_Pin LEFT_BTN_Pin UP_BTN_Pin DOWN_BTN_Pin */
+  GPIO_InitStruct.Pin = RIGHT_BTN_Pin|LEFT_BTN_Pin|UP_BTN_Pin|DOWN_BTN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI2_TSC_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI2_TSC_IRQn);
 
+  HAL_NVIC_SetPriority(EXTI3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+
   HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

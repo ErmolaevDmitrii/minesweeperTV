@@ -1,0 +1,1287 @@
+ARM GAS  /tmp/cc0PTrNt.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"game_engine.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.game_get_cell_value,"ax",%progbits
+  18              		.align	1
+  19              		.global	game_get_cell_value
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	game_get_cell_value:
+  27              	.LVL0:
+  28              	.LFB7:
+  29              		.file 1 "Core/Src/game_engine.c"
+   1:Core/Src/game_engine.c **** #include "game_engine.h"
+   2:Core/Src/game_engine.c **** 
+   3:Core/Src/game_engine.c **** void game_start(game_handle *handle) {
+   4:Core/Src/game_engine.c ****     handle->player_pos_x = handle->field_width / 2;
+   5:Core/Src/game_engine.c ****     handle->player_pos_y = handle->field_height / 2;
+   6:Core/Src/game_engine.c **** 
+   7:Core/Src/game_engine.c ****     for(int i = 0; i < handle->field_width * handle->field_height; ++i) {
+   8:Core/Src/game_engine.c ****         handle->field[i] = 0b00000001;
+   9:Core/Src/game_engine.c ****     }
+  10:Core/Src/game_engine.c **** 
+  11:Core/Src/game_engine.c ****     for(uint8_t i = 0; i < handle->field_height; ++i) {
+  12:Core/Src/game_engine.c ****         for(uint8_t j = 0; j < handle->field_width; ++j) {
+  13:Core/Src/game_engine.c ****             //draw_picture(j * 16, i * 16, 16, 16,
+  14:Core/Src/game_engine.c ****                          //not_opened_cell, handle->graphics);
+  15:Core/Src/game_engine.c ****             draw_cell(j, i, handle);
+  16:Core/Src/game_engine.c ****         }
+  17:Core/Src/game_engine.c ****     }
+  18:Core/Src/game_engine.c **** 
+  19:Core/Src/game_engine.c ****     //draw_picture(handle->player_pos_x * 16, handle->player_pos_y * 16,
+  20:Core/Src/game_engine.c ****       //           16, 16, selected_cell, handle->graphics);
+  21:Core/Src/game_engine.c **** }
+  22:Core/Src/game_engine.c **** 
+  23:Core/Src/game_engine.c **** void game_player_move(int8_t x, int8_t y, game_handle *handle) {
+  24:Core/Src/game_engine.c ****     uint8_t old_x = handle->player_pos_x;
+  25:Core/Src/game_engine.c ****     uint8_t old_y = handle->player_pos_y;
+  26:Core/Src/game_engine.c ****     if(x) {
+  27:Core/Src/game_engine.c ****         //draw_picture(handle->player_pos_x * 16, handle->player_pos_y * 16,
+  28:Core/Src/game_engine.c ****          //        16, 16, not_opened_cell, handle->graphics);
+  29:Core/Src/game_engine.c ****         if(x < 0 && handle->player_pos_x == 0) {
+ARM GAS  /tmp/cc0PTrNt.s 			page 2
+
+
+  30:Core/Src/game_engine.c ****             handle->player_pos_x = handle->field_width - 1;
+  31:Core/Src/game_engine.c ****         }
+  32:Core/Src/game_engine.c ****         else {
+  33:Core/Src/game_engine.c ****             handle->player_pos_x += x;
+  34:Core/Src/game_engine.c ****             if(handle->player_pos_x >= handle->field_width) {
+  35:Core/Src/game_engine.c ****                 handle->player_pos_x = 0;
+  36:Core/Src/game_engine.c ****             }
+  37:Core/Src/game_engine.c ****         }
+  38:Core/Src/game_engine.c **** 
+  39:Core/Src/game_engine.c ****         //draw_picture(handle->player_pos_x * 16, handle->player_pos_y * 16,
+  40:Core/Src/game_engine.c ****         //         16, 16, selected_cell, handle->graphics);
+  41:Core/Src/game_engine.c ****     }
+  42:Core/Src/game_engine.c **** 
+  43:Core/Src/game_engine.c ****     if(y) {
+  44:Core/Src/game_engine.c ****         //draw_picture(handle->player_pos_x * 16, handle->player_pos_y * 16,
+  45:Core/Src/game_engine.c ****         //         16, 16, not_opened_cell, handle->graphics);
+  46:Core/Src/game_engine.c ****         if(y < 0 && handle->player_pos_y == 0) {
+  47:Core/Src/game_engine.c ****             handle->player_pos_y = handle->field_height - 1;
+  48:Core/Src/game_engine.c ****         }
+  49:Core/Src/game_engine.c ****         else {
+  50:Core/Src/game_engine.c ****             handle->player_pos_y += y;
+  51:Core/Src/game_engine.c ****             if(handle->player_pos_y >= handle->field_height) {
+  52:Core/Src/game_engine.c ****                 handle->player_pos_y = 0;
+  53:Core/Src/game_engine.c ****             }
+  54:Core/Src/game_engine.c ****         }
+  55:Core/Src/game_engine.c **** 
+  56:Core/Src/game_engine.c ****         //draw_picture(handle->player_pos_x * 16, handle->player_pos_y * 16,
+  57:Core/Src/game_engine.c ****         //         16, 16, selected_cell, handle->graphics);
+  58:Core/Src/game_engine.c ****     }
+  59:Core/Src/game_engine.c **** 
+  60:Core/Src/game_engine.c ****     draw_cell(old_x, old_y, handle);
+  61:Core/Src/game_engine.c ****     draw_cell(handle->player_pos_x, handle->player_pos_y, handle);
+  62:Core/Src/game_engine.c **** }
+  63:Core/Src/game_engine.c **** 
+  64:Core/Src/game_engine.c **** void game_player_move_up(game_handle *handle) {
+  65:Core/Src/game_engine.c ****     game_player_move(0, -1, handle);
+  66:Core/Src/game_engine.c ****     return;
+  67:Core/Src/game_engine.c **** }
+  68:Core/Src/game_engine.c **** 
+  69:Core/Src/game_engine.c **** void game_player_move_down(game_handle *handle) {
+  70:Core/Src/game_engine.c ****     game_player_move(0, 1, handle);
+  71:Core/Src/game_engine.c ****     return;
+  72:Core/Src/game_engine.c **** }
+  73:Core/Src/game_engine.c **** 
+  74:Core/Src/game_engine.c **** void game_player_move_left(game_handle *handle) {
+  75:Core/Src/game_engine.c ****     game_player_move(-1, 0, handle);
+  76:Core/Src/game_engine.c ****     return;
+  77:Core/Src/game_engine.c **** }
+  78:Core/Src/game_engine.c **** 
+  79:Core/Src/game_engine.c **** void game_player_move_right(game_handle *handle) {
+  80:Core/Src/game_engine.c ****     game_player_move(1, 0, handle);
+  81:Core/Src/game_engine.c ****     return;
+  82:Core/Src/game_engine.c **** }
+  83:Core/Src/game_engine.c **** 
+  84:Core/Src/game_engine.c **** void game_player_put_flag(game_handle *handle) {
+  85:Core/Src/game_engine.c ****     if(!game_is_cell_opened(handle->player_pos_x, handle->player_pos_y, handle)) {
+  86:Core/Src/game_engine.c ****         if(game_is_cell_under_flag(handle->player_pos_x, handle->player_pos_y, handle)) {
+ARM GAS  /tmp/cc0PTrNt.s 			page 3
+
+
+  87:Core/Src/game_engine.c ****             handle->field[handle->player_pos_x + handle->player_pos_y * handle->field_width] -= 2;
+  88:Core/Src/game_engine.c ****         }
+  89:Core/Src/game_engine.c ****         else {
+  90:Core/Src/game_engine.c ****             handle->field[handle->player_pos_x + handle->player_pos_y * handle->field_width] += 2;
+  91:Core/Src/game_engine.c ****         }
+  92:Core/Src/game_engine.c ****         draw_cell(handle->player_pos_x, handle->player_pos_y, handle);
+  93:Core/Src/game_engine.c ****     }
+  94:Core/Src/game_engine.c ****     return;
+  95:Core/Src/game_engine.c **** }
+  96:Core/Src/game_engine.c **** 
+  97:Core/Src/game_engine.c **** uint8_t game_get_cell_value(uint8_t x, uint8_t y, game_handle *handle) {
+  30              		.loc 1 97 72 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  35              		.loc 1 97 72 is_stmt 0 view .LVU1
+  36 0000 10B4     		push	{r4}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 4
+  39              		.cfi_offset 4, -4
+  98:Core/Src/game_engine.c ****     return handle->field[y * handle->field_width + x] >> 4;
+  40              		.loc 1 98 5 is_stmt 1 view .LVU2
+  41              		.loc 1 98 18 is_stmt 0 view .LVU3
+  42 0002 5468     		ldr	r4, [r2, #4]
+  43              		.loc 1 98 36 view .LVU4
+  44 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  45              		.loc 1 98 50 view .LVU5
+  46 0006 03FB0101 		mla	r1, r3, r1, r0
+  47              	.LVL1:
+  48              		.loc 1 98 25 view .LVU6
+  49 000a 605C     		ldrb	r0, [r4, r1]	@ zero_extendqisi2
+  50              	.LVL2:
+  99:Core/Src/game_engine.c **** }
+  51              		.loc 1 99 1 view .LVU7
+  52 000c 0009     		lsrs	r0, r0, #4
+  53 000e 5DF8044B 		ldr	r4, [sp], #4
+  54              	.LCFI1:
+  55              		.cfi_restore 4
+  56              		.cfi_def_cfa_offset 0
+  57 0012 7047     		bx	lr
+  58              		.cfi_endproc
+  59              	.LFE7:
+  61              		.section	.text.game_is_cell_opened,"ax",%progbits
+  62              		.align	1
+  63              		.global	game_is_cell_opened
+  64              		.syntax unified
+  65              		.thumb
+  66              		.thumb_func
+  67              		.fpu fpv4-sp-d16
+  69              	game_is_cell_opened:
+  70              	.LVL3:
+  71              	.LFB8:
+ 100:Core/Src/game_engine.c **** 
+ 101:Core/Src/game_engine.c **** uint8_t game_is_cell_opened(uint8_t x, uint8_t y, game_handle *handle) {
+  72              		.loc 1 101 72 is_stmt 1 view -0
+  73              		.cfi_startproc
+ARM GAS  /tmp/cc0PTrNt.s 			page 4
+
+
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76              		@ link register save eliminated.
+  77              		.loc 1 101 72 is_stmt 0 view .LVU9
+  78 0000 10B4     		push	{r4}
+  79              	.LCFI2:
+  80              		.cfi_def_cfa_offset 4
+  81              		.cfi_offset 4, -4
+ 102:Core/Src/game_engine.c ****     return (handle->field[y * handle->field_width + x] << 4) == 0;
+  82              		.loc 1 102 5 is_stmt 1 view .LVU10
+  83              		.loc 1 102 19 is_stmt 0 view .LVU11
+  84 0002 5468     		ldr	r4, [r2, #4]
+  85              		.loc 1 102 37 view .LVU12
+  86 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  87              		.loc 1 102 51 view .LVU13
+  88 0006 03FB0101 		mla	r1, r3, r1, r0
+  89              	.LVL4:
+  90              		.loc 1 102 26 view .LVU14
+  91 000a 605C     		ldrb	r0, [r4, r1]	@ zero_extendqisi2
+  92              	.LVL5:
+ 103:Core/Src/game_engine.c **** }
+  93              		.loc 1 103 1 view .LVU15
+  94 000c B0FA80F0 		clz	r0, r0
+  95 0010 4009     		lsrs	r0, r0, #5
+  96 0012 5DF8044B 		ldr	r4, [sp], #4
+  97              	.LCFI3:
+  98              		.cfi_restore 4
+  99              		.cfi_def_cfa_offset 0
+ 100 0016 7047     		bx	lr
+ 101              		.cfi_endproc
+ 102              	.LFE8:
+ 104              		.section	.text.game_is_cell_under_flag,"ax",%progbits
+ 105              		.align	1
+ 106              		.global	game_is_cell_under_flag
+ 107              		.syntax unified
+ 108              		.thumb
+ 109              		.thumb_func
+ 110              		.fpu fpv4-sp-d16
+ 112              	game_is_cell_under_flag:
+ 113              	.LVL6:
+ 114              	.LFB9:
+ 104:Core/Src/game_engine.c **** 
+ 105:Core/Src/game_engine.c **** uint8_t game_is_cell_under_flag(uint8_t x, uint8_t y, game_handle *handle) {
+ 115              		.loc 1 105 76 is_stmt 1 view -0
+ 116              		.cfi_startproc
+ 117              		@ args = 0, pretend = 0, frame = 0
+ 118              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119              		@ link register save eliminated.
+ 120              		.loc 1 105 76 is_stmt 0 view .LVU17
+ 121 0000 10B4     		push	{r4}
+ 122              	.LCFI4:
+ 123              		.cfi_def_cfa_offset 4
+ 124              		.cfi_offset 4, -4
+ 106:Core/Src/game_engine.c ****     return (handle->field[y * handle->field_width + x] << 4) == 0b00110000;
+ 125              		.loc 1 106 5 is_stmt 1 view .LVU18
+ 126              		.loc 1 106 19 is_stmt 0 view .LVU19
+ 127 0002 5468     		ldr	r4, [r2, #4]
+ARM GAS  /tmp/cc0PTrNt.s 			page 5
+
+
+ 128              		.loc 1 106 37 view .LVU20
+ 129 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 130              		.loc 1 106 51 view .LVU21
+ 131 0006 03FB0101 		mla	r1, r3, r1, r0
+ 132              	.LVL7:
+ 133              		.loc 1 106 26 view .LVU22
+ 134 000a 605C     		ldrb	r0, [r4, r1]	@ zero_extendqisi2
+ 135              	.LVL8:
+ 107:Core/Src/game_engine.c **** }
+ 136              		.loc 1 107 1 view .LVU23
+ 137 000c 0328     		cmp	r0, #3
+ 138 000e 14BF     		ite	ne
+ 139 0010 0020     		movne	r0, #0
+ 140 0012 0120     		moveq	r0, #1
+ 141 0014 5DF8044B 		ldr	r4, [sp], #4
+ 142              	.LCFI5:
+ 143              		.cfi_restore 4
+ 144              		.cfi_def_cfa_offset 0
+ 145 0018 7047     		bx	lr
+ 146              		.cfi_endproc
+ 147              	.LFE9:
+ 149              		.section	.text.draw_cell,"ax",%progbits
+ 150              		.align	1
+ 151              		.global	draw_cell
+ 152              		.syntax unified
+ 153              		.thumb
+ 154              		.thumb_func
+ 155              		.fpu fpv4-sp-d16
+ 157              	draw_cell:
+ 158              	.LVL9:
+ 159              	.LFB10:
+ 108:Core/Src/game_engine.c **** 
+ 109:Core/Src/game_engine.c **** void draw_cell(uint8_t x, uint8_t y, game_handle *handle) {
+ 160              		.loc 1 109 59 is_stmt 1 view -0
+ 161              		.cfi_startproc
+ 162              		@ args = 0, pretend = 0, frame = 0
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 164              		.loc 1 109 59 is_stmt 0 view .LVU25
+ 165 0000 70B5     		push	{r4, r5, r6, lr}
+ 166              	.LCFI6:
+ 167              		.cfi_def_cfa_offset 16
+ 168              		.cfi_offset 4, -16
+ 169              		.cfi_offset 5, -12
+ 170              		.cfi_offset 6, -8
+ 171              		.cfi_offset 14, -4
+ 172 0002 82B0     		sub	sp, sp, #8
+ 173              	.LCFI7:
+ 174              		.cfi_def_cfa_offset 24
+ 175 0004 0546     		mov	r5, r0
+ 176 0006 0E46     		mov	r6, r1
+ 177 0008 1446     		mov	r4, r2
+ 110:Core/Src/game_engine.c ****     if(game_is_cell_opened(x, y, handle)) {
+ 178              		.loc 1 110 5 is_stmt 1 view .LVU26
+ 179              		.loc 1 110 8 is_stmt 0 view .LVU27
+ 180 000a FFF7FEFF 		bl	game_is_cell_opened
+ 181              	.LVL10:
+ 182              		.loc 1 110 7 view .LVU28
+ARM GAS  /tmp/cc0PTrNt.s 			page 6
+
+
+ 183 000e 0028     		cmp	r0, #0
+ 184 0010 7DD0     		beq	.L8
+ 111:Core/Src/game_engine.c ****         switch(game_get_cell_value(x, y, handle)) {
+ 185              		.loc 1 111 9 is_stmt 1 view .LVU29
+ 186              		.loc 1 111 16 is_stmt 0 view .LVU30
+ 187 0012 2246     		mov	r2, r4
+ 188 0014 3146     		mov	r1, r6
+ 189 0016 2846     		mov	r0, r5
+ 190 0018 FFF7FEFF 		bl	game_get_cell_value
+ 191              	.LVL11:
+ 192              		.loc 1 111 9 view .LVU31
+ 193 001c 0138     		subs	r0, r0, #1
+ 194 001e 0928     		cmp	r0, #9
+ 195 0020 00F28580 		bhi	.L9
+ 196 0024 DFE800F0 		tbb	[pc, r0]
+ 197              	.L11:
+ 198 0028 05       		.byte	(.L20-.L11)/2
+ 199 0029 10       		.byte	(.L19-.L11)/2
+ 200 002a 1B       		.byte	(.L18-.L11)/2
+ 201 002b 26       		.byte	(.L17-.L11)/2
+ 202 002c 31       		.byte	(.L16-.L11)/2
+ 203 002d 3C       		.byte	(.L15-.L11)/2
+ 204 002e 47       		.byte	(.L14-.L11)/2
+ 205 002f 52       		.byte	(.L13-.L11)/2
+ 206 0030 5D       		.byte	(.L12-.L11)/2
+ 207 0031 68       		.byte	(.L10-.L11)/2
+ 208              		.p2align 1
+ 209              	.L20:
+ 112:Core/Src/game_engine.c ****             case 1:
+ 113:Core/Src/game_engine.c ****                 draw_picture(x * 16, y * 16, 16, 16, one, handle->graphics);
+ 210              		.loc 1 113 17 is_stmt 1 view .LVU32
+ 211 0032 A368     		ldr	r3, [r4, #8]
+ 212 0034 0193     		str	r3, [sp, #4]
+ 213 0036 4D4B     		ldr	r3, .L25
+ 214 0038 0093     		str	r3, [sp]
+ 215 003a 1023     		movs	r3, #16
+ 216 003c 1A46     		mov	r2, r3
+ 217 003e 3101     		lsls	r1, r6, #4
+ 218 0040 2801     		lsls	r0, r5, #4
+ 219 0042 FFF7FEFF 		bl	draw_picture
+ 220              	.LVL12:
+ 114:Core/Src/game_engine.c ****                 break;
+ 221              		.loc 1 114 17 view .LVU33
+ 222 0046 72E0     		b	.L9
+ 223              	.L19:
+ 115:Core/Src/game_engine.c ****             case 2:
+ 116:Core/Src/game_engine.c ****                 draw_picture(x * 16, y * 16, 16, 16, two, handle->graphics);
+ 224              		.loc 1 116 17 view .LVU34
+ 225 0048 A368     		ldr	r3, [r4, #8]
+ 226 004a 0193     		str	r3, [sp, #4]
+ 227 004c 484B     		ldr	r3, .L25+4
+ 228 004e 0093     		str	r3, [sp]
+ 229 0050 1023     		movs	r3, #16
+ 230 0052 1A46     		mov	r2, r3
+ 231 0054 3101     		lsls	r1, r6, #4
+ 232 0056 2801     		lsls	r0, r5, #4
+ 233 0058 FFF7FEFF 		bl	draw_picture
+ARM GAS  /tmp/cc0PTrNt.s 			page 7
+
+
+ 234              	.LVL13:
+ 117:Core/Src/game_engine.c ****                 break;
+ 235              		.loc 1 117 17 view .LVU35
+ 236 005c 67E0     		b	.L9
+ 237              	.L18:
+ 118:Core/Src/game_engine.c ****             case 3:
+ 119:Core/Src/game_engine.c ****                 draw_picture(x * 16, y * 16, 16, 16, three, handle->graphics);
+ 238              		.loc 1 119 17 view .LVU36
+ 239 005e A368     		ldr	r3, [r4, #8]
+ 240 0060 0193     		str	r3, [sp, #4]
+ 241 0062 444B     		ldr	r3, .L25+8
+ 242 0064 0093     		str	r3, [sp]
+ 243 0066 1023     		movs	r3, #16
+ 244 0068 1A46     		mov	r2, r3
+ 245 006a 3101     		lsls	r1, r6, #4
+ 246 006c 2801     		lsls	r0, r5, #4
+ 247 006e FFF7FEFF 		bl	draw_picture
+ 248              	.LVL14:
+ 120:Core/Src/game_engine.c ****                 break;
+ 249              		.loc 1 120 17 view .LVU37
+ 250 0072 5CE0     		b	.L9
+ 251              	.L17:
+ 121:Core/Src/game_engine.c ****             case 4:
+ 122:Core/Src/game_engine.c ****                 draw_picture(x * 16, y * 16, 16, 16, four, handle->graphics);
+ 252              		.loc 1 122 17 view .LVU38
+ 253 0074 A368     		ldr	r3, [r4, #8]
+ 254 0076 0193     		str	r3, [sp, #4]
+ 255 0078 3F4B     		ldr	r3, .L25+12
+ 256 007a 0093     		str	r3, [sp]
+ 257 007c 1023     		movs	r3, #16
+ 258 007e 1A46     		mov	r2, r3
+ 259 0080 3101     		lsls	r1, r6, #4
+ 260 0082 2801     		lsls	r0, r5, #4
+ 261 0084 FFF7FEFF 		bl	draw_picture
+ 262              	.LVL15:
+ 123:Core/Src/game_engine.c ****                 break;
+ 263              		.loc 1 123 17 view .LVU39
+ 264 0088 51E0     		b	.L9
+ 265              	.L16:
+ 124:Core/Src/game_engine.c ****             case 5:
+ 125:Core/Src/game_engine.c ****                 draw_picture(x * 16, y * 16, 16, 16, five, handle->graphics);
+ 266              		.loc 1 125 17 view .LVU40
+ 267 008a A368     		ldr	r3, [r4, #8]
+ 268 008c 0193     		str	r3, [sp, #4]
+ 269 008e 3B4B     		ldr	r3, .L25+16
+ 270 0090 0093     		str	r3, [sp]
+ 271 0092 1023     		movs	r3, #16
+ 272 0094 1A46     		mov	r2, r3
+ 273 0096 3101     		lsls	r1, r6, #4
+ 274 0098 2801     		lsls	r0, r5, #4
+ 275 009a FFF7FEFF 		bl	draw_picture
+ 276              	.LVL16:
+ 126:Core/Src/game_engine.c ****                 break;
+ 277              		.loc 1 126 17 view .LVU41
+ 278 009e 46E0     		b	.L9
+ 279              	.L15:
+ 127:Core/Src/game_engine.c ****             case 6:
+ARM GAS  /tmp/cc0PTrNt.s 			page 8
+
+
+ 128:Core/Src/game_engine.c ****                 draw_picture(x * 16, y * 16, 16, 16, six, handle->graphics);
+ 280              		.loc 1 128 17 view .LVU42
+ 281 00a0 A368     		ldr	r3, [r4, #8]
+ 282 00a2 0193     		str	r3, [sp, #4]
+ 283 00a4 364B     		ldr	r3, .L25+20
+ 284 00a6 0093     		str	r3, [sp]
+ 285 00a8 1023     		movs	r3, #16
+ 286 00aa 1A46     		mov	r2, r3
+ 287 00ac 3101     		lsls	r1, r6, #4
+ 288 00ae 2801     		lsls	r0, r5, #4
+ 289 00b0 FFF7FEFF 		bl	draw_picture
+ 290              	.LVL17:
+ 129:Core/Src/game_engine.c ****                 break;
+ 291              		.loc 1 129 17 view .LVU43
+ 292 00b4 3BE0     		b	.L9
+ 293              	.L14:
+ 130:Core/Src/game_engine.c ****             case 7:
+ 131:Core/Src/game_engine.c ****                 draw_picture(x * 16, y * 16, 16, 16, seven, handle->graphics);
+ 294              		.loc 1 131 17 view .LVU44
+ 295 00b6 A368     		ldr	r3, [r4, #8]
+ 296 00b8 0193     		str	r3, [sp, #4]
+ 297 00ba 324B     		ldr	r3, .L25+24
+ 298 00bc 0093     		str	r3, [sp]
+ 299 00be 1023     		movs	r3, #16
+ 300 00c0 1A46     		mov	r2, r3
+ 301 00c2 3101     		lsls	r1, r6, #4
+ 302 00c4 2801     		lsls	r0, r5, #4
+ 303 00c6 FFF7FEFF 		bl	draw_picture
+ 304              	.LVL18:
+ 132:Core/Src/game_engine.c ****                 break;
+ 305              		.loc 1 132 17 view .LVU45
+ 306 00ca 30E0     		b	.L9
+ 307              	.L13:
+ 133:Core/Src/game_engine.c ****             case 8:
+ 134:Core/Src/game_engine.c ****                 draw_picture(x * 16, y * 16, 16, 16, eight, handle->graphics);
+ 308              		.loc 1 134 17 view .LVU46
+ 309 00cc A368     		ldr	r3, [r4, #8]
+ 310 00ce 0193     		str	r3, [sp, #4]
+ 311 00d0 2D4B     		ldr	r3, .L25+28
+ 312 00d2 0093     		str	r3, [sp]
+ 313 00d4 1023     		movs	r3, #16
+ 314 00d6 1A46     		mov	r2, r3
+ 315 00d8 3101     		lsls	r1, r6, #4
+ 316 00da 2801     		lsls	r0, r5, #4
+ 317 00dc FFF7FEFF 		bl	draw_picture
+ 318              	.LVL19:
+ 135:Core/Src/game_engine.c ****                 break;
+ 319              		.loc 1 135 17 view .LVU47
+ 320 00e0 25E0     		b	.L9
+ 321              	.L12:
+ 136:Core/Src/game_engine.c ****             case 9:
+ 137:Core/Src/game_engine.c ****                 draw_picture(x * 16, y * 16, 16, 16, zero_cell, handle->graphics);
+ 322              		.loc 1 137 17 view .LVU48
+ 323 00e2 A368     		ldr	r3, [r4, #8]
+ 324 00e4 0193     		str	r3, [sp, #4]
+ 325 00e6 294B     		ldr	r3, .L25+32
+ 326 00e8 0093     		str	r3, [sp]
+ARM GAS  /tmp/cc0PTrNt.s 			page 9
+
+
+ 327 00ea 1023     		movs	r3, #16
+ 328 00ec 1A46     		mov	r2, r3
+ 329 00ee 3101     		lsls	r1, r6, #4
+ 330 00f0 2801     		lsls	r0, r5, #4
+ 331 00f2 FFF7FEFF 		bl	draw_picture
+ 332              	.LVL20:
+ 138:Core/Src/game_engine.c ****                 break;
+ 333              		.loc 1 138 17 view .LVU49
+ 334 00f6 1AE0     		b	.L9
+ 335              	.L10:
+ 139:Core/Src/game_engine.c ****             case 10:
+ 140:Core/Src/game_engine.c ****                 draw_picture(x * 16, y * 16, 16, 16, bomb, handle->graphics);
+ 336              		.loc 1 140 17 view .LVU50
+ 337 00f8 A368     		ldr	r3, [r4, #8]
+ 338 00fa 0193     		str	r3, [sp, #4]
+ 339 00fc 244B     		ldr	r3, .L25+36
+ 340 00fe 0093     		str	r3, [sp]
+ 341 0100 1023     		movs	r3, #16
+ 342 0102 1A46     		mov	r2, r3
+ 343 0104 3101     		lsls	r1, r6, #4
+ 344 0106 2801     		lsls	r0, r5, #4
+ 345 0108 FFF7FEFF 		bl	draw_picture
+ 346              	.LVL21:
+ 141:Core/Src/game_engine.c ****                 break;
+ 347              		.loc 1 141 17 view .LVU51
+ 348 010c 0FE0     		b	.L9
+ 349              	.L8:
+ 142:Core/Src/game_engine.c ****         }
+ 143:Core/Src/game_engine.c ****     }
+ 144:Core/Src/game_engine.c ****     else {
+ 145:Core/Src/game_engine.c ****         if(game_is_cell_under_flag(x, y, handle)) {
+ 350              		.loc 1 145 9 view .LVU52
+ 351              		.loc 1 145 12 is_stmt 0 view .LVU53
+ 352 010e 2246     		mov	r2, r4
+ 353 0110 3146     		mov	r1, r6
+ 354 0112 2846     		mov	r0, r5
+ 355 0114 FFF7FEFF 		bl	game_is_cell_under_flag
+ 356              	.LVL22:
+ 357              		.loc 1 145 11 view .LVU54
+ 358 0118 70B1     		cbz	r0, .L21
+ 146:Core/Src/game_engine.c ****             draw_picture(x * 16, y * 16, 16, 16, flag, handle->graphics);
+ 359              		.loc 1 146 13 is_stmt 1 view .LVU55
+ 360 011a A368     		ldr	r3, [r4, #8]
+ 361 011c 0193     		str	r3, [sp, #4]
+ 362 011e 1D4B     		ldr	r3, .L25+40
+ 363 0120 0093     		str	r3, [sp]
+ 364 0122 1023     		movs	r3, #16
+ 365 0124 1A46     		mov	r2, r3
+ 366 0126 3101     		lsls	r1, r6, #4
+ 367 0128 2801     		lsls	r0, r5, #4
+ 368 012a FFF7FEFF 		bl	draw_picture
+ 369              	.LVL23:
+ 370              	.L9:
+ 147:Core/Src/game_engine.c ****         }
+ 148:Core/Src/game_engine.c ****         else {
+ 149:Core/Src/game_engine.c ****             draw_picture(x * 16, y * 16, 16, 16, not_opened_cell, handle->graphics);
+ 150:Core/Src/game_engine.c ****         }
+ARM GAS  /tmp/cc0PTrNt.s 			page 10
+
+
+ 151:Core/Src/game_engine.c ****     }
+ 152:Core/Src/game_engine.c **** 
+ 153:Core/Src/game_engine.c ****     if(handle->player_pos_x == x && handle->player_pos_y == y) {
+ 371              		.loc 1 153 5 view .LVU56
+ 372              		.loc 1 153 14 is_stmt 0 view .LVU57
+ 373 012e 237B     		ldrb	r3, [r4, #12]	@ zero_extendqisi2
+ 374              		.loc 1 153 7 view .LVU58
+ 375 0130 AB42     		cmp	r3, r5
+ 376 0132 0CD0     		beq	.L24
+ 377              	.L7:
+ 154:Core/Src/game_engine.c ****         draw_picture_blend(x * 16, y * 16, 16, 16, selected_cell, handle->graphics);
+ 155:Core/Src/game_engine.c ****     }
+ 156:Core/Src/game_engine.c **** }
+ 378              		.loc 1 156 1 view .LVU59
+ 379 0134 02B0     		add	sp, sp, #8
+ 380              	.LCFI8:
+ 381              		.cfi_remember_state
+ 382              		.cfi_def_cfa_offset 16
+ 383              		@ sp needed
+ 384 0136 70BD     		pop	{r4, r5, r6, pc}
+ 385              	.LVL24:
+ 386              	.L21:
+ 387              	.LCFI9:
+ 388              		.cfi_restore_state
+ 149:Core/Src/game_engine.c ****         }
+ 389              		.loc 1 149 13 is_stmt 1 view .LVU60
+ 390 0138 A368     		ldr	r3, [r4, #8]
+ 391 013a 0193     		str	r3, [sp, #4]
+ 392 013c 164B     		ldr	r3, .L25+44
+ 393 013e 0093     		str	r3, [sp]
+ 394 0140 1023     		movs	r3, #16
+ 395 0142 1A46     		mov	r2, r3
+ 396 0144 3101     		lsls	r1, r6, #4
+ 397 0146 2801     		lsls	r0, r5, #4
+ 398 0148 FFF7FEFF 		bl	draw_picture
+ 399              	.LVL25:
+ 400 014c EFE7     		b	.L9
+ 401              	.L24:
+ 153:Core/Src/game_engine.c ****         draw_picture_blend(x * 16, y * 16, 16, 16, selected_cell, handle->graphics);
+ 402              		.loc 1 153 43 is_stmt 0 discriminator 1 view .LVU61
+ 403 014e 637B     		ldrb	r3, [r4, #13]	@ zero_extendqisi2
+ 153:Core/Src/game_engine.c ****         draw_picture_blend(x * 16, y * 16, 16, 16, selected_cell, handle->graphics);
+ 404              		.loc 1 153 34 discriminator 1 view .LVU62
+ 405 0150 B342     		cmp	r3, r6
+ 406 0152 EFD1     		bne	.L7
+ 154:Core/Src/game_engine.c ****         draw_picture_blend(x * 16, y * 16, 16, 16, selected_cell, handle->graphics);
+ 407              		.loc 1 154 9 is_stmt 1 view .LVU63
+ 408 0154 A368     		ldr	r3, [r4, #8]
+ 409 0156 0193     		str	r3, [sp, #4]
+ 410 0158 104B     		ldr	r3, .L25+48
+ 411 015a 0093     		str	r3, [sp]
+ 412 015c 1023     		movs	r3, #16
+ 413 015e 1A46     		mov	r2, r3
+ 414 0160 3101     		lsls	r1, r6, #4
+ 415 0162 2801     		lsls	r0, r5, #4
+ 416 0164 FFF7FEFF 		bl	draw_picture_blend
+ 417              	.LVL26:
+ARM GAS  /tmp/cc0PTrNt.s 			page 11
+
+
+ 418              		.loc 1 156 1 is_stmt 0 view .LVU64
+ 419 0168 E4E7     		b	.L7
+ 420              	.L26:
+ 421 016a 00BF     		.align	2
+ 422              	.L25:
+ 423 016c 00000000 		.word	one
+ 424 0170 00000000 		.word	two
+ 425 0174 00000000 		.word	three
+ 426 0178 00000000 		.word	four
+ 427 017c 00000000 		.word	five
+ 428 0180 00000000 		.word	six
+ 429 0184 00000000 		.word	seven
+ 430 0188 00000000 		.word	eight
+ 431 018c 00000000 		.word	zero_cell
+ 432 0190 00000000 		.word	bomb
+ 433 0194 00000000 		.word	flag
+ 434 0198 00000000 		.word	not_opened_cell
+ 435 019c 00000000 		.word	selected_cell
+ 436              		.cfi_endproc
+ 437              	.LFE10:
+ 439              		.section	.text.game_start,"ax",%progbits
+ 440              		.align	1
+ 441              		.global	game_start
+ 442              		.syntax unified
+ 443              		.thumb
+ 444              		.thumb_func
+ 445              		.fpu fpv4-sp-d16
+ 447              	game_start:
+ 448              	.LVL27:
+ 449              	.LFB0:
+   3:Core/Src/game_engine.c ****     handle->player_pos_x = handle->field_width / 2;
+ 450              		.loc 1 3 38 is_stmt 1 view -0
+ 451              		.cfi_startproc
+ 452              		@ args = 0, pretend = 0, frame = 0
+ 453              		@ frame_needed = 0, uses_anonymous_args = 0
+   3:Core/Src/game_engine.c ****     handle->player_pos_x = handle->field_width / 2;
+ 454              		.loc 1 3 38 is_stmt 0 view .LVU66
+ 455 0000 70B5     		push	{r4, r5, r6, lr}
+ 456              	.LCFI10:
+ 457              		.cfi_def_cfa_offset 16
+ 458              		.cfi_offset 4, -16
+ 459              		.cfi_offset 5, -12
+ 460              		.cfi_offset 6, -8
+ 461              		.cfi_offset 14, -4
+ 462 0002 0546     		mov	r5, r0
+   4:Core/Src/game_engine.c ****     handle->player_pos_y = handle->field_height / 2;
+ 463              		.loc 1 4 5 is_stmt 1 view .LVU67
+   4:Core/Src/game_engine.c ****     handle->player_pos_y = handle->field_height / 2;
+ 464              		.loc 1 4 34 is_stmt 0 view .LVU68
+ 465 0004 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+   4:Core/Src/game_engine.c ****     handle->player_pos_y = handle->field_height / 2;
+ 466              		.loc 1 4 26 view .LVU69
+ 467 0006 5B08     		lsrs	r3, r3, #1
+ 468 0008 0373     		strb	r3, [r0, #12]
+   5:Core/Src/game_engine.c **** 
+ 469              		.loc 1 5 5 is_stmt 1 view .LVU70
+   5:Core/Src/game_engine.c **** 
+ARM GAS  /tmp/cc0PTrNt.s 			page 12
+
+
+ 470              		.loc 1 5 34 is_stmt 0 view .LVU71
+ 471 000a 4378     		ldrb	r3, [r0, #1]	@ zero_extendqisi2
+   5:Core/Src/game_engine.c **** 
+ 472              		.loc 1 5 26 view .LVU72
+ 473 000c 5B08     		lsrs	r3, r3, #1
+ 474 000e 4373     		strb	r3, [r0, #13]
+   7:Core/Src/game_engine.c ****         handle->field[i] = 0b00000001;
+ 475              		.loc 1 7 5 is_stmt 1 view .LVU73
+ 476              	.LBB2:
+   7:Core/Src/game_engine.c ****         handle->field[i] = 0b00000001;
+ 477              		.loc 1 7 9 view .LVU74
+ 478              	.LVL28:
+   7:Core/Src/game_engine.c ****         handle->field[i] = 0b00000001;
+ 479              		.loc 1 7 13 is_stmt 0 view .LVU75
+ 480 0010 0022     		movs	r2, #0
+ 481              	.LVL29:
+ 482              	.L28:
+   7:Core/Src/game_engine.c ****         handle->field[i] = 0b00000001;
+ 483              		.loc 1 7 30 discriminator 1 view .LVU76
+ 484 0012 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+   7:Core/Src/game_engine.c ****         handle->field[i] = 0b00000001;
+ 485              		.loc 1 7 52 discriminator 1 view .LVU77
+ 486 0014 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
+   7:Core/Src/game_engine.c ****         handle->field[i] = 0b00000001;
+ 487              		.loc 1 7 44 discriminator 1 view .LVU78
+ 488 0016 03FB01F3 		mul	r3, r3, r1
+   7:Core/Src/game_engine.c ****         handle->field[i] = 0b00000001;
+ 489              		.loc 1 7 5 discriminator 1 view .LVU79
+ 490 001a 9342     		cmp	r3, r2
+ 491 001c 04DD     		ble	.L35
+   8:Core/Src/game_engine.c ****     }
+ 492              		.loc 1 8 9 is_stmt 1 discriminator 3 view .LVU80
+   8:Core/Src/game_engine.c ****     }
+ 493              		.loc 1 8 15 is_stmt 0 discriminator 3 view .LVU81
+ 494 001e 6B68     		ldr	r3, [r5, #4]
+   8:Core/Src/game_engine.c ****     }
+ 495              		.loc 1 8 26 discriminator 3 view .LVU82
+ 496 0020 0121     		movs	r1, #1
+ 497 0022 9954     		strb	r1, [r3, r2]
+   7:Core/Src/game_engine.c ****         handle->field[i] = 0b00000001;
+ 498              		.loc 1 7 68 discriminator 3 view .LVU83
+ 499 0024 0A44     		add	r2, r2, r1
+ 500              	.LVL30:
+   7:Core/Src/game_engine.c ****         handle->field[i] = 0b00000001;
+ 501              		.loc 1 7 68 discriminator 3 view .LVU84
+ 502 0026 F4E7     		b	.L28
+ 503              	.L35:
+   7:Core/Src/game_engine.c ****         handle->field[i] = 0b00000001;
+ 504              		.loc 1 7 68 discriminator 3 view .LVU85
+ 505              	.LBE2:
+ 506              	.LBB3:
+  11:Core/Src/game_engine.c ****         for(uint8_t j = 0; j < handle->field_width; ++j) {
+ 507              		.loc 1 11 17 view .LVU86
+ 508 0028 0026     		movs	r6, #0
+ 509 002a 01E0     		b	.L30
+ 510              	.LVL31:
+ 511              	.L37:
+ARM GAS  /tmp/cc0PTrNt.s 			page 13
+
+
+  11:Core/Src/game_engine.c ****         for(uint8_t j = 0; j < handle->field_width; ++j) {
+ 512              		.loc 1 11 50 discriminator 2 view .LVU87
+ 513 002c 0136     		adds	r6, r6, #1
+ 514              	.LVL32:
+  11:Core/Src/game_engine.c ****         for(uint8_t j = 0; j < handle->field_width; ++j) {
+ 515              		.loc 1 11 50 discriminator 2 view .LVU88
+ 516 002e F6B2     		uxtb	r6, r6
+ 517              	.LVL33:
+ 518              	.L30:
+  11:Core/Src/game_engine.c ****         for(uint8_t j = 0; j < handle->field_width; ++j) {
+ 519              		.loc 1 11 34 discriminator 1 view .LVU89
+ 520 0030 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
+  11:Core/Src/game_engine.c ****         for(uint8_t j = 0; j < handle->field_width; ++j) {
+ 521              		.loc 1 11 5 discriminator 1 view .LVU90
+ 522 0032 B342     		cmp	r3, r6
+ 523 0034 0BD9     		bls	.L36
+ 524              	.LBB4:
+  12:Core/Src/game_engine.c ****             //draw_picture(j * 16, i * 16, 16, 16,
+ 525              		.loc 1 12 21 view .LVU91
+ 526 0036 0024     		movs	r4, #0
+ 527              	.L32:
+ 528              	.LVL34:
+  12:Core/Src/game_engine.c ****             //draw_picture(j * 16, i * 16, 16, 16,
+ 529              		.loc 1 12 38 discriminator 1 view .LVU92
+ 530 0038 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+  12:Core/Src/game_engine.c ****             //draw_picture(j * 16, i * 16, 16, 16,
+ 531              		.loc 1 12 9 discriminator 1 view .LVU93
+ 532 003a A342     		cmp	r3, r4
+ 533 003c F6D9     		bls	.L37
+  15:Core/Src/game_engine.c ****         }
+ 534              		.loc 1 15 13 is_stmt 1 discriminator 3 view .LVU94
+ 535 003e 2A46     		mov	r2, r5
+ 536 0040 3146     		mov	r1, r6
+ 537 0042 2046     		mov	r0, r4
+ 538 0044 FFF7FEFF 		bl	draw_cell
+ 539              	.LVL35:
+  12:Core/Src/game_engine.c ****             //draw_picture(j * 16, i * 16, 16, 16,
+ 540              		.loc 1 12 53 is_stmt 0 discriminator 3 view .LVU95
+ 541 0048 0134     		adds	r4, r4, #1
+ 542              	.LVL36:
+  12:Core/Src/game_engine.c ****             //draw_picture(j * 16, i * 16, 16, 16,
+ 543              		.loc 1 12 53 discriminator 3 view .LVU96
+ 544 004a E4B2     		uxtb	r4, r4
+ 545              	.LVL37:
+  12:Core/Src/game_engine.c ****             //draw_picture(j * 16, i * 16, 16, 16,
+ 546              		.loc 1 12 53 discriminator 3 view .LVU97
+ 547 004c F4E7     		b	.L32
+ 548              	.LVL38:
+ 549              	.L36:
+  12:Core/Src/game_engine.c ****             //draw_picture(j * 16, i * 16, 16, 16,
+ 550              		.loc 1 12 53 discriminator 3 view .LVU98
+ 551              	.LBE4:
+ 552              	.LBE3:
+  21:Core/Src/game_engine.c **** 
+ 553              		.loc 1 21 1 view .LVU99
+ 554 004e 70BD     		pop	{r4, r5, r6, pc}
+  21:Core/Src/game_engine.c **** 
+ARM GAS  /tmp/cc0PTrNt.s 			page 14
+
+
+ 555              		.loc 1 21 1 view .LVU100
+ 556              		.cfi_endproc
+ 557              	.LFE0:
+ 559              		.section	.text.game_player_move,"ax",%progbits
+ 560              		.align	1
+ 561              		.global	game_player_move
+ 562              		.syntax unified
+ 563              		.thumb
+ 564              		.thumb_func
+ 565              		.fpu fpv4-sp-d16
+ 567              	game_player_move:
+ 568              	.LVL39:
+ 569              	.LFB1:
+  23:Core/Src/game_engine.c ****     uint8_t old_x = handle->player_pos_x;
+ 570              		.loc 1 23 64 is_stmt 1 view -0
+ 571              		.cfi_startproc
+ 572              		@ args = 0, pretend = 0, frame = 0
+ 573              		@ frame_needed = 0, uses_anonymous_args = 0
+  23:Core/Src/game_engine.c ****     uint8_t old_x = handle->player_pos_x;
+ 574              		.loc 1 23 64 is_stmt 0 view .LVU102
+ 575 0000 38B5     		push	{r3, r4, r5, lr}
+ 576              	.LCFI11:
+ 577              		.cfi_def_cfa_offset 16
+ 578              		.cfi_offset 3, -16
+ 579              		.cfi_offset 4, -12
+ 580              		.cfi_offset 5, -8
+ 581              		.cfi_offset 14, -4
+ 582 0002 0B46     		mov	r3, r1
+ 583 0004 1446     		mov	r4, r2
+  24:Core/Src/game_engine.c ****     uint8_t old_y = handle->player_pos_y;
+ 584              		.loc 1 24 5 is_stmt 1 view .LVU103
+  24:Core/Src/game_engine.c ****     uint8_t old_y = handle->player_pos_y;
+ 585              		.loc 1 24 13 is_stmt 0 view .LVU104
+ 586 0006 157B     		ldrb	r5, [r2, #12]	@ zero_extendqisi2
+ 587              	.LVL40:
+  25:Core/Src/game_engine.c ****     if(x) {
+ 588              		.loc 1 25 5 is_stmt 1 view .LVU105
+  25:Core/Src/game_engine.c ****     if(x) {
+ 589              		.loc 1 25 13 is_stmt 0 view .LVU106
+ 590 0008 517B     		ldrb	r1, [r2, #13]	@ zero_extendqisi2
+ 591              	.LVL41:
+  26:Core/Src/game_engine.c ****         //draw_picture(handle->player_pos_x * 16, handle->player_pos_y * 16,
+ 592              		.loc 1 26 5 is_stmt 1 view .LVU107
+  26:Core/Src/game_engine.c ****         //draw_picture(handle->player_pos_x * 16, handle->player_pos_y * 16,
+ 593              		.loc 1 26 7 is_stmt 0 view .LVU108
+ 594 000a 50B1     		cbz	r0, .L39
+ 595 000c 0246     		mov	r2, r0
+ 596              	.LVL42:
+  29:Core/Src/game_engine.c ****             handle->player_pos_x = handle->field_width - 1;
+ 597              		.loc 1 29 9 is_stmt 1 view .LVU109
+  29:Core/Src/game_engine.c ****             handle->player_pos_x = handle->field_width - 1;
+ 598              		.loc 1 29 11 is_stmt 0 view .LVU110
+ 599 000e 0028     		cmp	r0, #0
+ 600 0010 1CDB     		blt	.L44
+ 601              	.L40:
+  33:Core/Src/game_engine.c ****             if(handle->player_pos_x >= handle->field_width) {
+ 602              		.loc 1 33 13 is_stmt 1 view .LVU111
+ARM GAS  /tmp/cc0PTrNt.s 			page 15
+
+
+  33:Core/Src/game_engine.c ****             if(handle->player_pos_x >= handle->field_width) {
+ 603              		.loc 1 33 34 is_stmt 0 view .LVU112
+ 604 0012 2A44     		add	r2, r2, r5
+ 605 0014 D2B2     		uxtb	r2, r2
+ 606 0016 2273     		strb	r2, [r4, #12]
+  34:Core/Src/game_engine.c ****                 handle->player_pos_x = 0;
+ 607              		.loc 1 34 13 is_stmt 1 view .LVU113
+  34:Core/Src/game_engine.c ****                 handle->player_pos_x = 0;
+ 608              		.loc 1 34 46 is_stmt 0 view .LVU114
+ 609 0018 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 610              	.LVL43:
+  34:Core/Src/game_engine.c ****                 handle->player_pos_x = 0;
+ 611              		.loc 1 34 15 view .LVU115
+ 612 001a 8242     		cmp	r2, r0
+ 613 001c 01D3     		bcc	.L39
+  35:Core/Src/game_engine.c ****             }
+ 614              		.loc 1 35 17 is_stmt 1 view .LVU116
+  35:Core/Src/game_engine.c ****             }
+ 615              		.loc 1 35 38 is_stmt 0 view .LVU117
+ 616 001e 0022     		movs	r2, #0
+ 617 0020 2273     		strb	r2, [r4, #12]
+ 618              	.L39:
+  43:Core/Src/game_engine.c ****         //draw_picture(handle->player_pos_x * 16, handle->player_pos_y * 16,
+ 619              		.loc 1 43 5 is_stmt 1 view .LVU118
+  43:Core/Src/game_engine.c ****         //draw_picture(handle->player_pos_x * 16, handle->player_pos_y * 16,
+ 620              		.loc 1 43 7 is_stmt 0 view .LVU119
+ 621 0022 4BB1     		cbz	r3, .L41
+  46:Core/Src/game_engine.c ****             handle->player_pos_y = handle->field_height - 1;
+ 622              		.loc 1 46 9 is_stmt 1 view .LVU120
+  46:Core/Src/game_engine.c ****             handle->player_pos_y = handle->field_height - 1;
+ 623              		.loc 1 46 11 is_stmt 0 view .LVU121
+ 624 0024 002B     		cmp	r3, #0
+ 625 0026 17DB     		blt	.L45
+ 626              	.L42:
+  50:Core/Src/game_engine.c ****             if(handle->player_pos_y >= handle->field_height) {
+ 627              		.loc 1 50 13 is_stmt 1 view .LVU122
+  50:Core/Src/game_engine.c ****             if(handle->player_pos_y >= handle->field_height) {
+ 628              		.loc 1 50 34 is_stmt 0 view .LVU123
+ 629 0028 0B44     		add	r3, r3, r1
+ 630 002a DBB2     		uxtb	r3, r3
+ 631 002c 6373     		strb	r3, [r4, #13]
+  51:Core/Src/game_engine.c ****                 handle->player_pos_y = 0;
+ 632              		.loc 1 51 13 is_stmt 1 view .LVU124
+  51:Core/Src/game_engine.c ****                 handle->player_pos_y = 0;
+ 633              		.loc 1 51 46 is_stmt 0 view .LVU125
+ 634 002e 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
+  51:Core/Src/game_engine.c ****                 handle->player_pos_y = 0;
+ 635              		.loc 1 51 15 view .LVU126
+ 636 0030 9342     		cmp	r3, r2
+ 637 0032 01D3     		bcc	.L41
+  52:Core/Src/game_engine.c ****             }
+ 638              		.loc 1 52 17 is_stmt 1 view .LVU127
+  52:Core/Src/game_engine.c ****             }
+ 639              		.loc 1 52 38 is_stmt 0 view .LVU128
+ 640 0034 0023     		movs	r3, #0
+ 641 0036 6373     		strb	r3, [r4, #13]
+ 642              	.L41:
+ARM GAS  /tmp/cc0PTrNt.s 			page 16
+
+
+  60:Core/Src/game_engine.c ****     draw_cell(handle->player_pos_x, handle->player_pos_y, handle);
+ 643              		.loc 1 60 5 is_stmt 1 view .LVU129
+ 644 0038 2246     		mov	r2, r4
+ 645 003a 2846     		mov	r0, r5
+ 646 003c FFF7FEFF 		bl	draw_cell
+ 647              	.LVL44:
+  61:Core/Src/game_engine.c **** }
+ 648              		.loc 1 61 5 view .LVU130
+ 649 0040 2246     		mov	r2, r4
+ 650 0042 617B     		ldrb	r1, [r4, #13]	@ zero_extendqisi2
+ 651 0044 207B     		ldrb	r0, [r4, #12]	@ zero_extendqisi2
+ 652 0046 FFF7FEFF 		bl	draw_cell
+ 653              	.LVL45:
+  62:Core/Src/game_engine.c **** 
+ 654              		.loc 1 62 1 is_stmt 0 view .LVU131
+ 655 004a 38BD     		pop	{r3, r4, r5, pc}
+ 656              	.LVL46:
+ 657              	.L44:
+  29:Core/Src/game_engine.c ****             handle->player_pos_x = handle->field_width - 1;
+ 658              		.loc 1 29 18 discriminator 1 view .LVU132
+ 659 004c 002D     		cmp	r5, #0
+ 660 004e E0D1     		bne	.L40
+  30:Core/Src/game_engine.c ****         }
+ 661              		.loc 1 30 13 is_stmt 1 view .LVU133
+  30:Core/Src/game_engine.c ****         }
+ 662              		.loc 1 30 42 is_stmt 0 view .LVU134
+ 663 0050 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
+  30:Core/Src/game_engine.c ****         }
+ 664              		.loc 1 30 56 view .LVU135
+ 665 0052 013A     		subs	r2, r2, #1
+  30:Core/Src/game_engine.c ****         }
+ 666              		.loc 1 30 34 view .LVU136
+ 667 0054 2273     		strb	r2, [r4, #12]
+ 668 0056 E4E7     		b	.L39
+ 669              	.LVL47:
+ 670              	.L45:
+  46:Core/Src/game_engine.c ****             handle->player_pos_y = handle->field_height - 1;
+ 671              		.loc 1 46 18 discriminator 1 view .LVU137
+ 672 0058 0029     		cmp	r1, #0
+ 673 005a E5D1     		bne	.L42
+  47:Core/Src/game_engine.c ****         }
+ 674              		.loc 1 47 13 is_stmt 1 view .LVU138
+  47:Core/Src/game_engine.c ****         }
+ 675              		.loc 1 47 42 is_stmt 0 view .LVU139
+ 676 005c 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
+  47:Core/Src/game_engine.c ****         }
+ 677              		.loc 1 47 57 view .LVU140
+ 678 005e 013B     		subs	r3, r3, #1
+  47:Core/Src/game_engine.c ****         }
+ 679              		.loc 1 47 34 view .LVU141
+ 680 0060 6373     		strb	r3, [r4, #13]
+ 681 0062 E9E7     		b	.L41
+ 682              		.cfi_endproc
+ 683              	.LFE1:
+ 685              		.section	.text.game_player_move_up,"ax",%progbits
+ 686              		.align	1
+ 687              		.global	game_player_move_up
+ARM GAS  /tmp/cc0PTrNt.s 			page 17
+
+
+ 688              		.syntax unified
+ 689              		.thumb
+ 690              		.thumb_func
+ 691              		.fpu fpv4-sp-d16
+ 693              	game_player_move_up:
+ 694              	.LVL48:
+ 695              	.LFB2:
+  64:Core/Src/game_engine.c ****     game_player_move(0, -1, handle);
+ 696              		.loc 1 64 47 is_stmt 1 view -0
+ 697              		.cfi_startproc
+ 698              		@ args = 0, pretend = 0, frame = 0
+ 699              		@ frame_needed = 0, uses_anonymous_args = 0
+  64:Core/Src/game_engine.c ****     game_player_move(0, -1, handle);
+ 700              		.loc 1 64 47 is_stmt 0 view .LVU143
+ 701 0000 08B5     		push	{r3, lr}
+ 702              	.LCFI12:
+ 703              		.cfi_def_cfa_offset 8
+ 704              		.cfi_offset 3, -8
+ 705              		.cfi_offset 14, -4
+  65:Core/Src/game_engine.c ****     return;
+ 706              		.loc 1 65 5 is_stmt 1 view .LVU144
+ 707 0002 0246     		mov	r2, r0
+ 708 0004 4FF0FF31 		mov	r1, #-1
+ 709 0008 0020     		movs	r0, #0
+ 710              	.LVL49:
+  65:Core/Src/game_engine.c ****     return;
+ 711              		.loc 1 65 5 is_stmt 0 view .LVU145
+ 712 000a FFF7FEFF 		bl	game_player_move
+ 713              	.LVL50:
+  66:Core/Src/game_engine.c **** }
+ 714              		.loc 1 66 5 is_stmt 1 view .LVU146
+  67:Core/Src/game_engine.c **** 
+ 715              		.loc 1 67 1 is_stmt 0 view .LVU147
+ 716 000e 08BD     		pop	{r3, pc}
+ 717              		.cfi_endproc
+ 718              	.LFE2:
+ 720              		.section	.text.game_player_move_down,"ax",%progbits
+ 721              		.align	1
+ 722              		.global	game_player_move_down
+ 723              		.syntax unified
+ 724              		.thumb
+ 725              		.thumb_func
+ 726              		.fpu fpv4-sp-d16
+ 728              	game_player_move_down:
+ 729              	.LVL51:
+ 730              	.LFB3:
+  69:Core/Src/game_engine.c ****     game_player_move(0, 1, handle);
+ 731              		.loc 1 69 49 is_stmt 1 view -0
+ 732              		.cfi_startproc
+ 733              		@ args = 0, pretend = 0, frame = 0
+ 734              		@ frame_needed = 0, uses_anonymous_args = 0
+  69:Core/Src/game_engine.c ****     game_player_move(0, 1, handle);
+ 735              		.loc 1 69 49 is_stmt 0 view .LVU149
+ 736 0000 08B5     		push	{r3, lr}
+ 737              	.LCFI13:
+ 738              		.cfi_def_cfa_offset 8
+ 739              		.cfi_offset 3, -8
+ARM GAS  /tmp/cc0PTrNt.s 			page 18
+
+
+ 740              		.cfi_offset 14, -4
+  70:Core/Src/game_engine.c ****     return;
+ 741              		.loc 1 70 5 is_stmt 1 view .LVU150
+ 742 0002 0246     		mov	r2, r0
+ 743 0004 0121     		movs	r1, #1
+ 744 0006 0020     		movs	r0, #0
+ 745              	.LVL52:
+  70:Core/Src/game_engine.c ****     return;
+ 746              		.loc 1 70 5 is_stmt 0 view .LVU151
+ 747 0008 FFF7FEFF 		bl	game_player_move
+ 748              	.LVL53:
+  71:Core/Src/game_engine.c **** }
+ 749              		.loc 1 71 5 is_stmt 1 view .LVU152
+  72:Core/Src/game_engine.c **** 
+ 750              		.loc 1 72 1 is_stmt 0 view .LVU153
+ 751 000c 08BD     		pop	{r3, pc}
+ 752              		.cfi_endproc
+ 753              	.LFE3:
+ 755              		.section	.text.game_player_move_left,"ax",%progbits
+ 756              		.align	1
+ 757              		.global	game_player_move_left
+ 758              		.syntax unified
+ 759              		.thumb
+ 760              		.thumb_func
+ 761              		.fpu fpv4-sp-d16
+ 763              	game_player_move_left:
+ 764              	.LVL54:
+ 765              	.LFB4:
+  74:Core/Src/game_engine.c ****     game_player_move(-1, 0, handle);
+ 766              		.loc 1 74 49 is_stmt 1 view -0
+ 767              		.cfi_startproc
+ 768              		@ args = 0, pretend = 0, frame = 0
+ 769              		@ frame_needed = 0, uses_anonymous_args = 0
+  74:Core/Src/game_engine.c ****     game_player_move(-1, 0, handle);
+ 770              		.loc 1 74 49 is_stmt 0 view .LVU155
+ 771 0000 08B5     		push	{r3, lr}
+ 772              	.LCFI14:
+ 773              		.cfi_def_cfa_offset 8
+ 774              		.cfi_offset 3, -8
+ 775              		.cfi_offset 14, -4
+  75:Core/Src/game_engine.c ****     return;
+ 776              		.loc 1 75 5 is_stmt 1 view .LVU156
+ 777 0002 0246     		mov	r2, r0
+ 778 0004 0021     		movs	r1, #0
+ 779 0006 4FF0FF30 		mov	r0, #-1
+ 780              	.LVL55:
+  75:Core/Src/game_engine.c ****     return;
+ 781              		.loc 1 75 5 is_stmt 0 view .LVU157
+ 782 000a FFF7FEFF 		bl	game_player_move
+ 783              	.LVL56:
+  76:Core/Src/game_engine.c **** }
+ 784              		.loc 1 76 5 is_stmt 1 view .LVU158
+  77:Core/Src/game_engine.c **** 
+ 785              		.loc 1 77 1 is_stmt 0 view .LVU159
+ 786 000e 08BD     		pop	{r3, pc}
+ 787              		.cfi_endproc
+ 788              	.LFE4:
+ARM GAS  /tmp/cc0PTrNt.s 			page 19
+
+
+ 790              		.section	.text.game_player_move_right,"ax",%progbits
+ 791              		.align	1
+ 792              		.global	game_player_move_right
+ 793              		.syntax unified
+ 794              		.thumb
+ 795              		.thumb_func
+ 796              		.fpu fpv4-sp-d16
+ 798              	game_player_move_right:
+ 799              	.LVL57:
+ 800              	.LFB5:
+  79:Core/Src/game_engine.c ****     game_player_move(1, 0, handle);
+ 801              		.loc 1 79 50 is_stmt 1 view -0
+ 802              		.cfi_startproc
+ 803              		@ args = 0, pretend = 0, frame = 0
+ 804              		@ frame_needed = 0, uses_anonymous_args = 0
+  79:Core/Src/game_engine.c ****     game_player_move(1, 0, handle);
+ 805              		.loc 1 79 50 is_stmt 0 view .LVU161
+ 806 0000 08B5     		push	{r3, lr}
+ 807              	.LCFI15:
+ 808              		.cfi_def_cfa_offset 8
+ 809              		.cfi_offset 3, -8
+ 810              		.cfi_offset 14, -4
+  80:Core/Src/game_engine.c ****     return;
+ 811              		.loc 1 80 5 is_stmt 1 view .LVU162
+ 812 0002 0246     		mov	r2, r0
+ 813 0004 0021     		movs	r1, #0
+ 814 0006 0120     		movs	r0, #1
+ 815              	.LVL58:
+  80:Core/Src/game_engine.c ****     return;
+ 816              		.loc 1 80 5 is_stmt 0 view .LVU163
+ 817 0008 FFF7FEFF 		bl	game_player_move
+ 818              	.LVL59:
+  81:Core/Src/game_engine.c **** }
+ 819              		.loc 1 81 5 is_stmt 1 view .LVU164
+  82:Core/Src/game_engine.c **** 
+ 820              		.loc 1 82 1 is_stmt 0 view .LVU165
+ 821 000c 08BD     		pop	{r3, pc}
+ 822              		.cfi_endproc
+ 823              	.LFE5:
+ 825              		.section	.text.game_player_put_flag,"ax",%progbits
+ 826              		.align	1
+ 827              		.global	game_player_put_flag
+ 828              		.syntax unified
+ 829              		.thumb
+ 830              		.thumb_func
+ 831              		.fpu fpv4-sp-d16
+ 833              	game_player_put_flag:
+ 834              	.LVL60:
+ 835              	.LFB6:
+  84:Core/Src/game_engine.c ****     if(!game_is_cell_opened(handle->player_pos_x, handle->player_pos_y, handle)) {
+ 836              		.loc 1 84 48 is_stmt 1 view -0
+ 837              		.cfi_startproc
+ 838              		@ args = 0, pretend = 0, frame = 0
+ 839              		@ frame_needed = 0, uses_anonymous_args = 0
+  84:Core/Src/game_engine.c ****     if(!game_is_cell_opened(handle->player_pos_x, handle->player_pos_y, handle)) {
+ 840              		.loc 1 84 48 is_stmt 0 view .LVU167
+ 841 0000 70B5     		push	{r4, r5, r6, lr}
+ARM GAS  /tmp/cc0PTrNt.s 			page 20
+
+
+ 842              	.LCFI16:
+ 843              		.cfi_def_cfa_offset 16
+ 844              		.cfi_offset 4, -16
+ 845              		.cfi_offset 5, -12
+ 846              		.cfi_offset 6, -8
+ 847              		.cfi_offset 14, -4
+ 848 0002 0446     		mov	r4, r0
+  85:Core/Src/game_engine.c ****         if(game_is_cell_under_flag(handle->player_pos_x, handle->player_pos_y, handle)) {
+ 849              		.loc 1 85 5 is_stmt 1 view .LVU168
+  85:Core/Src/game_engine.c ****         if(game_is_cell_under_flag(handle->player_pos_x, handle->player_pos_y, handle)) {
+ 850              		.loc 1 85 9 is_stmt 0 view .LVU169
+ 851 0004 067B     		ldrb	r6, [r0, #12]	@ zero_extendqisi2
+ 852 0006 457B     		ldrb	r5, [r0, #13]	@ zero_extendqisi2
+ 853 0008 0246     		mov	r2, r0
+ 854 000a 2946     		mov	r1, r5
+ 855 000c 3046     		mov	r0, r6
+ 856              	.LVL61:
+  85:Core/Src/game_engine.c ****         if(game_is_cell_under_flag(handle->player_pos_x, handle->player_pos_y, handle)) {
+ 857              		.loc 1 85 9 view .LVU170
+ 858 000e FFF7FEFF 		bl	game_is_cell_opened
+ 859              	.LVL62:
+  85:Core/Src/game_engine.c ****         if(game_is_cell_under_flag(handle->player_pos_x, handle->player_pos_y, handle)) {
+ 860              		.loc 1 85 7 view .LVU171
+ 861 0012 88B9     		cbnz	r0, .L54
+  86:Core/Src/game_engine.c ****             handle->field[handle->player_pos_x + handle->player_pos_y * handle->field_width] -= 2;
+ 862              		.loc 1 86 9 is_stmt 1 view .LVU172
+  86:Core/Src/game_engine.c ****             handle->field[handle->player_pos_x + handle->player_pos_y * handle->field_width] -= 2;
+ 863              		.loc 1 86 12 is_stmt 0 view .LVU173
+ 864 0014 2246     		mov	r2, r4
+ 865 0016 2946     		mov	r1, r5
+ 866 0018 3046     		mov	r0, r6
+ 867 001a FFF7FEFF 		bl	game_is_cell_under_flag
+ 868              	.LVL63:
+  86:Core/Src/game_engine.c ****             handle->field[handle->player_pos_x + handle->player_pos_y * handle->field_width] -= 2;
+ 869              		.loc 1 86 11 view .LVU174
+ 870 001e 60B1     		cbz	r0, .L56
+  87:Core/Src/game_engine.c ****         }
+ 871              		.loc 1 87 13 is_stmt 1 view .LVU175
+  87:Core/Src/game_engine.c ****         }
+ 872              		.loc 1 87 19 is_stmt 0 view .LVU176
+ 873 0020 6268     		ldr	r2, [r4, #4]
+  87:Core/Src/game_engine.c ****         }
+ 874              		.loc 1 87 79 view .LVU177
+ 875 0022 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+  87:Core/Src/game_engine.c ****         }
+ 876              		.loc 1 87 94 view .LVU178
+ 877 0024 03FB0565 		mla	r5, r3, r5, r6
+ 878 0028 535D     		ldrb	r3, [r2, r5]	@ zero_extendqisi2
+ 879 002a 023B     		subs	r3, r3, #2
+ 880 002c 5355     		strb	r3, [r2, r5]
+ 881              	.L57:
+  92:Core/Src/game_engine.c ****     }
+ 882              		.loc 1 92 9 is_stmt 1 view .LVU179
+ 883 002e 2246     		mov	r2, r4
+ 884 0030 617B     		ldrb	r1, [r4, #13]	@ zero_extendqisi2
+ 885 0032 207B     		ldrb	r0, [r4, #12]	@ zero_extendqisi2
+ 886 0034 FFF7FEFF 		bl	draw_cell
+ARM GAS  /tmp/cc0PTrNt.s 			page 21
+
+
+ 887              	.LVL64:
+  94:Core/Src/game_engine.c **** }
+ 888              		.loc 1 94 5 view .LVU180
+ 889              	.L54:
+  95:Core/Src/game_engine.c **** 
+ 890              		.loc 1 95 1 is_stmt 0 view .LVU181
+ 891 0038 70BD     		pop	{r4, r5, r6, pc}
+ 892              	.LVL65:
+ 893              	.L56:
+  90:Core/Src/game_engine.c ****         }
+ 894              		.loc 1 90 13 is_stmt 1 view .LVU182
+  90:Core/Src/game_engine.c ****         }
+ 895              		.loc 1 90 19 is_stmt 0 view .LVU183
+ 896 003a 6268     		ldr	r2, [r4, #4]
+  90:Core/Src/game_engine.c ****         }
+ 897              		.loc 1 90 79 view .LVU184
+ 898 003c 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+  90:Core/Src/game_engine.c ****         }
+ 899              		.loc 1 90 94 view .LVU185
+ 900 003e 03FB0565 		mla	r5, r3, r5, r6
+ 901 0042 535D     		ldrb	r3, [r2, r5]	@ zero_extendqisi2
+ 902 0044 0233     		adds	r3, r3, #2
+ 903 0046 5355     		strb	r3, [r2, r5]
+ 904 0048 F1E7     		b	.L57
+ 905              		.cfi_endproc
+ 906              	.LFE6:
+ 908              		.text
+ 909              	.Letext0:
+ 910              		.file 2 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stddef.h"
+ 911              		.file 3 "/usr/include/newlib/sys/_types.h"
+ 912              		.file 4 "/usr/include/newlib/sys/reent.h"
+ 913              		.file 5 "/usr/include/newlib/sys/lock.h"
+ 914              		.file 6 "/usr/include/newlib/stdlib.h"
+ 915              		.file 7 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stdint.h"
+ 916              		.file 8 "Core/Inc/gdi.h"
+ 917              		.file 9 "Core/Inc/game_symbols.h"
+ 918              		.file 10 "Core/Inc/game_engine.h"
+ARM GAS  /tmp/cc0PTrNt.s 			page 22
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 game_engine.c
+     /tmp/cc0PTrNt.s:18     .text.game_get_cell_value:0000000000000000 $t
+     /tmp/cc0PTrNt.s:26     .text.game_get_cell_value:0000000000000000 game_get_cell_value
+     /tmp/cc0PTrNt.s:62     .text.game_is_cell_opened:0000000000000000 $t
+     /tmp/cc0PTrNt.s:69     .text.game_is_cell_opened:0000000000000000 game_is_cell_opened
+     /tmp/cc0PTrNt.s:105    .text.game_is_cell_under_flag:0000000000000000 $t
+     /tmp/cc0PTrNt.s:112    .text.game_is_cell_under_flag:0000000000000000 game_is_cell_under_flag
+     /tmp/cc0PTrNt.s:150    .text.draw_cell:0000000000000000 $t
+     /tmp/cc0PTrNt.s:157    .text.draw_cell:0000000000000000 draw_cell
+     /tmp/cc0PTrNt.s:198    .text.draw_cell:0000000000000028 $d
+     /tmp/cc0PTrNt.s:208    .text.draw_cell:0000000000000032 $t
+     /tmp/cc0PTrNt.s:423    .text.draw_cell:000000000000016c $d
+     /tmp/cc0PTrNt.s:440    .text.game_start:0000000000000000 $t
+     /tmp/cc0PTrNt.s:447    .text.game_start:0000000000000000 game_start
+     /tmp/cc0PTrNt.s:560    .text.game_player_move:0000000000000000 $t
+     /tmp/cc0PTrNt.s:567    .text.game_player_move:0000000000000000 game_player_move
+     /tmp/cc0PTrNt.s:686    .text.game_player_move_up:0000000000000000 $t
+     /tmp/cc0PTrNt.s:693    .text.game_player_move_up:0000000000000000 game_player_move_up
+     /tmp/cc0PTrNt.s:721    .text.game_player_move_down:0000000000000000 $t
+     /tmp/cc0PTrNt.s:728    .text.game_player_move_down:0000000000000000 game_player_move_down
+     /tmp/cc0PTrNt.s:756    .text.game_player_move_left:0000000000000000 $t
+     /tmp/cc0PTrNt.s:763    .text.game_player_move_left:0000000000000000 game_player_move_left
+     /tmp/cc0PTrNt.s:791    .text.game_player_move_right:0000000000000000 $t
+     /tmp/cc0PTrNt.s:798    .text.game_player_move_right:0000000000000000 game_player_move_right
+     /tmp/cc0PTrNt.s:826    .text.game_player_put_flag:0000000000000000 $t
+     /tmp/cc0PTrNt.s:833    .text.game_player_put_flag:0000000000000000 game_player_put_flag
+
+UNDEFINED SYMBOLS
+draw_picture
+draw_picture_blend
+one
+two
+three
+four
+five
+six
+seven
+eight
+zero_cell
+bomb
+flag
+not_opened_cell
+selected_cell
