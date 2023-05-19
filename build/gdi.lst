@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccB3lYTT.s 			page 1
+ARM GAS  /tmp/ccebuQop.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccB3lYTT.s 			page 1
    5:Core/Src/gdi.c ****         return;
    6:Core/Src/gdi.c ****     }
    7:Core/Src/gdi.c **** 
-ARM GAS  /tmp/ccB3lYTT.s 			page 2
+ARM GAS  /tmp/ccebuQop.s 			page 2
 
 
    8:Core/Src/gdi.c ****     uint8_t *cell = handle->image + y * (handle->width / 8) + x / 8;
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccB3lYTT.s 			page 1
  102              		.thumb_func
  103              		.fpu fpv4-sp-d16
  105              	draw_picture:
-ARM GAS  /tmp/ccB3lYTT.s 			page 3
+ARM GAS  /tmp/ccebuQop.s 			page 3
 
 
  106              	.LVL6:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccB3lYTT.s 			page 1
  153              		.loc 1 19 14 view .LVU33
  154 002e 09EBD209 		add	r9, r9, r2, lsr #3
  155              	.LVL7:
-ARM GAS  /tmp/ccB3lYTT.s 			page 4
+ARM GAS  /tmp/ccebuQop.s 			page 4
 
 
   20:Core/Src/gdi.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccB3lYTT.s 			page 1
  205 006a 0134     		adds	r4, r4, #1
  206              	.LVL13:
   22:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
-ARM GAS  /tmp/ccB3lYTT.s 			page 5
+ARM GAS  /tmp/ccebuQop.s 			page 5
 
 
  207              		.loc 1 22 40 discriminator 3 view .LVU51
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccB3lYTT.s 			page 1
  253              		.loc 1 31 5 is_stmt 1 view .LVU58
  254              		.loc 1 31 10 is_stmt 0 view .LVU59
  255 0008 8518     		adds	r5, r0, r2
-ARM GAS  /tmp/ccB3lYTT.s 			page 6
+ARM GAS  /tmp/ccebuQop.s 			page 6
 
 
  256              		.loc 1 31 27 view .LVU60
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccB3lYTT.s 			page 1
  298              		.loc 1 43 17 is_stmt 0 view .LVU73
  299 003e 89B2     		uxth	r1, r1
  300 0040 80B2     		uxth	r0, r0
-ARM GAS  /tmp/ccB3lYTT.s 			page 7
+ARM GAS  /tmp/ccebuQop.s 			page 7
 
 
  301 0042 FFF7FEFF 		bl	set_pixel
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccB3lYTT.s 			page 1
  341              	.LBE7:
  342              	.LBE5:
   37:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
-ARM GAS  /tmp/ccB3lYTT.s 			page 8
+ARM GAS  /tmp/ccebuQop.s 			page 8
 
 
  343              		.loc 1 37 37 discriminator 2 view .LVU89
@@ -459,16 +459,16 @@ ARM GAS  /tmp/ccB3lYTT.s 			page 1
  369              	.Letext0:
  370              		.file 2 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stdint.h"
  371              		.file 3 "Core/Inc/gdi.h"
-ARM GAS  /tmp/ccB3lYTT.s 			page 9
+ARM GAS  /tmp/ccebuQop.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gdi.c
-     /tmp/ccB3lYTT.s:18     .text.set_pixel:0000000000000000 $t
-     /tmp/ccB3lYTT.s:26     .text.set_pixel:0000000000000000 set_pixel
-     /tmp/ccB3lYTT.s:98     .text.draw_picture:0000000000000000 $t
-     /tmp/ccB3lYTT.s:105    .text.draw_picture:0000000000000000 draw_picture
-     /tmp/ccB3lYTT.s:224    .text.draw_picture_blend:0000000000000000 $t
-     /tmp/ccB3lYTT.s:231    .text.draw_picture_blend:0000000000000000 draw_picture_blend
+     /tmp/ccebuQop.s:18     .text.set_pixel:0000000000000000 $t
+     /tmp/ccebuQop.s:26     .text.set_pixel:0000000000000000 set_pixel
+     /tmp/ccebuQop.s:98     .text.draw_picture:0000000000000000 $t
+     /tmp/ccebuQop.s:105    .text.draw_picture:0000000000000000 draw_picture
+     /tmp/ccebuQop.s:224    .text.draw_picture_blend:0000000000000000 $t
+     /tmp/ccebuQop.s:231    .text.draw_picture_blend:0000000000000000 draw_picture_blend
 
 NO UNDEFINED SYMBOLS

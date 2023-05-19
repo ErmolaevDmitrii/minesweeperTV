@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccXedIFO.s 			page 1
+ARM GAS  /tmp/cc01G5DJ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
   29:Core/Src/main.c **** 
   30:Core/Src/main.c **** /* USER CODE END PTD */
   31:Core/Src/main.c **** 
-ARM GAS  /tmp/ccXedIFO.s 			page 2
+ARM GAS  /tmp/cc01G5DJ.s 			page 2
 
 
   32:Core/Src/main.c **** /* Private define ------------------------------------------------------------*/
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
   86:Core/Src/main.c ****     IRQn_Type GPIO_EXTI_line;
   87:Core/Src/main.c ****     void (*action) (game_handle *);
   88:Core/Src/main.c **** } button_handle;
-ARM GAS  /tmp/ccXedIFO.s 			page 3
+ARM GAS  /tmp/cc01G5DJ.s 			page 3
 
 
   89:Core/Src/main.c **** 
@@ -128,7 +128,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
   93:Core/Src/main.c ****     {0, 0, 0, LEFT_BTN_Pin , LEFT_BTN_EXTI_IRQn , game_player_move_left },
   94:Core/Src/main.c ****     {0, 0, 0, RIGHT_BTN_Pin, RIGHT_BTN_EXTI_IRQn, game_player_move_right},
   95:Core/Src/main.c ****     {0, 0, 0, FLAG_BTN_Pin , FLAG_BTN_EXTI_IRQn , game_player_put_flag  },
-  96:Core/Src/main.c ****     {0, 0, 0, OPEN_BTN_Pin , OPEN_BTN_EXTI_IRQn , NULL},
+  96:Core/Src/main.c ****     {0, 0, 0, OPEN_BTN_Pin , OPEN_BTN_EXTI_IRQn , game_player_open_cell },
   97:Core/Src/main.c **** };
   98:Core/Src/main.c **** 
   99:Core/Src/main.c **** /*
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  143:Core/Src/main.c **** {
  144:Core/Src/main.c ****         if(htim->Instance == TIM1) //check if the interrupt comes from TIM1
  145:Core/Src/main.c ****         {
-ARM GAS  /tmp/ccXedIFO.s 			page 4
+ARM GAS  /tmp/cc01G5DJ.s 			page 4
 
 
  146:Core/Src/main.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  200:Core/Src/main.c **** int main(void)
  201:Core/Src/main.c **** {
  202:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
-ARM GAS  /tmp/ccXedIFO.s 			page 5
+ARM GAS  /tmp/cc01G5DJ.s 			page 5
 
 
  203:Core/Src/main.c **** 
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  257:Core/Src/main.c **** 
  258:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
  259:Core/Src/main.c ****     button_handle *temp;
-ARM GAS  /tmp/ccXedIFO.s 			page 6
+ARM GAS  /tmp/cc01G5DJ.s 			page 6
 
 
  260:Core/Src/main.c **** 
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  314:Core/Src/main.c ****               set_pixel(i, j-1, 0, &handle);
  315:Core/Src/main.c ****               ++j;
  316:Core/Src/main.c ****             }
-ARM GAS  /tmp/ccXedIFO.s 			page 7
+ARM GAS  /tmp/cc01G5DJ.s 			page 7
 
 
  317:Core/Src/main.c **** 
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  371:Core/Src/main.c ****     Error_Handler();
  372:Core/Src/main.c ****   }
  373:Core/Src/main.c ****   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_TIM1|RCC_PERIPHCLK_TIM34;
-ARM GAS  /tmp/ccXedIFO.s 			page 8
+ARM GAS  /tmp/cc01G5DJ.s 			page 8
 
 
  374:Core/Src/main.c ****   PeriphClkInit.Tim1ClockSelection = RCC_TIM1CLK_HCLK;
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  428:Core/Src/main.c **** {
  429:Core/Src/main.c **** 
  430:Core/Src/main.c ****   /* USER CODE BEGIN TIM1_Init 0 */
-ARM GAS  /tmp/ccXedIFO.s 			page 9
+ARM GAS  /tmp/cc01G5DJ.s 			page 9
 
 
  431:Core/Src/main.c **** 
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  485:Core/Src/main.c **** 
  486:Core/Src/main.c ****   /* USER CODE END TIM3_Init 1 */
  487:Core/Src/main.c ****   htim3.Instance = TIM3;
-ARM GAS  /tmp/ccXedIFO.s 			page 10
+ARM GAS  /tmp/cc01G5DJ.s 			page 10
 
 
  488:Core/Src/main.c ****   htim3.Init.Prescaler = 71;
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
   33              	.LCFI0:
   34              		.cfi_def_cfa_offset 32
   35              		.cfi_offset 4, -32
-ARM GAS  /tmp/ccXedIFO.s 			page 11
+ARM GAS  /tmp/cc01G5DJ.s 			page 11
 
 
   36              		.cfi_offset 5, -28
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  544:Core/Src/main.c ****   __HAL_RCC_GPIOF_CLK_ENABLE();
   83              		.loc 1 544 3 view .LVU13
   84              	.LBB10:
-ARM GAS  /tmp/ccXedIFO.s 			page 12
+ARM GAS  /tmp/cc01G5DJ.s 			page 12
 
 
   85              		.loc 1 544 3 view .LVU14
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  136              		.loc 1 547 3 view .LVU32
  137 007e 059A     		ldr	r2, [sp, #20]
  138              	.LBE13:
-ARM GAS  /tmp/ccXedIFO.s 			page 13
+ARM GAS  /tmp/cc01G5DJ.s 			page 13
 
 
  548:Core/Src/main.c ****   __HAL_RCC_GPIOG_CLK_ENABLE();
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  179 00be 4FF48816 		mov	r6, #1114112
  180 00c2 0896     		str	r6, [sp, #32]
  562:Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
-ARM GAS  /tmp/ccXedIFO.s 			page 14
+ARM GAS  /tmp/cc01G5DJ.s 			page 14
 
 
  181              		.loc 1 562 3 is_stmt 1 view .LVU45
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  221 00f8 4FF09040 		mov	r0, #1207959552
  222 00fc FFF7FEFF 		bl	HAL_GPIO_Init
  223              	.LVL5:
-ARM GAS  /tmp/ccXedIFO.s 			page 15
+ARM GAS  /tmp/cc01G5DJ.s 			page 15
 
 
  577:Core/Src/main.c **** 
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  263 0130 FFF7FEFF 		bl	HAL_GPIO_Init
  264              	.LVL7:
  592:Core/Src/main.c **** 
-ARM GAS  /tmp/ccXedIFO.s 			page 16
+ARM GAS  /tmp/cc01G5DJ.s 			page 16
 
 
  593:Core/Src/main.c ****   /*Configure GPIO pin : USB_PowerSwitchOn_Pin */
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  303              		.loc 1 608 24 is_stmt 0 view .LVU103
  304 015a 0896     		str	r6, [sp, #32]
  609:Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
-ARM GAS  /tmp/ccXedIFO.s 			page 17
+ARM GAS  /tmp/cc01G5DJ.s 			page 17
 
 
  305              		.loc 1 609 3 is_stmt 1 view .LVU104
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  346 019a 1720     		movs	r0, #23
  347 019c FFF7FEFF 		bl	HAL_NVIC_SetPriority
  348              	.LVL17:
-ARM GAS  /tmp/ccXedIFO.s 			page 18
+ARM GAS  /tmp/cc01G5DJ.s 			page 18
 
 
  623:Core/Src/main.c ****   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  396              		.cfi_def_cfa_offset 4
  397              		.cfi_offset 14, -4
  398 0002 83B0     		sub	sp, sp, #12
-ARM GAS  /tmp/ccXedIFO.s 			page 19
+ARM GAS  /tmp/cc01G5DJ.s 			page 19
 
 
  399              	.LCFI4:
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  447              	delay_us:
  448              	.LVL23:
  449              	.LFB130:
-ARM GAS  /tmp/ccXedIFO.s 			page 20
+ARM GAS  /tmp/cc01G5DJ.s 			page 20
 
 
   73:Core/Src/main.c ****   //HAL_GPIO_TogglePin(TIM_TEST_GPIO_Port, TIM_TEST_Pin);
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  495              		.loc 1 111 17 is_stmt 0 view .LVU137
  496 0000 0023     		movs	r3, #0
  497              	.LVL25:
-ARM GAS  /tmp/ccXedIFO.s 			page 21
+ARM GAS  /tmp/cc01G5DJ.s 			page 21
 
 
  498              	.L14:
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  539              		.loc 1 114 13 is_stmt 1 view .LVU150
  114:Core/Src/main.c ****             buttons[i].time_irq = HAL_GetTick();
  540              		.loc 1 114 33 is_stmt 0 view .LVU151
-ARM GAS  /tmp/ccXedIFO.s 			page 22
+ARM GAS  /tmp/cc01G5DJ.s 			page 22
 
 
  541 0024 0123     		movs	r3, #1
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  589              		@ args = 0, pretend = 0, frame = 0
  590              		@ frame_needed = 0, uses_anonymous_args = 0
  143:Core/Src/main.c ****         if(htim->Instance == TIM1) //check if the interrupt comes from TIM1
-ARM GAS  /tmp/ccXedIFO.s 			page 23
+ARM GAS  /tmp/cc01G5DJ.s 			page 23
 
 
  591              		.loc 1 143 1 is_stmt 0 view .LVU160
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  634 002c 0221     		movs	r1, #2
  635 002e 4FF09040 		mov	r0, #1207959552
  636 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  /tmp/ccXedIFO.s 			page 24
+ARM GAS  /tmp/cc01G5DJ.s 			page 24
 
 
  637              	.LVL38:
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  678 006a FFF7FEFF 		bl	delay_us
  679              	.LVL42:
  151:Core/Src/main.c ****                 delay_us(4);
-ARM GAS  /tmp/ccXedIFO.s 			page 25
+ARM GAS  /tmp/cc01G5DJ.s 			page 25
 
 
  680              		.loc 1 151 17 view .LVU185
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  725 00b6 0028     		cmp	r0, #0
  726 00b8 CCD0     		beq	.L29
  168:Core/Src/main.c ****                       HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-ARM GAS  /tmp/ccXedIFO.s 			page 26
+ARM GAS  /tmp/cc01G5DJ.s 			page 26
 
 
  727              		.loc 1 168 19 is_stmt 1 view .LVU195
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  776              		.cfi_offset 5, -20
  777              		.cfi_offset 6, -16
  778              		.cfi_offset 7, -12
-ARM GAS  /tmp/ccXedIFO.s 			page 27
+ARM GAS  /tmp/cc01G5DJ.s 			page 27
 
 
  779              		.cfi_offset 8, -8
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  821              		.loc 1 186 13 is_stmt 1 view .LVU214
  186:Core/Src/main.c ****               continue;
  822              		.loc 1 186 22 is_stmt 0 view .LVU215
-ARM GAS  /tmp/ccXedIFO.s 			page 28
+ARM GAS  /tmp/cc01G5DJ.s 			page 28
 
 
  823 003c A4F19805 		sub	r5, r4, #152
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  864              	.L48:
  865 0064 00000000 		.word	image
  866              		.cfi_endproc
-ARM GAS  /tmp/ccXedIFO.s 			page 29
+ARM GAS  /tmp/cc01G5DJ.s 			page 29
 
 
  867              	.LFE133:
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
   17:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   18:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
   19:Drivers/CMSIS/Include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
-ARM GAS  /tmp/ccXedIFO.s 			page 30
+ARM GAS  /tmp/cc01G5DJ.s 			page 30
 
 
   20:Drivers/CMSIS/Include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
   74:Drivers/CMSIS/Include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
   75:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
   76:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
-ARM GAS  /tmp/ccXedIFO.s 			page 31
+ARM GAS  /tmp/cc01G5DJ.s 			page 31
 
 
   77:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  131:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
  132:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  133:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /tmp/ccXedIFO.s 			page 32
+ARM GAS  /tmp/cc01G5DJ.s 			page 32
 
 
  134:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  933              		.section	.text.MX_SPI1_Init,"ax",%progbits
  934              		.align	1
  935              		.syntax unified
-ARM GAS  /tmp/ccXedIFO.s 			page 33
+ARM GAS  /tmp/cc01G5DJ.s 			page 33
 
 
  936              		.thumb
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  976              		.loc 1 404 18 is_stmt 0 view .LVU252
  977 0020 4FF40072 		mov	r2, #512
  978 0024 8261     		str	r2, [r0, #24]
-ARM GAS  /tmp/ccXedIFO.s 			page 34
+ARM GAS  /tmp/cc01G5DJ.s 			page 34
 
 
  405:Core/Src/main.c ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_LSB;
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  1014              	.LVL64:
  1015              	.L60:
  1016 0046 00BF     		.align	2
-ARM GAS  /tmp/ccXedIFO.s 			page 35
+ARM GAS  /tmp/cc01G5DJ.s 			page 35
 
 
  1017              	.L59:
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  442:Core/Src/main.c ****   htim1.Init.Period = 1;
  1064              		.loc 1 442 3 is_stmt 1 view .LVU281
  442:Core/Src/main.c ****   htim1.Init.Period = 1;
-ARM GAS  /tmp/ccXedIFO.s 			page 36
+ARM GAS  /tmp/cc01G5DJ.s 			page 36
 
 
  1065              		.loc 1 442 26 is_stmt 0 view .LVU282
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  1101 0044 0193     		str	r3, [sp, #4]
  457:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
  1102              		.loc 1 457 3 is_stmt 1 view .LVU301
-ARM GAS  /tmp/ccXedIFO.s 			page 37
+ARM GAS  /tmp/cc01G5DJ.s 			page 37
 
 
  457:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  1148              		.thumb
  1149              		.thumb_func
  1150              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccXedIFO.s 			page 38
+ARM GAS  /tmp/cc01G5DJ.s 			page 38
 
 
  1152              	MX_TIM3_Init:
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  491:Core/Src/main.c ****   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
  1193              		.loc 1 491 3 is_stmt 1 view .LVU325
  491:Core/Src/main.c ****   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-ARM GAS  /tmp/ccXedIFO.s 			page 39
+ARM GAS  /tmp/cc01G5DJ.s 			page 39
 
 
  1194              		.loc 1 491 28 is_stmt 0 view .LVU326
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  1231 004e 30B9     		cbnz	r0, .L78
  512:Core/Src/main.c **** 
  1232              		.loc 1 512 1 view .LVU344
-ARM GAS  /tmp/ccXedIFO.s 			page 40
+ARM GAS  /tmp/cc01G5DJ.s 			page 40
 
 
  1233 0050 09B0     		add	sp, sp, #36
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  1283              		.loc 1 341 22 is_stmt 0 view .LVU350
  1284 0004 2022     		movs	r2, #32
  1285 0006 0021     		movs	r1, #0
-ARM GAS  /tmp/ccXedIFO.s 			page 41
+ARM GAS  /tmp/cc01G5DJ.s 			page 41
 
 
  1286 0008 1EA8     		add	r0, sp, #120
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  1324 0038 4FF4E013 		mov	r3, #1835008
  1325 003c 2493     		str	r3, [sp, #144]
  354:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-ARM GAS  /tmp/ccXedIFO.s 			page 42
+ARM GAS  /tmp/cc01G5DJ.s 			page 42
 
 
  1326              		.loc 1 354 3 is_stmt 1 view .LVU367
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  1362 0062 094B     		ldr	r3, .L89
  1363 0064 0193     		str	r3, [sp, #4]
  374:Core/Src/main.c ****   PeriphClkInit.Tim34ClockSelection = RCC_TIM34CLK_HCLK;
-ARM GAS  /tmp/ccXedIFO.s 			page 43
+ARM GAS  /tmp/cc01G5DJ.s 			page 43
 
 
  1364              		.loc 1 374 3 is_stmt 1 view .LVU386
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  1409              		.syntax unified
  1410              		.thumb
  1411              		.thumb_func
-ARM GAS  /tmp/ccXedIFO.s 			page 44
+ARM GAS  /tmp/cc01G5DJ.s 			page 44
 
 
  1412              		.fpu fpv4-sp-d16
@@ -2587,7 +2587,7 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  201:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
  1416              		.loc 1 201 1 view -0
  1417              		.cfi_startproc
- 1418              		@ args = 0, pretend = 0, frame = 16
+ 1418              		@ args = 0, pretend = 0, frame = 24
  1419              		@ frame_needed = 0, uses_anonymous_args = 0
  1420 0000 F0B5     		push	{r4, r5, r6, r7, lr}
  1421              	.LCFI24:
@@ -2597,9 +2597,9 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  1425              		.cfi_offset 6, -12
  1426              		.cfi_offset 7, -8
  1427              		.cfi_offset 14, -4
- 1428 0002 85B0     		sub	sp, sp, #20
+ 1428 0002 87B0     		sub	sp, sp, #28
  1429              	.LCFI25:
- 1430              		.cfi_def_cfa_offset 40
+ 1430              		.cfi_def_cfa_offset 48
  209:Core/Src/main.c **** 
  1431              		.loc 1 209 3 view .LVU398
  1432 0004 FFF7FEFF 		bl	HAL_Init
@@ -2630,15 +2630,15 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  1451              	.LVL91:
  229:Core/Src/main.c ****   HAL_TIM_Base_Start_IT(&htim1);
  1452              		.loc 1 229 3 view .LVU405
- 1453 0020 2448     		ldr	r0, .L99
+ 1453 0020 2548     		ldr	r0, .L99
  1454 0022 FFF7FEFF 		bl	HAL_TIM_Base_Start
  1455              	.LVL92:
  230:Core/Src/main.c **** 
  1456              		.loc 1 230 3 view .LVU406
- 1457 0026 2448     		ldr	r0, .L99+4
+ 1457 0026 2548     		ldr	r0, .L99+4
  1458 0028 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
  1459              	.LVL93:
-ARM GAS  /tmp/ccXedIFO.s 			page 45
+ARM GAS  /tmp/cc01G5DJ.s 			page 45
 
 
  246:Core/Src/main.c ****   game_start(&game);
@@ -2646,143 +2646,144 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  246:Core/Src/main.c ****   game_start(&game);
  1461              		.loc 1 246 15 is_stmt 0 view .LVU408
  1462 002c 0023     		movs	r3, #0
- 1463 002e CDF80230 		str	r3, [sp, #2]	@ unaligned
- 1464 0032 CDF80A30 		str	r3, [sp, #10]	@ unaligned
- 1465 0036 ADF80E30 		strh	r3, [sp, #14]	@ movhi
- 1466 003a 0923     		movs	r3, #9
- 1467 003c 8DF80030 		strb	r3, [sp]
- 1468 0040 8DF80130 		strb	r3, [sp, #1]
- 1469 0044 1D4B     		ldr	r3, .L99+8
- 1470 0046 0193     		str	r3, [sp, #4]
- 1471 0048 1D4B     		ldr	r3, .L99+12
- 1472 004a 0293     		str	r3, [sp, #8]
+ 1463 002e CDF80630 		str	r3, [sp, #6]	@ unaligned
+ 1464 0032 CDF80E30 		str	r3, [sp, #14]	@ unaligned
+ 1465 0036 CDF81230 		str	r3, [sp, #18]	@ unaligned
+ 1466 003a ADF81630 		strh	r3, [sp, #22]	@ movhi
+ 1467 003e 0923     		movs	r3, #9
+ 1468 0040 8DF80430 		strb	r3, [sp, #4]
+ 1469 0044 8DF80530 		strb	r3, [sp, #5]
+ 1470 0048 1D4B     		ldr	r3, .L99+8
+ 1471 004a 0293     		str	r3, [sp, #8]
+ 1472 004c 1D4B     		ldr	r3, .L99+12
+ 1473 004e 0393     		str	r3, [sp, #12]
  247:Core/Src/main.c **** 
- 1473              		.loc 1 247 3 is_stmt 1 view .LVU409
- 1474 004c 6846     		mov	r0, sp
- 1475 004e FFF7FEFF 		bl	game_start
- 1476              	.LVL94:
- 1477              	.L97:
+ 1474              		.loc 1 247 3 is_stmt 1 view .LVU409
+ 1475 0050 01A8     		add	r0, sp, #4
+ 1476 0052 FFF7FEFF 		bl	game_start
+ 1477              	.LVL94:
+ 1478              	.L97:
  254:Core/Src/main.c ****   {
- 1478              		.loc 1 254 3 view .LVU410
- 1479              	.LBB25:
+ 1479              		.loc 1 254 3 view .LVU410
+ 1480              	.LBB25:
  259:Core/Src/main.c **** 
- 1480              		.loc 1 259 5 view .LVU411
+ 1481              		.loc 1 259 5 view .LVU411
  261:Core/Src/main.c ****         temp = buttons + i;
- 1481              		.loc 1 261 5 view .LVU412
- 1482              	.LBB26:
+ 1482              		.loc 1 261 5 view .LVU412
+ 1483              	.LBB26:
  261:Core/Src/main.c ****         temp = buttons + i;
- 1483              		.loc 1 261 9 view .LVU413
+ 1484              		.loc 1 261 9 view .LVU413
  261:Core/Src/main.c ****         temp = buttons + i;
- 1484              		.loc 1 261 17 is_stmt 0 view .LVU414
- 1485 0052 0024     		movs	r4, #0
+ 1485              		.loc 1 261 17 is_stmt 0 view .LVU414
+ 1486 0056 0024     		movs	r4, #0
  261:Core/Src/main.c ****         temp = buttons + i;
- 1486              		.loc 1 261 5 view .LVU415
- 1487 0054 07E0     		b	.L92
- 1488              	.LVL95:
- 1489              	.L95:
+ 1487              		.loc 1 261 5 view .LVU415
+ 1488 0058 07E0     		b	.L92
+ 1489              	.LVL95:
+ 1490              	.L95:
  274:Core/Src/main.c ****                 temp->flag_irq = 0;
- 1490              		.loc 1 274 17 is_stmt 1 view .LVU416
- 1491 0056 97F90800 		ldrsb	r0, [r7, #8]
- 1492 005a FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 1493              	.LVL96:
+ 1491              		.loc 1 274 17 is_stmt 1 view .LVU416
+ 1492 005a 97F90800 		ldrsb	r0, [r7, #8]
+ 1493 005e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 1494              	.LVL96:
  275:Core/Src/main.c ****             }
- 1494              		.loc 1 275 17 view .LVU417
+ 1495              		.loc 1 275 17 view .LVU417
  275:Core/Src/main.c ****             }
- 1495              		.loc 1 275 32 is_stmt 0 view .LVU418
- 1496 005e 0023     		movs	r3, #0
- 1497 0060 3B71     		strb	r3, [r7, #4]
- 1498              	.L93:
+ 1496              		.loc 1 275 32 is_stmt 0 view .LVU418
+ 1497 0062 0023     		movs	r3, #0
+ 1498 0064 3B71     		strb	r3, [r7, #4]
+ 1499              	.L93:
  261:Core/Src/main.c ****         temp = buttons + i;
- 1499              		.loc 1 261 71 discriminator 2 view .LVU419
- 1500 0062 0134     		adds	r4, r4, #1
- 1501              	.LVL97:
+ 1500              		.loc 1 261 71 discriminator 2 view .LVU419
+ 1501 0066 0134     		adds	r4, r4, #1
+ 1502              	.LVL97:
  261:Core/Src/main.c ****         temp = buttons + i;
- 1502              		.loc 1 261 71 discriminator 2 view .LVU420
-ARM GAS  /tmp/ccXedIFO.s 			page 46
+ARM GAS  /tmp/cc01G5DJ.s 			page 46
 
 
- 1503 0064 E4B2     		uxtb	r4, r4
- 1504              	.LVL98:
- 1505              	.L92:
+ 1503              		.loc 1 261 71 discriminator 2 view .LVU420
+ 1504 0068 E4B2     		uxtb	r4, r4
+ 1505              	.LVL98:
+ 1506              	.L92:
  261:Core/Src/main.c ****         temp = buttons + i;
- 1506              		.loc 1 261 5 discriminator 1 view .LVU421
- 1507 0066 052C     		cmp	r4, #5
- 1508 0068 F3D8     		bhi	.L97
+ 1507              		.loc 1 261 5 discriminator 1 view .LVU421
+ 1508 006a 052C     		cmp	r4, #5
+ 1509 006c F3D8     		bhi	.L97
  262:Core/Src/main.c **** 
- 1509              		.loc 1 262 9 is_stmt 1 view .LVU422
+ 1510              		.loc 1 262 9 is_stmt 1 view .LVU422
  262:Core/Src/main.c **** 
- 1510              		.loc 1 262 24 is_stmt 0 view .LVU423
- 1511 006a 2501     		lsls	r5, r4, #4
+ 1511              		.loc 1 262 24 is_stmt 0 view .LVU423
+ 1512 006e 2501     		lsls	r5, r4, #4
  262:Core/Src/main.c **** 
- 1512              		.loc 1 262 14 view .LVU424
- 1513 006c 154E     		ldr	r6, .L99+16
- 1514 006e 7719     		adds	r7, r6, r5
- 1515              	.LVL99:
+ 1513              		.loc 1 262 14 view .LVU424
+ 1514 0070 154E     		ldr	r6, .L99+16
+ 1515 0072 7719     		adds	r7, r6, r5
+ 1516              	.LVL99:
  264:Core/Src/main.c **** 
- 1516              		.loc 1 264 9 is_stmt 1 view .LVU425
+ 1517              		.loc 1 264 9 is_stmt 1 view .LVU425
  264:Core/Src/main.c **** 
- 1517              		.loc 1 264 16 is_stmt 0 view .LVU426
- 1518 0070 3B79     		ldrb	r3, [r7, #4]	@ zero_extendqisi2
+ 1518              		.loc 1 264 16 is_stmt 0 view .LVU426
+ 1519 0074 3B79     		ldrb	r3, [r7, #4]	@ zero_extendqisi2
  264:Core/Src/main.c **** 
- 1519              		.loc 1 264 11 view .LVU427
- 1520 0072 002B     		cmp	r3, #0
- 1521 0074 F5D0     		beq	.L93
+ 1520              		.loc 1 264 11 view .LVU427
+ 1521 0076 002B     		cmp	r3, #0
+ 1522 0078 F5D0     		beq	.L93
  266:Core/Src/main.c ****                 temp->action(&game);
- 1522              		.loc 1 266 13 is_stmt 1 view .LVU428
+ 1523              		.loc 1 266 13 is_stmt 1 view .LVU428
  266:Core/Src/main.c ****                 temp->action(&game);
- 1523              		.loc 1 266 21 is_stmt 0 view .LVU429
- 1524 0076 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 1524              		.loc 1 266 21 is_stmt 0 view .LVU429
+ 1525 007a 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
  266:Core/Src/main.c ****                 temp->action(&game);
- 1525              		.loc 1 266 15 view .LVU430
- 1526 0078 23B9     		cbnz	r3, .L94
+ 1526              		.loc 1 266 15 view .LVU430
+ 1527 007c 23B9     		cbnz	r3, .L94
  267:Core/Src/main.c ****                 temp->flag_exec = 1;
- 1527              		.loc 1 267 17 is_stmt 1 view .LVU431
+ 1528              		.loc 1 267 17 is_stmt 1 view .LVU431
  267:Core/Src/main.c ****                 temp->flag_exec = 1;
- 1528              		.loc 1 267 21 is_stmt 0 view .LVU432
- 1529 007a FB68     		ldr	r3, [r7, #12]
+ 1529              		.loc 1 267 21 is_stmt 0 view .LVU432
+ 1530 007e FB68     		ldr	r3, [r7, #12]
  267:Core/Src/main.c ****                 temp->flag_exec = 1;
- 1530              		.loc 1 267 17 view .LVU433
- 1531 007c 6846     		mov	r0, sp
- 1532 007e 9847     		blx	r3
- 1533              	.LVL100:
+ 1531              		.loc 1 267 17 view .LVU433
+ 1532 0080 01A8     		add	r0, sp, #4
+ 1533 0082 9847     		blx	r3
+ 1534              	.LVL100:
  268:Core/Src/main.c ****             }
- 1534              		.loc 1 268 17 is_stmt 1 view .LVU434
+ 1535              		.loc 1 268 17 is_stmt 1 view .LVU434
  268:Core/Src/main.c ****             }
- 1535              		.loc 1 268 33 is_stmt 0 view .LVU435
- 1536 0080 0123     		movs	r3, #1
- 1537 0082 7B71     		strb	r3, [r7, #5]
- 1538              	.L94:
+ 1536              		.loc 1 268 33 is_stmt 0 view .LVU435
+ 1537 0084 0123     		movs	r3, #1
+ 1538 0086 7B71     		strb	r3, [r7, #5]
+ 1539              	.L94:
  271:Core/Src/main.c ****                 __HAL_GPIO_EXTI_CLEAR_IT(temp->GPIO_pin);
- 1539              		.loc 1 271 13 is_stmt 1 view .LVU436
+ 1540              		.loc 1 271 13 is_stmt 1 view .LVU436
  271:Core/Src/main.c ****                 __HAL_GPIO_EXTI_CLEAR_IT(temp->GPIO_pin);
- 1540              		.loc 1 271 17 is_stmt 0 view .LVU437
- 1541 0084 FFF7FEFF 		bl	HAL_GetTick
- 1542              	.LVL101:
-ARM GAS  /tmp/ccXedIFO.s 			page 47
+ 1541              		.loc 1 271 17 is_stmt 0 view .LVU437
+ 1542 0088 FFF7FEFF 		bl	HAL_GetTick
+ARM GAS  /tmp/cc01G5DJ.s 			page 47
 
 
+ 1543              	.LVL101:
  271:Core/Src/main.c ****                 __HAL_GPIO_EXTI_CLEAR_IT(temp->GPIO_pin);
- 1543              		.loc 1 271 37 view .LVU438
- 1544 0088 7359     		ldr	r3, [r6, r5]
+ 1544              		.loc 1 271 37 view .LVU438
+ 1545 008c 7359     		ldr	r3, [r6, r5]
  271:Core/Src/main.c ****                 __HAL_GPIO_EXTI_CLEAR_IT(temp->GPIO_pin);
- 1545              		.loc 1 271 31 view .LVU439
- 1546 008a C01A     		subs	r0, r0, r3
+ 1546              		.loc 1 271 31 view .LVU439
+ 1547 008e C01A     		subs	r0, r0, r3
  271:Core/Src/main.c ****                 __HAL_GPIO_EXTI_CLEAR_IT(temp->GPIO_pin);
- 1547              		.loc 1 271 15 view .LVU440
- 1548 008c 9628     		cmp	r0, #150
- 1549 008e E8D9     		bls	.L93
+ 1548              		.loc 1 271 15 view .LVU440
+ 1549 0090 9628     		cmp	r0, #150
+ 1550 0092 E8D9     		bls	.L93
  272:Core/Src/main.c ****                 NVIC_ClearPendingIRQ(temp->GPIO_EXTI_line);
- 1550              		.loc 1 272 17 is_stmt 1 view .LVU441
- 1551 0090 FA88     		ldrh	r2, [r7, #6]
- 1552 0092 0D4B     		ldr	r3, .L99+20
- 1553 0094 5A61     		str	r2, [r3, #20]
+ 1551              		.loc 1 272 17 is_stmt 1 view .LVU441
+ 1552 0094 FA88     		ldrh	r2, [r7, #6]
+ 1553 0096 0D4B     		ldr	r3, .L99+20
+ 1554 0098 5A61     		str	r2, [r3, #20]
  273:Core/Src/main.c ****                 HAL_NVIC_EnableIRQ(temp->GPIO_EXTI_line);
- 1554              		.loc 1 273 17 view .LVU442
- 1555 0096 97F90830 		ldrsb	r3, [r7, #8]
- 1556              	.LVL102:
- 1557              	.LBB27:
- 1558              	.LBI27:
- 1559              		.file 3 "Drivers/CMSIS/Include/core_cm4.h"
+ 1555              		.loc 1 273 17 view .LVU442
+ 1556 009a 97F90830 		ldrsb	r3, [r7, #8]
+ 1557              	.LVL102:
+ 1558              	.LBB27:
+ 1559              	.LBI27:
+ 1560              		.file 3 "Drivers/CMSIS/Include/core_cm4.h"
    1:Drivers/CMSIS/Include/core_cm4.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/core_cm4.h ****  * @file     core_cm4.h
    3:Drivers/CMSIS/Include/core_cm4.h ****  * @brief    CMSIS Cortex-M4 Core Peripheral Access Layer Header File
@@ -2817,10 +2818,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
   32:Drivers/CMSIS/Include/core_cm4.h **** #define __CORE_CM4_H_GENERIC
   33:Drivers/CMSIS/Include/core_cm4.h **** 
   34:Drivers/CMSIS/Include/core_cm4.h **** #include <stdint.h>
+ARM GAS  /tmp/cc01G5DJ.s 			page 48
+
+
   35:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /tmp/ccXedIFO.s 			page 48
-
-
   36:Drivers/CMSIS/Include/core_cm4.h **** #ifdef __cplusplus
   37:Drivers/CMSIS/Include/core_cm4.h ****  extern "C" {
   38:Drivers/CMSIS/Include/core_cm4.h **** #endif
@@ -2877,10 +2878,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
   89:Drivers/CMSIS/Include/core_cm4.h ****   #if defined __ARM_PCS_VFP
   90:Drivers/CMSIS/Include/core_cm4.h ****     #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
   91:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       1U
+ARM GAS  /tmp/cc01G5DJ.s 			page 49
+
+
   92:Drivers/CMSIS/Include/core_cm4.h ****     #else
-ARM GAS  /tmp/ccXedIFO.s 			page 49
-
-
   93:Drivers/CMSIS/Include/core_cm4.h ****       #warning "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESEN
   94:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       0U
   95:Drivers/CMSIS/Include/core_cm4.h ****     #endif
@@ -2937,10 +2938,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  146:Drivers/CMSIS/Include/core_cm4.h ****   #endif
  147:Drivers/CMSIS/Include/core_cm4.h **** 
  148:Drivers/CMSIS/Include/core_cm4.h **** #elif defined ( __CSMC__ )
+ARM GAS  /tmp/cc01G5DJ.s 			page 50
+
+
  149:Drivers/CMSIS/Include/core_cm4.h ****   #if ( __CSMC__ & 0x400U)
-ARM GAS  /tmp/ccXedIFO.s 			page 50
-
-
  150:Drivers/CMSIS/Include/core_cm4.h ****     #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
  151:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       1U
  152:Drivers/CMSIS/Include/core_cm4.h ****     #else
@@ -2997,10 +2998,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  203:Drivers/CMSIS/Include/core_cm4.h ****     #define __Vendor_SysTickConfig    0U
  204:Drivers/CMSIS/Include/core_cm4.h ****     #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
  205:Drivers/CMSIS/Include/core_cm4.h ****   #endif
+ARM GAS  /tmp/cc01G5DJ.s 			page 51
+
+
  206:Drivers/CMSIS/Include/core_cm4.h **** #endif
-ARM GAS  /tmp/ccXedIFO.s 			page 51
-
-
  207:Drivers/CMSIS/Include/core_cm4.h **** 
  208:Drivers/CMSIS/Include/core_cm4.h **** /* IO definitions (access restrictions to peripheral registers) */
  209:Drivers/CMSIS/Include/core_cm4.h **** /**
@@ -3057,10 +3058,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  260:Drivers/CMSIS/Include/core_cm4.h **** {
  261:Drivers/CMSIS/Include/core_cm4.h ****   struct
  262:Drivers/CMSIS/Include/core_cm4.h ****   {
+ARM GAS  /tmp/cc01G5DJ.s 			page 52
+
+
  263:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t _reserved0:16;              /*!< bit:  0..15  Reserved */
-ARM GAS  /tmp/ccXedIFO.s 			page 52
-
-
  264:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t GE:4;                       /*!< bit: 16..19  Greater than or Equal flags */
  265:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t _reserved1:7;               /*!< bit: 20..26  Reserved */
  266:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t Q:1;                        /*!< bit:     27  Saturation condition flag */
@@ -3117,10 +3118,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  317:Drivers/CMSIS/Include/core_cm4.h **** {
  318:Drivers/CMSIS/Include/core_cm4.h ****   struct
  319:Drivers/CMSIS/Include/core_cm4.h ****   {
+ARM GAS  /tmp/cc01G5DJ.s 			page 53
+
+
  320:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t ISR:9;                      /*!< bit:  0.. 8  Exception number */
-ARM GAS  /tmp/ccXedIFO.s 			page 53
-
-
  321:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t _reserved0:1;               /*!< bit:      9  Reserved */
  322:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t ICI_IT_1:6;                 /*!< bit: 10..15  ICI/IT part 1 */
  323:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t GE:4;                       /*!< bit: 16..19  Greater than or Equal flags */
@@ -3177,10 +3178,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  374:Drivers/CMSIS/Include/core_cm4.h ****   {
  375:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t nPRIV:1;                    /*!< bit:      0  Execution privilege in Thread mode */
  376:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t SPSEL:1;                    /*!< bit:      1  Stack to be used */
+ARM GAS  /tmp/cc01G5DJ.s 			page 54
+
+
  377:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t FPCA:1;                     /*!< bit:      2  FP extension active flag */
-ARM GAS  /tmp/ccXedIFO.s 			page 54
-
-
  378:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t _reserved0:29;              /*!< bit:  3..31  Reserved */
  379:Drivers/CMSIS/Include/core_cm4.h ****   } b;                                   /*!< Structure used for bit  access */
  380:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t w;                            /*!< Type      used for word access */
@@ -3237,10 +3238,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  431:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup  CMSIS_core_register
  432:Drivers/CMSIS/Include/core_cm4.h ****   \defgroup CMSIS_SCB     System Control Block (SCB)
  433:Drivers/CMSIS/Include/core_cm4.h ****   \brief    Type definitions for the System Control Block Registers
+ARM GAS  /tmp/cc01G5DJ.s 			page 55
+
+
  434:Drivers/CMSIS/Include/core_cm4.h ****   @{
-ARM GAS  /tmp/ccXedIFO.s 			page 55
-
-
  435:Drivers/CMSIS/Include/core_cm4.h ****  */
  436:Drivers/CMSIS/Include/core_cm4.h **** 
  437:Drivers/CMSIS/Include/core_cm4.h **** /**
@@ -3297,10 +3298,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  488:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_PENDSVCLR_Pos             27U                                            /*!< SCB 
  489:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_PENDSVCLR_Msk             (1UL << SCB_ICSR_PENDSVCLR_Pos)                /*!< SCB 
  490:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  /tmp/cc01G5DJ.s 			page 56
+
+
  491:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_PENDSTSET_Pos             26U                                            /*!< SCB 
-ARM GAS  /tmp/ccXedIFO.s 			page 56
-
-
  492:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_PENDSTSET_Msk             (1UL << SCB_ICSR_PENDSTSET_Pos)                /*!< SCB 
  493:Drivers/CMSIS/Include/core_cm4.h **** 
  494:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_PENDSTCLR_Pos             25U                                            /*!< SCB 
@@ -3357,10 +3358,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  545:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SCR_SLEEPONEXIT_Pos             1U                                            /*!< SCB 
  546:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SCR_SLEEPONEXIT_Msk            (1UL << SCB_SCR_SLEEPONEXIT_Pos)               /*!< SCB 
  547:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  /tmp/cc01G5DJ.s 			page 57
+
+
  548:Drivers/CMSIS/Include/core_cm4.h **** /* SCB Configuration Control Register Definitions */
-ARM GAS  /tmp/ccXedIFO.s 			page 57
-
-
  549:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_STKALIGN_Pos                9U                                            /*!< SCB 
  550:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_STKALIGN_Msk               (1UL << SCB_CCR_STKALIGN_Pos)                  /*!< SCB 
  551:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3417,10 +3418,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  602:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_USGFAULTACT_Msk          (1UL << SCB_SHCSR_USGFAULTACT_Pos)             /*!< SCB 
  603:Drivers/CMSIS/Include/core_cm4.h **** 
  604:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_BUSFAULTACT_Pos           1U                                            /*!< SCB 
+ARM GAS  /tmp/cc01G5DJ.s 			page 58
+
+
  605:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_BUSFAULTACT_Msk          (1UL << SCB_SHCSR_BUSFAULTACT_Pos)             /*!< SCB 
-ARM GAS  /tmp/ccXedIFO.s 			page 58
-
-
  606:Drivers/CMSIS/Include/core_cm4.h **** 
  607:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_MEMFAULTACT_Pos           0U                                            /*!< SCB 
  608:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_MEMFAULTACT_Msk          (1UL /*<< SCB_SHCSR_MEMFAULTACT_Pos*/)         /*!< SCB 
@@ -3477,10 +3478,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  659:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_IBUSERR_Msk              (1UL << SCB_CFSR_IBUSERR_Pos)                   /*!< SCB 
  660:Drivers/CMSIS/Include/core_cm4.h **** 
  661:Drivers/CMSIS/Include/core_cm4.h **** /* UsageFault Status Register (part of SCB Configurable Fault Status Register) */
+ARM GAS  /tmp/cc01G5DJ.s 			page 59
+
+
  662:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_DIVBYZERO_Pos            (SCB_CFSR_USGFAULTSR_Pos + 9U)                  /*!< SCB 
-ARM GAS  /tmp/ccXedIFO.s 			page 59
-
-
  663:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_DIVBYZERO_Msk            (1UL << SCB_CFSR_DIVBYZERO_Pos)                 /*!< SCB 
  664:Drivers/CMSIS/Include/core_cm4.h **** 
  665:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_UNALIGNED_Pos            (SCB_CFSR_USGFAULTSR_Pos + 8U)                  /*!< SCB 
@@ -3537,10 +3538,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  716:Drivers/CMSIS/Include/core_cm4.h **** /**
  717:Drivers/CMSIS/Include/core_cm4.h ****   \brief  Structure type to access the System Control and ID Register not in the SCB.
  718:Drivers/CMSIS/Include/core_cm4.h ****  */
+ARM GAS  /tmp/cc01G5DJ.s 			page 60
+
+
  719:Drivers/CMSIS/Include/core_cm4.h **** typedef struct
-ARM GAS  /tmp/ccXedIFO.s 			page 60
-
-
  720:Drivers/CMSIS/Include/core_cm4.h **** {
  721:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED0[1U];
  722:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t ICTR;                   /*!< Offset: 0x004 (R/ )  Interrupt Controller Type Regist
@@ -3597,10 +3598,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  773:Drivers/CMSIS/Include/core_cm4.h **** 
  774:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CTRL_TICKINT_Pos            1U                                            /*!< SysT
  775:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CTRL_TICKINT_Msk           (1UL << SysTick_CTRL_TICKINT_Pos)              /*!< SysT
+ARM GAS  /tmp/cc01G5DJ.s 			page 61
+
+
  776:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /tmp/ccXedIFO.s 			page 61
-
-
  777:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CTRL_ENABLE_Pos             0U                                            /*!< SysT
  778:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CTRL_ENABLE_Msk            (1UL /*<< SysTick_CTRL_ENABLE_Pos*/)           /*!< SysT
  779:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3657,10 +3658,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  830:Drivers/CMSIS/Include/core_cm4.h ****   __OM  uint32_t LAR;                    /*!< Offset: 0xFB0 ( /W)  ITM Lock Access Register */
  831:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t LSR;                    /*!< Offset: 0xFB4 (R/ )  ITM Lock Status Register */
  832:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED5[6U];
+ARM GAS  /tmp/cc01G5DJ.s 			page 62
+
+
  833:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t PID4;                   /*!< Offset: 0xFD0 (R/ )  ITM Peripheral Identification Re
-ARM GAS  /tmp/ccXedIFO.s 			page 62
-
-
  834:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t PID5;                   /*!< Offset: 0xFD4 (R/ )  ITM Peripheral Identification Re
  835:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t PID6;                   /*!< Offset: 0xFD8 (R/ )  ITM Peripheral Identification Re
  836:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t PID7;                   /*!< Offset: 0xFDC (R/ )  ITM Peripheral Identification Re
@@ -3717,10 +3718,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  887:Drivers/CMSIS/Include/core_cm4.h **** /* ITM Integration Mode Control Register Definitions */
  888:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_IMCR_INTEGRATION_Pos            0U                                            /*!< ITM 
  889:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_IMCR_INTEGRATION_Msk           (1UL /*<< ITM_IMCR_INTEGRATION_Pos*/)          /*!< ITM 
+ARM GAS  /tmp/cc01G5DJ.s 			page 63
+
+
  890:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /tmp/ccXedIFO.s 			page 63
-
-
  891:Drivers/CMSIS/Include/core_cm4.h **** /* ITM Lock Status Register Definitions */
  892:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_LSR_ByteAcc_Pos                 2U                                            /*!< ITM 
  893:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_LSR_ByteAcc_Msk                (1UL << ITM_LSR_ByteAcc_Pos)                   /*!< ITM 
@@ -3777,10 +3778,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
  944:Drivers/CMSIS/Include/core_cm4.h **** 
  945:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_NOTRCPKT_Pos              27U                                         /*!< DWT CTR
  946:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_NOTRCPKT_Msk              (0x1UL << DWT_CTRL_NOTRCPKT_Pos)            /*!< DWT CTR
+ARM GAS  /tmp/cc01G5DJ.s 			page 64
+
+
  947:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /tmp/ccXedIFO.s 			page 64
-
-
  948:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_NOEXTTRIG_Pos             26U                                         /*!< DWT CTR
  949:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_NOEXTTRIG_Msk             (0x1UL << DWT_CTRL_NOEXTTRIG_Pos)           /*!< DWT CTR
  950:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3837,10 +3838,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1001:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_EXCCNT_EXCCNT_Pos               0U                                         /*!< DWT EXC
 1002:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_EXCCNT_EXCCNT_Msk              (0xFFUL /*<< DWT_EXCCNT_EXCCNT_Pos*/)       /*!< DWT EXC
 1003:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  /tmp/cc01G5DJ.s 			page 65
+
+
 1004:Drivers/CMSIS/Include/core_cm4.h **** /* DWT Sleep Count Register Definitions */
-ARM GAS  /tmp/ccXedIFO.s 			page 65
-
-
 1005:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_SLEEPCNT_SLEEPCNT_Pos           0U                                         /*!< DWT SLE
 1006:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_SLEEPCNT_SLEEPCNT_Msk          (0xFFUL /*<< DWT_SLEEPCNT_SLEEPCNT_Pos*/)   /*!< DWT SLE
 1007:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3897,10 +3898,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1058:Drivers/CMSIS/Include/core_cm4.h **** /**
 1059:Drivers/CMSIS/Include/core_cm4.h ****   \brief  Structure type to access the Trace Port Interface Register (TPI).
 1060:Drivers/CMSIS/Include/core_cm4.h ****  */
+ARM GAS  /tmp/cc01G5DJ.s 			page 66
+
+
 1061:Drivers/CMSIS/Include/core_cm4.h **** typedef struct
-ARM GAS  /tmp/ccXedIFO.s 			page 66
-
-
 1062:Drivers/CMSIS/Include/core_cm4.h **** {
 1063:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t SSPSR;                  /*!< Offset: 0x000 (R/ )  Supported Parallel Port Size Reg
 1064:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t CSPSR;                  /*!< Offset: 0x004 (R/W)  Current Parallel Port Size Regis
@@ -3957,10 +3958,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1115:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FFCR_EnFCont_Msk               (0x1UL << TPI_FFCR_EnFCont_Pos)             /*!< TPI FFC
 1116:Drivers/CMSIS/Include/core_cm4.h **** 
 1117:Drivers/CMSIS/Include/core_cm4.h **** /* TPI TRIGGER Register Definitions */
+ARM GAS  /tmp/cc01G5DJ.s 			page 67
+
+
 1118:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_TRIGGER_TRIGGER_Pos             0U                                         /*!< TPI TRI
-ARM GAS  /tmp/ccXedIFO.s 			page 67
-
-
 1119:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_TRIGGER_TRIGGER_Msk            (0x1UL /*<< TPI_TRIGGER_TRIGGER_Pos*/)      /*!< TPI TRI
 1120:Drivers/CMSIS/Include/core_cm4.h **** 
 1121:Drivers/CMSIS/Include/core_cm4.h **** /* TPI Integration ETM Data Register Definitions (FIFO0) */
@@ -4017,10 +4018,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1172:Drivers/CMSIS/Include/core_cm4.h **** /* TPI ITATBCTR0 Register Definitions */
 1173:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_ITATBCTR0_ATREADY2_Pos          0U                                         /*!< TPI ITA
 1174:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_ITATBCTR0_ATREADY2_Msk         (0x1UL /*<< TPI_ITATBCTR0_ATREADY2_Pos*/)   /*!< TPI ITA
+ARM GAS  /tmp/cc01G5DJ.s 			page 68
+
+
 1175:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /tmp/ccXedIFO.s 			page 68
-
-
 1176:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_ITATBCTR0_ATREADY1_Pos          0U                                         /*!< TPI ITA
 1177:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_ITATBCTR0_ATREADY1_Msk         (0x1UL /*<< TPI_ITATBCTR0_ATREADY1_Pos*/)   /*!< TPI ITA
 1178:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -4077,10 +4078,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1229:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t RASR;                   /*!< Offset: 0x010 (R/W)  MPU Region Attribute and Size Re
 1230:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t RBAR_A1;                /*!< Offset: 0x014 (R/W)  MPU Alias 1 Region Base Address 
 1231:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t RASR_A1;                /*!< Offset: 0x018 (R/W)  MPU Alias 1 Region Attribute and
+ARM GAS  /tmp/cc01G5DJ.s 			page 69
+
+
 1232:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t RBAR_A2;                /*!< Offset: 0x01C (R/W)  MPU Alias 2 Region Base Address 
-ARM GAS  /tmp/ccXedIFO.s 			page 69
-
-
 1233:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t RASR_A2;                /*!< Offset: 0x020 (R/W)  MPU Alias 2 Region Attribute and
 1234:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t RBAR_A3;                /*!< Offset: 0x024 (R/W)  MPU Alias 3 Region Base Address 
 1235:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t RASR_A3;                /*!< Offset: 0x028 (R/W)  MPU Alias 3 Region Attribute and
@@ -4137,10 +4138,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1286:Drivers/CMSIS/Include/core_cm4.h **** 
 1287:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_S_Pos                     18U                                            /*!< MPU 
 1288:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_S_Msk                     (1UL << MPU_RASR_S_Pos)                        /*!< MPU 
+ARM GAS  /tmp/cc01G5DJ.s 			page 70
+
+
 1289:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /tmp/ccXedIFO.s 			page 70
-
-
 1290:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_C_Pos                     17U                                            /*!< MPU 
 1291:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_C_Msk                     (1UL << MPU_RASR_C_Pos)                        /*!< MPU 
 1292:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -4197,10 +4198,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1343:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_MMRDY_Msk                (1UL << FPU_FPCCR_MMRDY_Pos)                   /*!< FPCC
 1344:Drivers/CMSIS/Include/core_cm4.h **** 
 1345:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_HFRDY_Pos                 4U                                            /*!< FPCC
+ARM GAS  /tmp/cc01G5DJ.s 			page 71
+
+
 1346:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_HFRDY_Msk                (1UL << FPU_FPCCR_HFRDY_Pos)                   /*!< FPCC
-ARM GAS  /tmp/ccXedIFO.s 			page 71
-
-
 1347:Drivers/CMSIS/Include/core_cm4.h **** 
 1348:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_THREAD_Pos                3U                                            /*!< FPCC
 1349:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_THREAD_Msk               (1UL << FPU_FPCCR_THREAD_Pos)                  /*!< FPCC
@@ -4257,10 +4258,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1400:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR1_FP_fused_MAC_Pos         28U                                            /*!< MVFR
 1401:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR1_FP_fused_MAC_Msk         (0xFUL << FPU_MVFR1_FP_fused_MAC_Pos)          /*!< MVFR
 1402:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  /tmp/cc01G5DJ.s 			page 72
+
+
 1403:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR1_FP_HPFP_Pos              24U                                            /*!< MVFR
-ARM GAS  /tmp/ccXedIFO.s 			page 72
-
-
 1404:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR1_FP_HPFP_Msk              (0xFUL << FPU_MVFR1_FP_HPFP_Pos)               /*!< MVFR
 1405:Drivers/CMSIS/Include/core_cm4.h **** 
 1406:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR1_D_NaN_mode_Pos            4U                                            /*!< MVFR
@@ -4317,10 +4318,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1457:Drivers/CMSIS/Include/core_cm4.h **** 
 1458:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_C_MASKINTS_Pos      3U                                            /*!< Core
 1459:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_C_MASKINTS_Msk     (1UL << CoreDebug_DHCSR_C_MASKINTS_Pos)        /*!< Core
+ARM GAS  /tmp/cc01G5DJ.s 			page 73
+
+
 1460:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /tmp/ccXedIFO.s 			page 73
-
-
 1461:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_C_STEP_Pos          2U                                            /*!< Core
 1462:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_C_STEP_Msk         (1UL << CoreDebug_DHCSR_C_STEP_Pos)            /*!< Core
 1463:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -4377,10 +4378,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1514:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_CORERESET_Pos    0U                                            /*!< Core
 1515:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_CORERESET_Msk   (1UL /*<< CoreDebug_DEMCR_VC_CORERESET_Pos*/)  /*!< Core
 1516:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  /tmp/cc01G5DJ.s 			page 74
+
+
 1517:Drivers/CMSIS/Include/core_cm4.h **** /*@} end of group CMSIS_CoreDebug */
-ARM GAS  /tmp/ccXedIFO.s 			page 74
-
-
 1518:Drivers/CMSIS/Include/core_cm4.h **** 
 1519:Drivers/CMSIS/Include/core_cm4.h **** 
 1520:Drivers/CMSIS/Include/core_cm4.h **** /**
@@ -4437,10 +4438,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1571:Drivers/CMSIS/Include/core_cm4.h **** 
 1572:Drivers/CMSIS/Include/core_cm4.h **** #if defined (__MPU_PRESENT) && (__MPU_PRESENT == 1U)
 1573:Drivers/CMSIS/Include/core_cm4.h ****   #define MPU_BASE          (SCS_BASE +  0x0D90UL)                    /*!< Memory Protection Unit *
+ARM GAS  /tmp/cc01G5DJ.s 			page 75
+
+
 1574:Drivers/CMSIS/Include/core_cm4.h ****   #define MPU               ((MPU_Type       *)     MPU_BASE      )   /*!< Memory Protection Unit *
-ARM GAS  /tmp/ccXedIFO.s 			page 75
-
-
 1575:Drivers/CMSIS/Include/core_cm4.h **** #endif
 1576:Drivers/CMSIS/Include/core_cm4.h **** 
 1577:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_BASE            (SCS_BASE +  0x0F30UL)                    /*!< Floating Point Unit */
@@ -4497,10 +4498,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1628:Drivers/CMSIS/Include/core_cm4.h ****    #define CMSIS_VECTAB_VIRTUAL_HEADER_FILE "cmsis_vectab_virtual.h"
 1629:Drivers/CMSIS/Include/core_cm4.h ****   #endif
 1630:Drivers/CMSIS/Include/core_cm4.h ****   #include CMSIS_VECTAB_VIRTUAL_HEADER_FILE
+ARM GAS  /tmp/cc01G5DJ.s 			page 76
+
+
 1631:Drivers/CMSIS/Include/core_cm4.h **** #else
-ARM GAS  /tmp/ccXedIFO.s 			page 76
-
-
 1632:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_SetVector              __NVIC_SetVector
 1633:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_GetVector              __NVIC_GetVector
 1634:Drivers/CMSIS/Include/core_cm4.h **** #endif  /* (CMSIS_VECTAB_VIRTUAL) */
@@ -4557,10 +4558,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1685:Drivers/CMSIS/Include/core_cm4.h ****   \param [in]      IRQn  Device specific interrupt number.
 1686:Drivers/CMSIS/Include/core_cm4.h ****   \note    IRQn must not be negative.
 1687:Drivers/CMSIS/Include/core_cm4.h ****  */
+ARM GAS  /tmp/cc01G5DJ.s 			page 77
+
+
 1688:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
-ARM GAS  /tmp/ccXedIFO.s 			page 77
-
-
 1689:Drivers/CMSIS/Include/core_cm4.h **** {
 1690:Drivers/CMSIS/Include/core_cm4.h ****   if ((int32_t)(IRQn) >= 0)
 1691:Drivers/CMSIS/Include/core_cm4.h ****   {
@@ -4617,10 +4618,10 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1742:Drivers/CMSIS/Include/core_cm4.h ****  */
 1743:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
 1744:Drivers/CMSIS/Include/core_cm4.h **** {
+ARM GAS  /tmp/cc01G5DJ.s 			page 78
+
+
 1745:Drivers/CMSIS/Include/core_cm4.h ****   if ((int32_t)(IRQn) >= 0)
-ARM GAS  /tmp/ccXedIFO.s 			page 78
-
-
 1746:Drivers/CMSIS/Include/core_cm4.h ****   {
 1747:Drivers/CMSIS/Include/core_cm4.h ****     return((uint32_t)(((NVIC->ISPR[(((uint32_t)IRQn) >> 5UL)] & (1UL << (((uint32_t)IRQn) & 0x1FUL)
 1748:Drivers/CMSIS/Include/core_cm4.h ****   }
@@ -4653,226 +4654,226 @@ ARM GAS  /tmp/ccXedIFO.s 			page 1
 1775:Drivers/CMSIS/Include/core_cm4.h ****   \note    IRQn must not be negative.
 1776:Drivers/CMSIS/Include/core_cm4.h ****  */
 1777:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
- 1560              		.loc 3 1777 22 view .LVU443
- 1561              	.LBB28:
+ 1561              		.loc 3 1777 22 view .LVU443
+ 1562              	.LBB28:
 1778:Drivers/CMSIS/Include/core_cm4.h **** {
 1779:Drivers/CMSIS/Include/core_cm4.h ****   if ((int32_t)(IRQn) >= 0)
- 1562              		.loc 3 1779 3 view .LVU444
- 1563              		.loc 3 1779 6 is_stmt 0 view .LVU445
- 1564 009a 002B     		cmp	r3, #0
- 1565 009c DBDB     		blt	.L95
+ 1563              		.loc 3 1779 3 view .LVU444
+ 1564              		.loc 3 1779 6 is_stmt 0 view .LVU445
+ 1565 009e 002B     		cmp	r3, #0
+ 1566 00a0 DBDB     		blt	.L95
 1780:Drivers/CMSIS/Include/core_cm4.h ****   {
 1781:Drivers/CMSIS/Include/core_cm4.h ****     NVIC->ICPR[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
- 1566              		.loc 3 1781 5 is_stmt 1 view .LVU446
- 1567              		.loc 3 1781 81 is_stmt 0 view .LVU447
- 1568 009e 03F01F01 		and	r1, r3, #31
- 1569              		.loc 3 1781 34 view .LVU448
- 1570 00a2 5B09     		lsrs	r3, r3, #5
- 1571              	.LVL103:
- 1572              		.loc 3 1781 45 view .LVU449
- 1573 00a4 0122     		movs	r2, #1
- 1574 00a6 8A40     		lsls	r2, r2, r1
- 1575              		.loc 3 1781 43 view .LVU450
- 1576 00a8 6033     		adds	r3, r3, #96
- 1577 00aa 0849     		ldr	r1, .L99+24
- 1578 00ac 41F82320 		str	r2, [r1, r3, lsl #2]
- 1579              	.LVL104:
- 1580              		.loc 3 1781 43 view .LVU451
-ARM GAS  /tmp/ccXedIFO.s 			page 79
+ 1567              		.loc 3 1781 5 is_stmt 1 view .LVU446
+ 1568              		.loc 3 1781 81 is_stmt 0 view .LVU447
+ 1569 00a2 03F01F01 		and	r1, r3, #31
+ 1570              		.loc 3 1781 34 view .LVU448
+ 1571 00a6 5B09     		lsrs	r3, r3, #5
+ 1572              	.LVL103:
+ 1573              		.loc 3 1781 45 view .LVU449
+ 1574 00a8 0122     		movs	r2, #1
+ 1575 00aa 8A40     		lsls	r2, r2, r1
+ 1576              		.loc 3 1781 43 view .LVU450
+ 1577 00ac 6033     		adds	r3, r3, #96
+ 1578 00ae 0849     		ldr	r1, .L99+24
+ 1579 00b0 41F82320 		str	r2, [r1, r3, lsl #2]
+ 1580              	.LVL104:
+ARM GAS  /tmp/cc01G5DJ.s 			page 79
 
 
- 1581 00b0 D1E7     		b	.L95
- 1582              	.L100:
- 1583 00b2 00BF     		.align	2
- 1584              	.L99:
- 1585 00b4 00000000 		.word	htim3
- 1586 00b8 00000000 		.word	htim1
- 1587 00bc 00000000 		.word	.LANCHOR2
- 1588 00c0 00000000 		.word	.LANCHOR3
- 1589 00c4 00000000 		.word	.LANCHOR0
- 1590 00c8 00040140 		.word	1073808384
- 1591 00cc 00E100E0 		.word	-536813312
- 1592              	.LBE28:
- 1593              	.LBE27:
- 1594              	.LBE26:
- 1595              	.LBE25:
- 1596              		.cfi_endproc
- 1597              	.LFE134:
- 1599              		.global	buttons
- 1600              		.global	game_field
- 1601              		.global	handle
- 1602              		.global	image
- 1603              		.global	line
- 1604              		.comm	htim3,76,4
- 1605              		.comm	htim1,76,4
- 1606              		.comm	hdma_spi1_tx,68,4
- 1607              		.comm	hspi1,100,4
- 1608              		.section	.bss.game_field,"aw",%nobits
- 1609              		.align	2
- 1610              		.set	.LANCHOR2,. + 0
- 1613              	game_field:
- 1614 0000 00000000 		.space	81
- 1614      00000000 
- 1614      00000000 
- 1614      00000000 
- 1614      00000000 
- 1615              		.section	.bss.image,"aw",%nobits
- 1616              		.align	2
- 1619              	image:
- 1620 0000 00000000 		.space	5750
- 1620      00000000 
- 1620      00000000 
- 1620      00000000 
- 1620      00000000 
- 1621              		.section	.bss.line,"aw",%nobits
- 1622              		.align	1
- 1623              		.set	.LANCHOR1,. + 0
- 1626              	line:
- 1627 0000 0000     		.space	2
- 1628              		.section	.data.buttons,"aw"
- 1629              		.align	2
- 1630              		.set	.LANCHOR0,. + 0
- 1633              	buttons:
- 1634 0000 00000000 		.word	0
- 1635 0004 00       		.byte	0
- 1636 0005 00       		.byte	0
- 1637 0006 8000     		.short	128
- 1638 0008 17       		.byte	23
-ARM GAS  /tmp/ccXedIFO.s 			page 80
+ 1581              		.loc 3 1781 43 view .LVU451
+ 1582 00b4 D1E7     		b	.L95
+ 1583              	.L100:
+ 1584 00b6 00BF     		.align	2
+ 1585              	.L99:
+ 1586 00b8 00000000 		.word	htim3
+ 1587 00bc 00000000 		.word	htim1
+ 1588 00c0 00000000 		.word	.LANCHOR2
+ 1589 00c4 00000000 		.word	.LANCHOR3
+ 1590 00c8 00000000 		.word	.LANCHOR0
+ 1591 00cc 00040140 		.word	1073808384
+ 1592 00d0 00E100E0 		.word	-536813312
+ 1593              	.LBE28:
+ 1594              	.LBE27:
+ 1595              	.LBE26:
+ 1596              	.LBE25:
+ 1597              		.cfi_endproc
+ 1598              	.LFE134:
+ 1600              		.global	buttons
+ 1601              		.global	game_field
+ 1602              		.global	handle
+ 1603              		.global	image
+ 1604              		.global	line
+ 1605              		.comm	htim3,76,4
+ 1606              		.comm	htim1,76,4
+ 1607              		.comm	hdma_spi1_tx,68,4
+ 1608              		.comm	hspi1,100,4
+ 1609              		.section	.bss.game_field,"aw",%nobits
+ 1610              		.align	2
+ 1611              		.set	.LANCHOR2,. + 0
+ 1614              	game_field:
+ 1615 0000 00000000 		.space	81
+ 1615      00000000 
+ 1615      00000000 
+ 1615      00000000 
+ 1615      00000000 
+ 1616              		.section	.bss.image,"aw",%nobits
+ 1617              		.align	2
+ 1620              	image:
+ 1621 0000 00000000 		.space	5750
+ 1621      00000000 
+ 1621      00000000 
+ 1621      00000000 
+ 1621      00000000 
+ 1622              		.section	.bss.line,"aw",%nobits
+ 1623              		.align	1
+ 1624              		.set	.LANCHOR1,. + 0
+ 1627              	line:
+ 1628 0000 0000     		.space	2
+ 1629              		.section	.data.buttons,"aw"
+ 1630              		.align	2
+ 1631              		.set	.LANCHOR0,. + 0
+ 1634              	buttons:
+ 1635 0000 00000000 		.word	0
+ 1636 0004 00       		.byte	0
+ 1637 0005 00       		.byte	0
+ 1638 0006 8000     		.short	128
+ARM GAS  /tmp/cc01G5DJ.s 			page 80
 
 
- 1639 0009 000000   		.space	3
- 1640 000c 00000000 		.word	game_player_move_down
- 1641 0010 00000000 		.word	0
- 1642 0014 00       		.byte	0
- 1643 0015 00       		.byte	0
- 1644 0016 4000     		.short	64
- 1645 0018 17       		.byte	23
- 1646 0019 000000   		.space	3
- 1647 001c 00000000 		.word	game_player_move_up
- 1648 0020 00000000 		.word	0
- 1649 0024 00       		.byte	0
- 1650 0025 00       		.byte	0
- 1651 0026 2000     		.short	32
- 1652 0028 17       		.byte	23
- 1653 0029 000000   		.space	3
- 1654 002c 00000000 		.word	game_player_move_left
- 1655 0030 00000000 		.word	0
- 1656 0034 00       		.byte	0
- 1657 0035 00       		.byte	0
- 1658 0036 0800     		.short	8
- 1659 0038 09       		.byte	9
- 1660 0039 000000   		.space	3
- 1661 003c 00000000 		.word	game_player_move_right
- 1662 0040 00000000 		.word	0
- 1663 0044 00       		.byte	0
- 1664 0045 00       		.byte	0
- 1665 0046 1000     		.short	16
- 1666 0048 0A       		.byte	10
- 1667 0049 000000   		.space	3
- 1668 004c 00000000 		.word	game_player_put_flag
- 1669 0050 00000000 		.word	0
- 1670 0054 00       		.byte	0
- 1671 0055 00       		.byte	0
- 1672 0056 0400     		.short	4
- 1673 0058 08       		.byte	8
- 1674 0059 000000   		.space	3
- 1675 005c 00000000 		.word	0
- 1676              		.section	.data.handle,"aw"
- 1677              		.align	2
- 1678              		.set	.LANCHOR3,. + 0
- 1681              	handle:
- 1682 0000 00000000 		.word	image
- 1683 0004 B800     		.short	184
- 1684 0006 FA00     		.short	250
- 1685              		.text
- 1686              	.Letext0:
- 1687              		.file 4 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h"
- 1688              		.file 5 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stdint.h"
- 1689              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
- 1690              		.file 7 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
- 1691              		.file 8 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h"
- 1692              		.file 9 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc_ex.h"
- 1693              		.file 10 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
- 1694              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
- 1695              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
- 1696              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h"
- 1697              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
-ARM GAS  /tmp/ccXedIFO.s 			page 81
+ 1639 0008 17       		.byte	23
+ 1640 0009 000000   		.space	3
+ 1641 000c 00000000 		.word	game_player_move_down
+ 1642 0010 00000000 		.word	0
+ 1643 0014 00       		.byte	0
+ 1644 0015 00       		.byte	0
+ 1645 0016 4000     		.short	64
+ 1646 0018 17       		.byte	23
+ 1647 0019 000000   		.space	3
+ 1648 001c 00000000 		.word	game_player_move_up
+ 1649 0020 00000000 		.word	0
+ 1650 0024 00       		.byte	0
+ 1651 0025 00       		.byte	0
+ 1652 0026 2000     		.short	32
+ 1653 0028 17       		.byte	23
+ 1654 0029 000000   		.space	3
+ 1655 002c 00000000 		.word	game_player_move_left
+ 1656 0030 00000000 		.word	0
+ 1657 0034 00       		.byte	0
+ 1658 0035 00       		.byte	0
+ 1659 0036 0800     		.short	8
+ 1660 0038 09       		.byte	9
+ 1661 0039 000000   		.space	3
+ 1662 003c 00000000 		.word	game_player_move_right
+ 1663 0040 00000000 		.word	0
+ 1664 0044 00       		.byte	0
+ 1665 0045 00       		.byte	0
+ 1666 0046 1000     		.short	16
+ 1667 0048 0A       		.byte	10
+ 1668 0049 000000   		.space	3
+ 1669 004c 00000000 		.word	game_player_put_flag
+ 1670 0050 00000000 		.word	0
+ 1671 0054 00       		.byte	0
+ 1672 0055 00       		.byte	0
+ 1673 0056 0400     		.short	4
+ 1674 0058 08       		.byte	8
+ 1675 0059 000000   		.space	3
+ 1676 005c 00000000 		.word	game_player_open_cell
+ 1677              		.section	.data.handle,"aw"
+ 1678              		.align	2
+ 1679              		.set	.LANCHOR3,. + 0
+ 1682              	handle:
+ 1683 0000 00000000 		.word	image
+ 1684 0004 B800     		.short	184
+ 1685 0006 FA00     		.short	250
+ 1686              		.text
+ 1687              	.Letext0:
+ 1688              		.file 4 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h"
+ 1689              		.file 5 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stdint.h"
+ 1690              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ 1691              		.file 7 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 1692              		.file 8 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h"
+ 1693              		.file 9 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc_ex.h"
+ 1694              		.file 10 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
+ 1695              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
+ 1696              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
+ 1697              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h"
+ARM GAS  /tmp/cc01G5DJ.s 			page 81
 
 
- 1698              		.file 15 "Core/Inc/gdi.h"
- 1699              		.file 16 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stddef.h"
- 1700              		.file 17 "/usr/include/newlib/sys/_types.h"
- 1701              		.file 18 "/usr/include/newlib/sys/reent.h"
- 1702              		.file 19 "/usr/include/newlib/sys/lock.h"
- 1703              		.file 20 "/usr/include/newlib/stdlib.h"
- 1704              		.file 21 "Core/Inc/game_symbols.h"
- 1705              		.file 22 "Core/Inc/game_engine.h"
- 1706              		.file 23 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_cortex.h"
- 1707              		.file 24 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h"
- 1708              		.file 25 "<built-in>"
-ARM GAS  /tmp/ccXedIFO.s 			page 82
+ 1698              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ 1699              		.file 15 "Core/Inc/gdi.h"
+ 1700              		.file 16 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stddef.h"
+ 1701              		.file 17 "/usr/include/newlib/sys/_types.h"
+ 1702              		.file 18 "/usr/include/newlib/sys/reent.h"
+ 1703              		.file 19 "/usr/include/newlib/sys/lock.h"
+ 1704              		.file 20 "/usr/include/newlib/stdlib.h"
+ 1705              		.file 21 "Core/Inc/game_symbols.h"
+ 1706              		.file 22 "Core/Inc/game_engine.h"
+ 1707              		.file 23 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_cortex.h"
+ 1708              		.file 24 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h"
+ 1709              		.file 25 "<built-in>"
+ARM GAS  /tmp/cc01G5DJ.s 			page 82
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccXedIFO.s:18     .text.MX_GPIO_Init:0000000000000000 $t
-     /tmp/ccXedIFO.s:25     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-     /tmp/ccXedIFO.s:372    .text.MX_GPIO_Init:00000000000001bc $d
-     /tmp/ccXedIFO.s:382    .text.MX_DMA_Init:0000000000000000 $t
-     /tmp/ccXedIFO.s:388    .text.MX_DMA_Init:0000000000000000 MX_DMA_Init
-     /tmp/ccXedIFO.s:435    .text.MX_DMA_Init:0000000000000030 $d
-     /tmp/ccXedIFO.s:440    .text.delay_us:0000000000000000 $t
-     /tmp/ccXedIFO.s:447    .text.delay_us:0000000000000000 delay_us
-     /tmp/ccXedIFO.s:473    .text.delay_us:0000000000000010 $d
+     /tmp/cc01G5DJ.s:18     .text.MX_GPIO_Init:0000000000000000 $t
+     /tmp/cc01G5DJ.s:25     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+     /tmp/cc01G5DJ.s:372    .text.MX_GPIO_Init:00000000000001bc $d
+     /tmp/cc01G5DJ.s:382    .text.MX_DMA_Init:0000000000000000 $t
+     /tmp/cc01G5DJ.s:388    .text.MX_DMA_Init:0000000000000000 MX_DMA_Init
+     /tmp/cc01G5DJ.s:435    .text.MX_DMA_Init:0000000000000030 $d
+     /tmp/cc01G5DJ.s:440    .text.delay_us:0000000000000000 $t
+     /tmp/cc01G5DJ.s:447    .text.delay_us:0000000000000000 delay_us
+     /tmp/cc01G5DJ.s:473    .text.delay_us:0000000000000010 $d
                             *COM*:000000000000004c htim3
-     /tmp/ccXedIFO.s:478    .text.HAL_GPIO_EXTI_Callback:0000000000000000 $t
-     /tmp/ccXedIFO.s:485    .text.HAL_GPIO_EXTI_Callback:0000000000000000 HAL_GPIO_EXTI_Callback
-     /tmp/ccXedIFO.s:571    .text.HAL_GPIO_EXTI_Callback:000000000000003c $d
-     /tmp/ccXedIFO.s:577    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 $t
-     /tmp/ccXedIFO.s:584    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 HAL_TIM_PeriodElapsedCallback
-     /tmp/ccXedIFO.s:746    .text.HAL_TIM_PeriodElapsedCallback:00000000000000cc $d
-     /tmp/ccXedIFO.s:1619   .bss.image:0000000000000000 image
+     /tmp/cc01G5DJ.s:478    .text.HAL_GPIO_EXTI_Callback:0000000000000000 $t
+     /tmp/cc01G5DJ.s:485    .text.HAL_GPIO_EXTI_Callback:0000000000000000 HAL_GPIO_EXTI_Callback
+     /tmp/cc01G5DJ.s:571    .text.HAL_GPIO_EXTI_Callback:000000000000003c $d
+     /tmp/cc01G5DJ.s:577    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 $t
+     /tmp/cc01G5DJ.s:584    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 HAL_TIM_PeriodElapsedCallback
+     /tmp/cc01G5DJ.s:746    .text.HAL_TIM_PeriodElapsedCallback:00000000000000cc $d
+     /tmp/cc01G5DJ.s:1620   .bss.image:0000000000000000 image
                             *COM*:000000000000004c htim1
                             *COM*:0000000000000064 hspi1
-     /tmp/ccXedIFO.s:757    .text.draw_rect:0000000000000000 $t
-     /tmp/ccXedIFO.s:764    .text.draw_rect:0000000000000000 draw_rect
-     /tmp/ccXedIFO.s:865    .text.draw_rect:0000000000000064 $d
-     /tmp/ccXedIFO.s:870    .text.Error_Handler:0000000000000000 $t
-     /tmp/ccXedIFO.s:877    .text.Error_Handler:0000000000000000 Error_Handler
-     /tmp/ccXedIFO.s:929    .text.Error_Handler:0000000000000028 $d
-     /tmp/ccXedIFO.s:934    .text.MX_SPI1_Init:0000000000000000 $t
-     /tmp/ccXedIFO.s:940    .text.MX_SPI1_Init:0000000000000000 MX_SPI1_Init
-     /tmp/ccXedIFO.s:1018   .text.MX_SPI1_Init:0000000000000048 $d
-     /tmp/ccXedIFO.s:1024   .text.MX_TIM1_Init:0000000000000000 $t
-     /tmp/ccXedIFO.s:1030   .text.MX_TIM1_Init:0000000000000000 MX_TIM1_Init
-     /tmp/ccXedIFO.s:1140   .text.MX_TIM1_Init:0000000000000068 $d
-     /tmp/ccXedIFO.s:1146   .text.MX_TIM3_Init:0000000000000000 $t
-     /tmp/ccXedIFO.s:1152   .text.MX_TIM3_Init:0000000000000000 MX_TIM3_Init
-     /tmp/ccXedIFO.s:1256   .text.MX_TIM3_Init:0000000000000064 $d
-     /tmp/ccXedIFO.s:1262   .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccXedIFO.s:1269   .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccXedIFO.s:1402   .text.SystemClock_Config:0000000000000088 $d
-     /tmp/ccXedIFO.s:1407   .text.main:0000000000000000 $t
-     /tmp/ccXedIFO.s:1414   .text.main:0000000000000000 main
-     /tmp/ccXedIFO.s:1585   .text.main:00000000000000b4 $d
-     /tmp/ccXedIFO.s:1633   .data.buttons:0000000000000000 buttons
-     /tmp/ccXedIFO.s:1613   .bss.game_field:0000000000000000 game_field
-     /tmp/ccXedIFO.s:1681   .data.handle:0000000000000000 handle
-     /tmp/ccXedIFO.s:1626   .bss.line:0000000000000000 line
+     /tmp/cc01G5DJ.s:757    .text.draw_rect:0000000000000000 $t
+     /tmp/cc01G5DJ.s:764    .text.draw_rect:0000000000000000 draw_rect
+     /tmp/cc01G5DJ.s:865    .text.draw_rect:0000000000000064 $d
+     /tmp/cc01G5DJ.s:870    .text.Error_Handler:0000000000000000 $t
+     /tmp/cc01G5DJ.s:877    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/cc01G5DJ.s:929    .text.Error_Handler:0000000000000028 $d
+     /tmp/cc01G5DJ.s:934    .text.MX_SPI1_Init:0000000000000000 $t
+     /tmp/cc01G5DJ.s:940    .text.MX_SPI1_Init:0000000000000000 MX_SPI1_Init
+     /tmp/cc01G5DJ.s:1018   .text.MX_SPI1_Init:0000000000000048 $d
+     /tmp/cc01G5DJ.s:1024   .text.MX_TIM1_Init:0000000000000000 $t
+     /tmp/cc01G5DJ.s:1030   .text.MX_TIM1_Init:0000000000000000 MX_TIM1_Init
+     /tmp/cc01G5DJ.s:1140   .text.MX_TIM1_Init:0000000000000068 $d
+     /tmp/cc01G5DJ.s:1146   .text.MX_TIM3_Init:0000000000000000 $t
+     /tmp/cc01G5DJ.s:1152   .text.MX_TIM3_Init:0000000000000000 MX_TIM3_Init
+     /tmp/cc01G5DJ.s:1256   .text.MX_TIM3_Init:0000000000000064 $d
+     /tmp/cc01G5DJ.s:1262   .text.SystemClock_Config:0000000000000000 $t
+     /tmp/cc01G5DJ.s:1269   .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/cc01G5DJ.s:1402   .text.SystemClock_Config:0000000000000088 $d
+     /tmp/cc01G5DJ.s:1407   .text.main:0000000000000000 $t
+     /tmp/cc01G5DJ.s:1414   .text.main:0000000000000000 main
+     /tmp/cc01G5DJ.s:1586   .text.main:00000000000000b8 $d
+     /tmp/cc01G5DJ.s:1634   .data.buttons:0000000000000000 buttons
+     /tmp/cc01G5DJ.s:1614   .bss.game_field:0000000000000000 game_field
+     /tmp/cc01G5DJ.s:1682   .data.handle:0000000000000000 handle
+     /tmp/cc01G5DJ.s:1627   .bss.line:0000000000000000 line
                             *COM*:0000000000000044 hdma_spi1_tx
-     /tmp/ccXedIFO.s:1609   .bss.game_field:0000000000000000 $d
-     /tmp/ccXedIFO.s:1616   .bss.image:0000000000000000 $d
-     /tmp/ccXedIFO.s:1622   .bss.line:0000000000000000 $d
-     /tmp/ccXedIFO.s:1629   .data.buttons:0000000000000000 $d
-     /tmp/ccXedIFO.s:1677   .data.handle:0000000000000000 $d
+     /tmp/cc01G5DJ.s:1610   .bss.game_field:0000000000000000 $d
+     /tmp/cc01G5DJ.s:1617   .bss.image:0000000000000000 $d
+     /tmp/cc01G5DJ.s:1623   .bss.line:0000000000000000 $d
+     /tmp/cc01G5DJ.s:1630   .data.buttons:0000000000000000 $d
+     /tmp/cc01G5DJ.s:1678   .data.handle:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
 HAL_GPIO_Init
 HAL_NVIC_SetPriority
-ARM GAS  /tmp/ccXedIFO.s 			page 83
+ARM GAS  /tmp/cc01G5DJ.s 			page 83
 
 
 HAL_NVIC_EnableIRQ
@@ -4898,3 +4899,4 @@ game_player_move_up
 game_player_move_left
 game_player_move_right
 game_player_put_flag
+game_player_open_cell

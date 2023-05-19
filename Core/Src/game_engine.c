@@ -96,19 +96,178 @@ void game_player_put_flag(game_handle *handle) {
 }
 
 void game_player_open_cell(game_handle *handle) {
-    if(
+    if(handle->openings == 0) {
+        srand(12);
+        uint16_t mines_count = 0;
+
+        while(mines_count <= handle->mines_count) {
+            uint8_t mine_x = (rand() % (handle->field_width + 1));
+            uint8_t mine_y = (rand() % (handle->field_height + 1));
+
+            if(game_get_cell_value(mine_x, mine_y, handle) == 10 ||
+              (mine_x == handle->player_pos_x && mine_y == handle->player_pos_y)) {
+                continue;
+            }
+
+            ++mines_count;
+            game_set_cell_value(mine_x, mine_y, 10, handle);
+
+            for(int16_t i = mine_y - 1; i < (mine_y + 2); ++i) {
+                for(int16_t j = mine_x - 1;  j < (mine_x + 2); ++j) {
+                    if(i < 0 || j < 0 || j >= handle->field_width ||
+                       i >= handle->field_height || (i == mine_y && j == mine_x)) {
+                        continue;
+                    }
+                    if(game_get_cell_value(j, i, handle) == 10) {
+                        continue;
+                    }
+                    game_set_cell_value(j, i, game_get_cell_value(j, i, handle) + 1, handle);
+                }
+            }
+        }
+
+    }
+
+    /*for(uint8_t i = 0; i < handle->field_width; ++i) {
+        for(uint8_t j = 0; j < handle->field_height; ++j) {
+            draw_cell(i, j, handle);
+        }
+    }*/
+
+    uint8_t x = handle->player_pos_x, y = handle->player_pos_y;
+    game_open_cells_recursive(x, y, handle);
+    /*if(game_is_cell_under_flag(x, y, handle)) {
+        return;
+    }
+
+    if(game_is_cell_open(x, y, handle)) {
+        return;
+    }
+
+    if(game_get_cell_value(x, y, handle) == 10) {
+        handle->game_state = 2;
+        return;
+    }
+
+    ++handle->openings;
+    game_set_cell_opened(handle->player_pos_x, handle->player_pos_y, handle);
+    if(handle->openings == (handle->width * handle->height - handle->mines_count)) {
+        handle->game_state = 1;
+        return;
+    }
+
+    if(game_get_cell_value(x, y, handle) == 0 ||
+       game_get_cell_value(x, y, handle) ==
+       game_calculate_flags_around_cell(x, y, handle))
+    {
+        for(int16_t i = y - 1; i < (y + 2); ++i) {
+            for(int16_t j = x - 1;  j < (x + 2); ++j) {
+                if(i < 0 || j < 0 || j >= handle->field_width ||
+                    i >= handle->field_height || (i == y && j == x)) {
+                    continue;
+                }
+
+                if(game_get_cell_value(j, i, handle) == 10) {
+                    continue;
+                }
+
+                game_open_cells_recursive(x, y, handle);
+            }
+        }
+    }
+
+    return;*/
+}
+
+void game_open_cells_recursive(uint8_t x, uint8_t y, game_handle *handle) {
+    //int q = 0;
+    //while(q++ < 10000) {};
+
+    //draw_cell(x, y, handle);
+
+    if(game_is_cell_under_flag(x, y, handle)) {
+        return;
+    }
+
+    if(game_is_cell_opened(x, y, handle)) {
+        return;
+    }
+
+    if(game_get_cell_value(x, y, handle) == 10) {
+        handle->game_state = 2;
+        return;
+    }
+
+    ++handle->openings;
+    game_set_cell_opened(handle->player_pos_x, handle->player_pos_y, handle);
+    if(handle->openings == (handle->field_width * handle->field_height - handle->mines_count)) {
+        handle->game_state = 1;
+        return;
+    }
+
+    if(game_get_cell_value(x, y, handle) == 0 ||
+       game_get_cell_value(x, y, handle) ==
+       game_calculate_flags_around_cell(x, y, handle))
+    {
+        for(uint16_t i = y - 1; i < (y + 2); ++i) {
+            for(uint16_t j = x - 1;  j < (x + 2); ++j) {
+                if((i < 0) || (j < 0) || (j >= handle->field_width) ||
+                    (i >= handle->field_height) || (i == y && j == x)) {
+                    continue;
+                }
+
+                if(game_get_cell_value(j, i, handle) == 10) {
+                    continue;
+                }
+
+                game_open_cells_recursive(j, i, handle);
+            }
+        }
+    }
+
+    return;
+}
+
+uint8_t game_calculate_flags_around_cell(uint8_t x, uint8_t y, game_handle *handle) {
+    uint8_t flags_count = 0;
+
+    for(int16_t i = y - 1; i < (y + 2); ++i) {
+        for(int16_t j = x - 1;  j < (x + 2); ++j) {
+            if(i < 0 || j < 0 || j >= handle->field_width ||
+               i >= handle->field_height || (i == y && j == x)) {
+                continue;
+            }
+            flags_count += game_is_cell_under_flag(x, y, handle);
+        }
+    }
+
+    return flags_count;
+}
+
+void game_set_cell_value(uint8_t x, uint8_t y, uint8_t value, game_handle *handle) {
+    handle->field[y * handle->field_width + x] <<= 4;
+    handle->field[y * handle->field_width + x] >>= 4;
+    handle->field[y * handle->field_width + x] += (uint8_t)(value << (uint8_t)4);
 }
 
 uint8_t game_get_cell_value(uint8_t x, uint8_t y, game_handle *handle) {
-    return handle->field[y * handle->field_width + x] >> 4;
+    return (uint8_t)(handle->field[y * handle->field_width + x]) >> (uint8_t)4;
 }
 
 uint8_t game_is_cell_opened(uint8_t x, uint8_t y, game_handle *handle) {
-    return (handle->field[y * handle->field_width + x] << 4) == 0;
+    return ((uint8_t)(handle->field[y * handle->field_width + x] << 4) == (uint8_t)0);
+}
+
+void game_set_cell_opened(uint8_t x, uint8_t y, game_handle *handle) {
+    if(!game_is_cell_opened(x, y, handle)) {
+        handle->field[y * handle->field_width + x] -= 1;
+        draw_cell(x, y, handle);
+    }
+    return;
 }
 
 uint8_t game_is_cell_under_flag(uint8_t x, uint8_t y, game_handle *handle) {
-    return (handle->field[y * handle->field_width + x] << 4) == 0b00110000;
+    return ((uint8_t)(handle->field[y * handle->field_width + x] << 4)) == (uint8_t)0b00110000;
 }
 
 void draw_cell(uint8_t x, uint8_t y, game_handle *handle) {
@@ -138,7 +297,7 @@ void draw_cell(uint8_t x, uint8_t y, game_handle *handle) {
             case 8:
                 draw_picture(x * 16, y * 16, 16, 16, eight, handle->graphics);
                 break;
-            case 9:
+            case 0:
                 draw_picture(x * 16, y * 16, 16, 16, zero_cell, handle->graphics);
                 break;
             case 10:
