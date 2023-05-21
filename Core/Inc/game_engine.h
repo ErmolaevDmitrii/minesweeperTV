@@ -20,6 +20,7 @@ typedef struct {
 void game_set_cell_value(uint8_t x, uint8_t y, uint8_t value, game_handle *handle);
 uint8_t game_get_cell_value(uint8_t x, uint8_t y, game_handle *handle);
 uint8_t game_is_cell_opened(uint8_t x, uint8_t y, game_handle *handle);
+uint8_t game_is_cell_around_opened_neighbours(uint8_t x, uint8_t y, game_handle *handle);
 void game_set_cell_opened(uint8_t x, uint8_t y, game_handle *handle);
 uint8_t game_is_cell_under_flag(uint8_t x, uint8_t y, game_handle *handle);
 uint8_t game_calculate_flags_around_cell(uint8_t x, uint8_t y, game_handle *handle);

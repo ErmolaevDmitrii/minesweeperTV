@@ -3,7 +3,7 @@
 void game_start(game_handle *handle) {
     handle->player_pos_x = handle->field_width / 2;
     handle->player_pos_y = handle->field_height / 2;
-    handle->mines_count = handle->field_width * handle->field_height / 5 * 1;
+    handle->mines_count = handle->field_width * handle->field_height / 7 * 1;
 
     for(int i = 0; i < handle->field_width * handle->field_height; ++i) {
         handle->field[i] = 0b00000001;
@@ -114,8 +114,8 @@ void game_player_open_cell(game_handle *handle) {
 
             for(int16_t i = mine_y - 1; i < (mine_y + 2); ++i) {
                 for(int16_t j = mine_x - 1;  j < (mine_x + 2); ++j) {
-                    if(i < 0 || j < 0 || j >= handle->field_width ||
-                       i >= handle->field_height || (i == mine_y && j == mine_x)) {
+                    if((i < 0) || (j < 0) || (j >= handle->field_width) ||
+                       (i >= handle->field_height) || (i == mine_y && j == mine_x)) {
                         continue;
                     }
                     if(game_get_cell_value(j, i, handle) == 10) {
@@ -179,6 +179,34 @@ void game_player_open_cell(game_handle *handle) {
     return;*/
 }
 
+uint8_t game_is_cell_around_opened_neighbours(uint8_t x, uint8_t y, game_handle *handle) {
+    uint8_t opened_neighbours = 0;
+
+    for(uint16_t i = y - 1; i < (y + 2); ++i) {
+        for(uint16_t j = x - 1;  j < (x + 2); ++j) {
+            if((i < 0) || (j < 0) || (j >= handle->field_width) ||
+               (i >= handle->field_height) || (i == y && j == x)) {
+                continue;
+            }
+            opened_neighbours += game_is_cell_opened(j, i, handle);
+        }
+    }
+
+    if((y == 0) || (y == (handle->field_height - 1))) {
+        if((x == 0) || (x == (handle->field_width - 1))) {
+            return (opened_neighbours == 3);
+        }
+
+        return (opened_neighbours == 5);
+    }
+
+    if((x == 0) || (x == (handle->field_width - 1))) {
+        return (opened_neighbours == 5);
+    }
+
+    return (opened_neighbours == 8);
+}
+
 void game_open_cells_recursive(uint8_t x, uint8_t y, game_handle *handle) {
     //int q = 0;
     //while(q++ < 10000) {};
@@ -189,7 +217,7 @@ void game_open_cells_recursive(uint8_t x, uint8_t y, game_handle *handle) {
         return;
     }
 
-    if(game_is_cell_opened(x, y, handle)) {
+    if(/*game_is_cell_around_opened_neighbours*/game_is_cell_opened(x, y, handle)) {
         return;
     }
 
@@ -199,7 +227,7 @@ void game_open_cells_recursive(uint8_t x, uint8_t y, game_handle *handle) {
     }
 
     ++handle->openings;
-    game_set_cell_opened(handle->player_pos_x, handle->player_pos_y, handle);
+    game_set_cell_opened(x, y, handle);
     if(handle->openings == (handle->field_width * handle->field_height - handle->mines_count)) {
         handle->game_state = 1;
         return;
@@ -233,15 +261,15 @@ uint8_t game_calculate_flags_around_cell(uint8_t x, uint8_t y, game_handle *hand
 
     for(int16_t i = y - 1; i < (y + 2); ++i) {
         for(int16_t j = x - 1;  j < (x + 2); ++j) {
-            if(i < 0 || j < 0 || j >= handle->field_width ||
-               i >= handle->field_height || (i == y && j == x)) {
+            if((i < 0) || (j < 0) || (j >= handle->field_width) ||
+               (i >= handle->field_height) || (i == y && j == x)) {
                 continue;
             }
             flags_count += game_is_cell_under_flag(x, y, handle);
         }
     }
 
-    return flags_count;
+    return /*flags_count*/3;
 }
 
 void game_set_cell_value(uint8_t x, uint8_t y, uint8_t value, game_handle *handle) {
