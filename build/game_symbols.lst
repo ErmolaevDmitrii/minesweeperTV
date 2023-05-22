@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc5pyIGS.s 			page 1
+ARM GAS  /tmp/ccsWmk0a.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,513 +10,651 @@ ARM GAS  /tmp/cc5pyIGS.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 30, 1
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"game_symbols.c"
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.global	zero_cell
-  18              		.global	selected_cell
-  19              		.global	not_opened_cell
-  20              		.global	bomb
-  21              		.global	flag
-  22              		.global	eight
-  23              		.global	seven
-  24              		.global	six
-  25              		.global	five
-  26              		.global	four
-  27              		.global	three
-  28              		.global	two
-  29              		.global	one
-  30              		.section	.rodata.bomb,"a"
-  31              		.align	2
-  34              	bomb:
-  35 0000 00       		.byte	0
-  36 0001 00       		.byte	0
-  37 0002 00       		.byte	0
-  38 0003 00       		.byte	0
-  39 0004 01       		.byte	1
-  40 0005 80       		.byte	-128
-  41 0006 19       		.byte	25
-  42 0007 98       		.byte	-104
-  43 0008 1B       		.byte	27
-  44 0009 D8       		.byte	-40
-  45 000a 0F       		.byte	15
-  46 000b F0       		.byte	-16
-  47 000c 0F       		.byte	15
-  48 000d F0       		.byte	-16
-  49 000e 3F       		.byte	63
-  50 000f FC       		.byte	-4
-  51 0010 3F       		.byte	63
-  52 0011 FC       		.byte	-4
-  53 0012 0F       		.byte	15
-  54 0013 F0       		.byte	-16
-  55 0014 0F       		.byte	15
-  56 0015 F0       		.byte	-16
-  57 0016 1B       		.byte	27
-  58 0017 D8       		.byte	-40
-  59 0018 19       		.byte	25
-ARM GAS  /tmp/cc5pyIGS.s 			page 2
+  17              		.global	win_print
+  18              		.global	lose_print
+  19              		.global	zero_cell
+  20              		.global	selected_cell
+  21              		.global	not_opened_cell
+  22              		.global	bomb
+  23              		.global	flag
+  24              		.global	eight
+  25              		.global	seven
+  26              		.global	six
+  27              		.global	five
+  28              		.global	four
+  29              		.global	three
+  30              		.global	two
+  31              		.global	one
+  32              		.section	.rodata.bomb,"a"
+  33              		.align	2
+  36              	bomb:
+  37 0000 00       		.byte	0
+  38 0001 00       		.byte	0
+  39 0002 00       		.byte	0
+  40 0003 00       		.byte	0
+  41 0004 01       		.byte	1
+  42 0005 80       		.byte	-128
+  43 0006 19       		.byte	25
+  44 0007 98       		.byte	-104
+  45 0008 1B       		.byte	27
+  46 0009 D8       		.byte	-40
+  47 000a 0F       		.byte	15
+  48 000b F0       		.byte	-16
+  49 000c 0F       		.byte	15
+  50 000d F0       		.byte	-16
+  51 000e 3F       		.byte	63
+  52 000f FC       		.byte	-4
+  53 0010 3F       		.byte	63
+  54 0011 FC       		.byte	-4
+  55 0012 0F       		.byte	15
+  56 0013 F0       		.byte	-16
+  57 0014 0F       		.byte	15
+  58 0015 F0       		.byte	-16
+  59 0016 1B       		.byte	27
+ARM GAS  /tmp/ccsWmk0a.s 			page 2
 
 
-  60 0019 98       		.byte	-104
-  61 001a 01       		.byte	1
-  62 001b 80       		.byte	-128
-  63 001c 00       		.byte	0
-  64 001d 00       		.byte	0
-  65 001e 00       		.byte	0
-  66 001f 00       		.byte	0
-  67              		.section	.rodata.eight,"a"
-  68              		.align	2
-  71              	eight:
-  72 0000 00       		.byte	0
-  73 0001 00       		.byte	0
-  74 0002 03       		.byte	3
-  75 0003 C0       		.byte	-64
-  76 0004 07       		.byte	7
-  77 0005 E0       		.byte	-32
-  78 0006 04       		.byte	4
-  79 0007 20       		.byte	32
-  80 0008 04       		.byte	4
-  81 0009 20       		.byte	32
-  82 000a 06       		.byte	6
-  83 000b 60       		.byte	96
-  84 000c 07       		.byte	7
-  85 000d E0       		.byte	-32
-  86 000e 03       		.byte	3
-  87 000f C0       		.byte	-64
-  88 0010 03       		.byte	3
-  89 0011 C0       		.byte	-64
-  90 0012 06       		.byte	6
-  91 0013 60       		.byte	96
-  92 0014 0C       		.byte	12
-  93 0015 30       		.byte	48
-  94 0016 0C       		.byte	12
-  95 0017 30       		.byte	48
-  96 0018 0F       		.byte	15
-  97 0019 F0       		.byte	-16
-  98 001a 07       		.byte	7
-  99 001b E0       		.byte	-32
- 100 001c 00       		.byte	0
- 101 001d 00       		.byte	0
- 102 001e 00       		.byte	0
- 103 001f 00       		.byte	0
- 104              		.section	.rodata.five,"a"
- 105              		.align	2
- 108              	five:
- 109 0000 00       		.byte	0
- 110 0001 00       		.byte	0
- 111 0002 07       		.byte	7
- 112 0003 F0       		.byte	-16
- 113 0004 07       		.byte	7
- 114 0005 F0       		.byte	-16
- 115 0006 06       		.byte	6
- 116 0007 00       		.byte	0
- 117 0008 06       		.byte	6
- 118 0009 00       		.byte	0
- 119 000a 06       		.byte	6
- 120 000b 00       		.byte	0
-ARM GAS  /tmp/cc5pyIGS.s 			page 3
+  60 0017 D8       		.byte	-40
+  61 0018 19       		.byte	25
+  62 0019 98       		.byte	-104
+  63 001a 01       		.byte	1
+  64 001b 80       		.byte	-128
+  65 001c 00       		.byte	0
+  66 001d 00       		.byte	0
+  67 001e 00       		.byte	0
+  68 001f 00       		.byte	0
+  69              		.section	.rodata.eight,"a"
+  70              		.align	2
+  73              	eight:
+  74 0000 00       		.byte	0
+  75 0001 00       		.byte	0
+  76 0002 03       		.byte	3
+  77 0003 C0       		.byte	-64
+  78 0004 07       		.byte	7
+  79 0005 E0       		.byte	-32
+  80 0006 04       		.byte	4
+  81 0007 20       		.byte	32
+  82 0008 04       		.byte	4
+  83 0009 20       		.byte	32
+  84 000a 06       		.byte	6
+  85 000b 60       		.byte	96
+  86 000c 07       		.byte	7
+  87 000d E0       		.byte	-32
+  88 000e 03       		.byte	3
+  89 000f C0       		.byte	-64
+  90 0010 03       		.byte	3
+  91 0011 C0       		.byte	-64
+  92 0012 06       		.byte	6
+  93 0013 60       		.byte	96
+  94 0014 0C       		.byte	12
+  95 0015 30       		.byte	48
+  96 0016 0C       		.byte	12
+  97 0017 30       		.byte	48
+  98 0018 0F       		.byte	15
+  99 0019 F0       		.byte	-16
+ 100 001a 07       		.byte	7
+ 101 001b E0       		.byte	-32
+ 102 001c 00       		.byte	0
+ 103 001d 00       		.byte	0
+ 104 001e 00       		.byte	0
+ 105 001f 00       		.byte	0
+ 106              		.section	.rodata.five,"a"
+ 107              		.align	2
+ 110              	five:
+ 111 0000 00       		.byte	0
+ 112 0001 00       		.byte	0
+ 113 0002 07       		.byte	7
+ 114 0003 F0       		.byte	-16
+ 115 0004 07       		.byte	7
+ 116 0005 F0       		.byte	-16
+ 117 0006 06       		.byte	6
+ 118 0007 00       		.byte	0
+ 119 0008 06       		.byte	6
+ 120 0009 00       		.byte	0
+ARM GAS  /tmp/ccsWmk0a.s 			page 3
 
 
- 121 000c 07       		.byte	7
- 122 000d C0       		.byte	-64
- 123 000e 03       		.byte	3
- 124 000f E0       		.byte	-32
- 125 0010 00       		.byte	0
- 126 0011 70       		.byte	112
- 127 0012 00       		.byte	0
- 128 0013 30       		.byte	48
- 129 0014 00       		.byte	0
- 130 0015 30       		.byte	48
- 131 0016 0C       		.byte	12
- 132 0017 70       		.byte	112
- 133 0018 0F       		.byte	15
- 134 0019 E0       		.byte	-32
- 135 001a 07       		.byte	7
- 136 001b C0       		.byte	-64
- 137 001c 00       		.byte	0
- 138 001d 00       		.byte	0
- 139 001e 00       		.byte	0
- 140 001f 00       		.byte	0
- 141              		.section	.rodata.flag,"a"
- 142              		.align	2
- 145              	flag:
- 146 0000 00       		.byte	0
- 147 0001 00       		.byte	0
- 148 0002 01       		.byte	1
- 149 0003 80       		.byte	-128
- 150 0004 03       		.byte	3
- 151 0005 80       		.byte	-128
- 152 0006 07       		.byte	7
- 153 0007 80       		.byte	-128
- 154 0008 0F       		.byte	15
- 155 0009 80       		.byte	-128
- 156 000a 1F       		.byte	31
- 157 000b 80       		.byte	-128
- 158 000c 0F       		.byte	15
- 159 000d 80       		.byte	-128
- 160 000e 07       		.byte	7
- 161 000f 80       		.byte	-128
- 162 0010 03       		.byte	3
- 163 0011 80       		.byte	-128
- 164 0012 01       		.byte	1
- 165 0013 80       		.byte	-128
- 166 0014 01       		.byte	1
- 167 0015 80       		.byte	-128
- 168 0016 01       		.byte	1
- 169 0017 80       		.byte	-128
- 170 0018 0F       		.byte	15
- 171 0019 F0       		.byte	-16
- 172 001a 0F       		.byte	15
- 173 001b F0       		.byte	-16
- 174 001c 00       		.byte	0
- 175 001d 00       		.byte	0
- 176 001e 00       		.byte	0
- 177 001f 00       		.byte	0
- 178              		.section	.rodata.four,"a"
- 179              		.align	2
-ARM GAS  /tmp/cc5pyIGS.s 			page 4
+ 121 000a 06       		.byte	6
+ 122 000b 00       		.byte	0
+ 123 000c 07       		.byte	7
+ 124 000d C0       		.byte	-64
+ 125 000e 03       		.byte	3
+ 126 000f E0       		.byte	-32
+ 127 0010 00       		.byte	0
+ 128 0011 70       		.byte	112
+ 129 0012 00       		.byte	0
+ 130 0013 30       		.byte	48
+ 131 0014 00       		.byte	0
+ 132 0015 30       		.byte	48
+ 133 0016 0C       		.byte	12
+ 134 0017 70       		.byte	112
+ 135 0018 0F       		.byte	15
+ 136 0019 E0       		.byte	-32
+ 137 001a 07       		.byte	7
+ 138 001b C0       		.byte	-64
+ 139 001c 00       		.byte	0
+ 140 001d 00       		.byte	0
+ 141 001e 00       		.byte	0
+ 142 001f 00       		.byte	0
+ 143              		.section	.rodata.flag,"a"
+ 144              		.align	2
+ 147              	flag:
+ 148 0000 00       		.byte	0
+ 149 0001 00       		.byte	0
+ 150 0002 01       		.byte	1
+ 151 0003 80       		.byte	-128
+ 152 0004 03       		.byte	3
+ 153 0005 80       		.byte	-128
+ 154 0006 07       		.byte	7
+ 155 0007 80       		.byte	-128
+ 156 0008 0F       		.byte	15
+ 157 0009 80       		.byte	-128
+ 158 000a 1F       		.byte	31
+ 159 000b 80       		.byte	-128
+ 160 000c 0F       		.byte	15
+ 161 000d 80       		.byte	-128
+ 162 000e 07       		.byte	7
+ 163 000f 80       		.byte	-128
+ 164 0010 03       		.byte	3
+ 165 0011 80       		.byte	-128
+ 166 0012 01       		.byte	1
+ 167 0013 80       		.byte	-128
+ 168 0014 01       		.byte	1
+ 169 0015 80       		.byte	-128
+ 170 0016 01       		.byte	1
+ 171 0017 80       		.byte	-128
+ 172 0018 0F       		.byte	15
+ 173 0019 F0       		.byte	-16
+ 174 001a 0F       		.byte	15
+ 175 001b F0       		.byte	-16
+ 176 001c 00       		.byte	0
+ 177 001d 00       		.byte	0
+ 178 001e 00       		.byte	0
+ 179 001f 00       		.byte	0
+ARM GAS  /tmp/ccsWmk0a.s 			page 4
 
 
- 182              	four:
- 183 0000 00       		.byte	0
- 184 0001 00       		.byte	0
- 185 0002 00       		.byte	0
- 186 0003 60       		.byte	96
- 187 0004 00       		.byte	0
- 188 0005 E0       		.byte	-32
- 189 0006 01       		.byte	1
- 190 0007 E0       		.byte	-32
- 191 0008 03       		.byte	3
- 192 0009 60       		.byte	96
- 193 000a 06       		.byte	6
- 194 000b 60       		.byte	96
- 195 000c 0E       		.byte	14
- 196 000d 60       		.byte	96
- 197 000e 0F       		.byte	15
- 198 000f F0       		.byte	-16
- 199 0010 0F       		.byte	15
- 200 0011 F0       		.byte	-16
- 201 0012 00       		.byte	0
- 202 0013 60       		.byte	96
- 203 0014 00       		.byte	0
- 204 0015 60       		.byte	96
- 205 0016 00       		.byte	0
- 206 0017 60       		.byte	96
- 207 0018 00       		.byte	0
- 208 0019 60       		.byte	96
- 209 001a 00       		.byte	0
- 210 001b 60       		.byte	96
- 211 001c 00       		.byte	0
- 212 001d 00       		.byte	0
- 213 001e 00       		.byte	0
- 214 001f 00       		.byte	0
- 215              		.section	.rodata.not_opened_cell,"a"
- 216              		.align	2
- 219              	not_opened_cell:
- 220 0000 FF       		.byte	-1
- 221 0001 FF       		.byte	-1
- 222 0002 FF       		.byte	-1
- 223 0003 FF       		.byte	-1
- 224 0004 C9       		.byte	-55
- 225 0005 27       		.byte	39
- 226 0006 D2       		.byte	-46
- 227 0007 4B       		.byte	75
- 228 0008 E4       		.byte	-28
- 229 0009 93       		.byte	-109
- 230 000a C9       		.byte	-55
- 231 000b 27       		.byte	39
- 232 000c D2       		.byte	-46
- 233 000d 4B       		.byte	75
- 234 000e E4       		.byte	-28
- 235 000f 93       		.byte	-109
- 236 0010 C9       		.byte	-55
- 237 0011 27       		.byte	39
- 238 0012 D2       		.byte	-46
- 239 0013 4B       		.byte	75
- 240 0014 E4       		.byte	-28
-ARM GAS  /tmp/cc5pyIGS.s 			page 5
+ 180              		.section	.rodata.four,"a"
+ 181              		.align	2
+ 184              	four:
+ 185 0000 00       		.byte	0
+ 186 0001 00       		.byte	0
+ 187 0002 00       		.byte	0
+ 188 0003 60       		.byte	96
+ 189 0004 00       		.byte	0
+ 190 0005 E0       		.byte	-32
+ 191 0006 01       		.byte	1
+ 192 0007 E0       		.byte	-32
+ 193 0008 03       		.byte	3
+ 194 0009 60       		.byte	96
+ 195 000a 06       		.byte	6
+ 196 000b 60       		.byte	96
+ 197 000c 0E       		.byte	14
+ 198 000d 60       		.byte	96
+ 199 000e 0F       		.byte	15
+ 200 000f F0       		.byte	-16
+ 201 0010 0F       		.byte	15
+ 202 0011 F0       		.byte	-16
+ 203 0012 00       		.byte	0
+ 204 0013 60       		.byte	96
+ 205 0014 00       		.byte	0
+ 206 0015 60       		.byte	96
+ 207 0016 00       		.byte	0
+ 208 0017 60       		.byte	96
+ 209 0018 00       		.byte	0
+ 210 0019 60       		.byte	96
+ 211 001a 00       		.byte	0
+ 212 001b 60       		.byte	96
+ 213 001c 00       		.byte	0
+ 214 001d 00       		.byte	0
+ 215 001e 00       		.byte	0
+ 216 001f 00       		.byte	0
+ 217              		.section	.rodata.lose_print,"a"
+ 218              		.align	2
+ 221              	lose_print:
+ 222 0000 22       		.byte	34
+ 223 0001 0C       		.byte	12
+ 224 0002 22       		.byte	34
+ 225 0003 00       		.byte	0
+ 226 0004 04       		.byte	4
+ 227 0005 0C       		.byte	12
+ 228 0006 0C       		.byte	12
+ 229 0007 1C       		.byte	28
+ 230 0008 22       		.byte	34
+ 231 0009 12       		.byte	18
+ 232 000a 22       		.byte	34
+ 233 000b 00       		.byte	0
+ 234 000c 0C       		.byte	12
+ 235 000d 12       		.byte	18
+ 236 000e 16       		.byte	22
+ 237 000f 7E       		.byte	126
+ 238 0010 22       		.byte	34
+ 239 0011 22       		.byte	34
+ 240 0012 46       		.byte	70
+ARM GAS  /tmp/ccsWmk0a.s 			page 5
 
 
- 241 0015 93       		.byte	-109
- 242 0016 C9       		.byte	-55
- 243 0017 27       		.byte	39
- 244 0018 D2       		.byte	-46
- 245 0019 4B       		.byte	75
- 246 001a E4       		.byte	-28
- 247 001b 93       		.byte	-109
- 248 001c FF       		.byte	-1
- 249 001d FF       		.byte	-1
- 250 001e FF       		.byte	-1
- 251 001f FF       		.byte	-1
- 252              		.section	.rodata.one,"a"
- 253              		.align	2
- 256              	one:
- 257 0000 00       		.byte	0
- 258 0001 00       		.byte	0
- 259 0002 00       		.byte	0
- 260 0003 00       		.byte	0
- 261 0004 03       		.byte	3
- 262 0005 80       		.byte	-128
- 263 0006 07       		.byte	7
- 264 0007 80       		.byte	-128
- 265 0008 0F       		.byte	15
- 266 0009 80       		.byte	-128
- 267 000a 0D       		.byte	13
- 268 000b 80       		.byte	-128
- 269 000c 09       		.byte	9
- 270 000d 80       		.byte	-128
- 271 000e 01       		.byte	1
- 272 000f 80       		.byte	-128
- 273 0010 01       		.byte	1
- 274 0011 80       		.byte	-128
- 275 0012 01       		.byte	1
- 276 0013 80       		.byte	-128
- 277 0014 01       		.byte	1
- 278 0015 80       		.byte	-128
- 279 0016 01       		.byte	1
- 280 0017 80       		.byte	-128
- 281 0018 0F       		.byte	15
- 282 0019 F0       		.byte	-16
- 283 001a 0F       		.byte	15
- 284 001b F0       		.byte	-16
- 285 001c 00       		.byte	0
- 286 001d 00       		.byte	0
- 287 001e 00       		.byte	0
- 288 001f 00       		.byte	0
- 289              		.section	.rodata.selected_cell,"a"
- 290              		.align	2
- 293              	selected_cell:
- 294 0000 FF       		.byte	-1
- 295 0001 FF       		.byte	-1
- 296 0002 F0       		.byte	-16
- 297 0003 0F       		.byte	15
- 298 0004 F0       		.byte	-16
- 299 0005 0F       		.byte	15
- 300 0006 F0       		.byte	-16
- 301 0007 0F       		.byte	15
-ARM GAS  /tmp/cc5pyIGS.s 			page 6
+ 241 0013 00       		.byte	0
+ 242 0014 08       		.byte	8
+ 243 0015 22       		.byte	34
+ 244 0016 20       		.byte	32
+ 245 0017 4A       		.byte	74
+ 246 0018 22       		.byte	34
+ 247 0019 62       		.byte	98
+ 248 001a 44       		.byte	68
+ 249 001b 00       		.byte	0
+ 250 001c 10       		.byte	16
+ 251 001d 62       		.byte	98
+ 252 001e 30       		.byte	48
+ 253 001f 08       		.byte	8
+ 254 0020 14       		.byte	20
+ 255 0021 42       		.byte	66
+ 256 0022 44       		.byte	68
+ 257 0023 00       		.byte	0
+ 258 0024 20       		.byte	32
+ 259 0025 42       		.byte	66
+ 260 0026 08       		.byte	8
+ 261 0027 18       		.byte	24
+ 262 0028 0C       		.byte	12
+ 263 0029 46       		.byte	70
+ 264 002a 4C       		.byte	76
+ 265 002b 00       		.byte	0
+ 266 002c 40       		.byte	64
+ 267 002d 46       		.byte	70
+ 268 002e 04       		.byte	4
+ 269 002f 10       		.byte	16
+ 270 0030 18       		.byte	24
+ 271 0031 2C       		.byte	44
+ 272 0032 5A       		.byte	90
+ 273 0033 00       		.byte	0
+ 274 0034 5C       		.byte	92
+ 275 0035 2C       		.byte	44
+ 276 0036 44       		.byte	68
+ 277 0037 10       		.byte	16
+ 278 0038 70       		.byte	112
+ 279 0039 38       		.byte	56
+ 280 003a 32       		.byte	50
+ 281 003b 00       		.byte	0
+ 282 003c 62       		.byte	98
+ 283 003d 38       		.byte	56
+ 284 003e 38       		.byte	56
+ 285 003f 10       		.byte	16
+ 286              		.section	.rodata.not_opened_cell,"a"
+ 287              		.align	2
+ 290              	not_opened_cell:
+ 291 0000 FF       		.byte	-1
+ 292 0001 FF       		.byte	-1
+ 293 0002 FF       		.byte	-1
+ 294 0003 FF       		.byte	-1
+ 295 0004 C9       		.byte	-55
+ 296 0005 27       		.byte	39
+ 297 0006 D2       		.byte	-46
+ 298 0007 4B       		.byte	75
+ 299 0008 E4       		.byte	-28
+ARM GAS  /tmp/ccsWmk0a.s 			page 6
 
 
- 302 0008 80       		.byte	-128
- 303 0009 01       		.byte	1
- 304 000a 80       		.byte	-128
- 305 000b 01       		.byte	1
- 306 000c 80       		.byte	-128
- 307 000d 01       		.byte	1
- 308 000e 80       		.byte	-128
- 309 000f 01       		.byte	1
- 310 0010 80       		.byte	-128
- 311 0011 01       		.byte	1
- 312 0012 80       		.byte	-128
- 313 0013 01       		.byte	1
- 314 0014 80       		.byte	-128
- 315 0015 01       		.byte	1
- 316 0016 80       		.byte	-128
- 317 0017 01       		.byte	1
- 318 0018 F0       		.byte	-16
- 319 0019 0F       		.byte	15
- 320 001a F0       		.byte	-16
- 321 001b 0F       		.byte	15
- 322 001c F0       		.byte	-16
- 323 001d 0F       		.byte	15
- 324 001e FF       		.byte	-1
- 325 001f FF       		.byte	-1
- 326              		.section	.rodata.seven,"a"
- 327              		.align	2
- 330              	seven:
- 331 0000 00       		.byte	0
- 332 0001 00       		.byte	0
- 333 0002 0F       		.byte	15
- 334 0003 F8       		.byte	-8
- 335 0004 0F       		.byte	15
- 336 0005 F8       		.byte	-8
- 337 0006 00       		.byte	0
- 338 0007 38       		.byte	56
- 339 0008 00       		.byte	0
- 340 0009 70       		.byte	112
- 341 000a 00       		.byte	0
- 342 000b 60       		.byte	96
- 343 000c 00       		.byte	0
- 344 000d C0       		.byte	-64
- 345 000e 00       		.byte	0
- 346 000f C0       		.byte	-64
- 347 0010 01       		.byte	1
- 348 0011 80       		.byte	-128
- 349 0012 01       		.byte	1
- 350 0013 80       		.byte	-128
- 351 0014 03       		.byte	3
- 352 0015 00       		.byte	0
- 353 0016 03       		.byte	3
- 354 0017 00       		.byte	0
- 355 0018 06       		.byte	6
- 356 0019 00       		.byte	0
- 357 001a 06       		.byte	6
- 358 001b 00       		.byte	0
- 359 001c 00       		.byte	0
- 360 001d 00       		.byte	0
-ARM GAS  /tmp/cc5pyIGS.s 			page 7
+ 300 0009 93       		.byte	-109
+ 301 000a C9       		.byte	-55
+ 302 000b 27       		.byte	39
+ 303 000c D2       		.byte	-46
+ 304 000d 4B       		.byte	75
+ 305 000e E4       		.byte	-28
+ 306 000f 93       		.byte	-109
+ 307 0010 C9       		.byte	-55
+ 308 0011 27       		.byte	39
+ 309 0012 D2       		.byte	-46
+ 310 0013 4B       		.byte	75
+ 311 0014 E4       		.byte	-28
+ 312 0015 93       		.byte	-109
+ 313 0016 C9       		.byte	-55
+ 314 0017 27       		.byte	39
+ 315 0018 D2       		.byte	-46
+ 316 0019 4B       		.byte	75
+ 317 001a E4       		.byte	-28
+ 318 001b 93       		.byte	-109
+ 319 001c FF       		.byte	-1
+ 320 001d FF       		.byte	-1
+ 321 001e FF       		.byte	-1
+ 322 001f FF       		.byte	-1
+ 323              		.section	.rodata.one,"a"
+ 324              		.align	2
+ 327              	one:
+ 328 0000 00       		.byte	0
+ 329 0001 00       		.byte	0
+ 330 0002 00       		.byte	0
+ 331 0003 00       		.byte	0
+ 332 0004 03       		.byte	3
+ 333 0005 80       		.byte	-128
+ 334 0006 07       		.byte	7
+ 335 0007 80       		.byte	-128
+ 336 0008 0F       		.byte	15
+ 337 0009 80       		.byte	-128
+ 338 000a 0D       		.byte	13
+ 339 000b 80       		.byte	-128
+ 340 000c 09       		.byte	9
+ 341 000d 80       		.byte	-128
+ 342 000e 01       		.byte	1
+ 343 000f 80       		.byte	-128
+ 344 0010 01       		.byte	1
+ 345 0011 80       		.byte	-128
+ 346 0012 01       		.byte	1
+ 347 0013 80       		.byte	-128
+ 348 0014 01       		.byte	1
+ 349 0015 80       		.byte	-128
+ 350 0016 01       		.byte	1
+ 351 0017 80       		.byte	-128
+ 352 0018 0F       		.byte	15
+ 353 0019 F0       		.byte	-16
+ 354 001a 0F       		.byte	15
+ 355 001b F0       		.byte	-16
+ 356 001c 00       		.byte	0
+ 357 001d 00       		.byte	0
+ 358 001e 00       		.byte	0
+ARM GAS  /tmp/ccsWmk0a.s 			page 7
 
 
- 361 001e 00       		.byte	0
- 362 001f 00       		.byte	0
- 363              		.section	.rodata.six,"a"
- 364              		.align	2
- 367              	six:
- 368 0000 00       		.byte	0
- 369 0001 00       		.byte	0
- 370 0002 07       		.byte	7
- 371 0003 C0       		.byte	-64
- 372 0004 0F       		.byte	15
- 373 0005 E0       		.byte	-32
- 374 0006 1C       		.byte	28
- 375 0007 60       		.byte	96
- 376 0008 18       		.byte	24
- 377 0009 00       		.byte	0
- 378 000a 18       		.byte	24
- 379 000b 00       		.byte	0
- 380 000c 1F       		.byte	31
- 381 000d C0       		.byte	-64
- 382 000e 1F       		.byte	31
- 383 000f E0       		.byte	-32
- 384 0010 1C       		.byte	28
- 385 0011 60       		.byte	96
- 386 0012 18       		.byte	24
- 387 0013 30       		.byte	48
- 388 0014 18       		.byte	24
- 389 0015 30       		.byte	48
- 390 0016 0C       		.byte	12
- 391 0017 60       		.byte	96
- 392 0018 0F       		.byte	15
- 393 0019 C0       		.byte	-64
- 394 001a 07       		.byte	7
- 395 001b 80       		.byte	-128
- 396 001c 00       		.byte	0
- 397 001d 00       		.byte	0
- 398 001e 00       		.byte	0
- 399 001f 00       		.byte	0
- 400              		.section	.rodata.three,"a"
- 401              		.align	2
- 404              	three:
- 405 0000 00       		.byte	0
- 406 0001 00       		.byte	0
- 407 0002 03       		.byte	3
- 408 0003 C0       		.byte	-64
- 409 0004 07       		.byte	7
- 410 0005 E0       		.byte	-32
- 411 0006 0E       		.byte	14
- 412 0007 70       		.byte	112
- 413 0008 0C       		.byte	12
- 414 0009 70       		.byte	112
- 415 000a 0C       		.byte	12
- 416 000b E0       		.byte	-32
- 417 000c 01       		.byte	1
- 418 000d C0       		.byte	-64
- 419 000e 01       		.byte	1
- 420 000f C0       		.byte	-64
- 421 0010 00       		.byte	0
-ARM GAS  /tmp/cc5pyIGS.s 			page 8
+ 359 001f 00       		.byte	0
+ 360              		.section	.rodata.selected_cell,"a"
+ 361              		.align	2
+ 364              	selected_cell:
+ 365 0000 FF       		.byte	-1
+ 366 0001 FF       		.byte	-1
+ 367 0002 F0       		.byte	-16
+ 368 0003 0F       		.byte	15
+ 369 0004 F0       		.byte	-16
+ 370 0005 0F       		.byte	15
+ 371 0006 F0       		.byte	-16
+ 372 0007 0F       		.byte	15
+ 373 0008 80       		.byte	-128
+ 374 0009 01       		.byte	1
+ 375 000a 80       		.byte	-128
+ 376 000b 01       		.byte	1
+ 377 000c 80       		.byte	-128
+ 378 000d 01       		.byte	1
+ 379 000e 80       		.byte	-128
+ 380 000f 01       		.byte	1
+ 381 0010 80       		.byte	-128
+ 382 0011 01       		.byte	1
+ 383 0012 80       		.byte	-128
+ 384 0013 01       		.byte	1
+ 385 0014 80       		.byte	-128
+ 386 0015 01       		.byte	1
+ 387 0016 80       		.byte	-128
+ 388 0017 01       		.byte	1
+ 389 0018 F0       		.byte	-16
+ 390 0019 0F       		.byte	15
+ 391 001a F0       		.byte	-16
+ 392 001b 0F       		.byte	15
+ 393 001c F0       		.byte	-16
+ 394 001d 0F       		.byte	15
+ 395 001e FF       		.byte	-1
+ 396 001f FF       		.byte	-1
+ 397              		.section	.rodata.seven,"a"
+ 398              		.align	2
+ 401              	seven:
+ 402 0000 00       		.byte	0
+ 403 0001 00       		.byte	0
+ 404 0002 0F       		.byte	15
+ 405 0003 F8       		.byte	-8
+ 406 0004 0F       		.byte	15
+ 407 0005 F8       		.byte	-8
+ 408 0006 00       		.byte	0
+ 409 0007 38       		.byte	56
+ 410 0008 00       		.byte	0
+ 411 0009 70       		.byte	112
+ 412 000a 00       		.byte	0
+ 413 000b 60       		.byte	96
+ 414 000c 00       		.byte	0
+ 415 000d C0       		.byte	-64
+ 416 000e 00       		.byte	0
+ 417 000f C0       		.byte	-64
+ 418 0010 01       		.byte	1
+ 419 0011 80       		.byte	-128
+ARM GAS  /tmp/ccsWmk0a.s 			page 8
 
 
- 422 0011 70       		.byte	112
- 423 0012 00       		.byte	0
- 424 0013 30       		.byte	48
- 425 0014 0C       		.byte	12
- 426 0015 30       		.byte	48
- 427 0016 0C       		.byte	12
- 428 0017 70       		.byte	112
- 429 0018 0F       		.byte	15
- 430 0019 E0       		.byte	-32
- 431 001a 03       		.byte	3
- 432 001b C0       		.byte	-64
- 433 001c 00       		.byte	0
- 434 001d 00       		.byte	0
- 435 001e 00       		.byte	0
- 436 001f 00       		.byte	0
- 437              		.section	.rodata.two,"a"
- 438              		.align	2
- 441              	two:
- 442 0000 00       		.byte	0
- 443 0001 00       		.byte	0
- 444 0002 03       		.byte	3
- 445 0003 E0       		.byte	-32
- 446 0004 07       		.byte	7
- 447 0005 F0       		.byte	-16
- 448 0006 0E       		.byte	14
- 449 0007 70       		.byte	112
- 450 0008 0C       		.byte	12
- 451 0009 30       		.byte	48
- 452 000a 0C       		.byte	12
- 453 000b 30       		.byte	48
- 454 000c 00       		.byte	0
- 455 000d 70       		.byte	112
- 456 000e 00       		.byte	0
- 457 000f 60       		.byte	96
- 458 0010 00       		.byte	0
- 459 0011 E0       		.byte	-32
- 460 0012 01       		.byte	1
- 461 0013 C0       		.byte	-64
- 462 0014 03       		.byte	3
- 463 0015 80       		.byte	-128
- 464 0016 0F       		.byte	15
- 465 0017 00       		.byte	0
- 466 0018 0F       		.byte	15
- 467 0019 F0       		.byte	-16
- 468 001a 0F       		.byte	15
- 469 001b F0       		.byte	-16
- 470 001c 00       		.byte	0
- 471 001d 00       		.byte	0
- 472 001e 00       		.byte	0
- 473 001f 00       		.byte	0
- 474              		.section	.rodata.zero_cell,"a"
- 475              		.align	2
- 478              	zero_cell:
- 479 0000 00000000 		.space	32
- 479      00000000 
- 479      00000000 
- 479      00000000 
-ARM GAS  /tmp/cc5pyIGS.s 			page 9
+ 420 0012 01       		.byte	1
+ 421 0013 80       		.byte	-128
+ 422 0014 03       		.byte	3
+ 423 0015 00       		.byte	0
+ 424 0016 03       		.byte	3
+ 425 0017 00       		.byte	0
+ 426 0018 06       		.byte	6
+ 427 0019 00       		.byte	0
+ 428 001a 06       		.byte	6
+ 429 001b 00       		.byte	0
+ 430 001c 00       		.byte	0
+ 431 001d 00       		.byte	0
+ 432 001e 00       		.byte	0
+ 433 001f 00       		.byte	0
+ 434              		.section	.rodata.six,"a"
+ 435              		.align	2
+ 438              	six:
+ 439 0000 00       		.byte	0
+ 440 0001 00       		.byte	0
+ 441 0002 07       		.byte	7
+ 442 0003 C0       		.byte	-64
+ 443 0004 0F       		.byte	15
+ 444 0005 E0       		.byte	-32
+ 445 0006 1C       		.byte	28
+ 446 0007 60       		.byte	96
+ 447 0008 18       		.byte	24
+ 448 0009 00       		.byte	0
+ 449 000a 18       		.byte	24
+ 450 000b 00       		.byte	0
+ 451 000c 1F       		.byte	31
+ 452 000d C0       		.byte	-64
+ 453 000e 1F       		.byte	31
+ 454 000f E0       		.byte	-32
+ 455 0010 1C       		.byte	28
+ 456 0011 60       		.byte	96
+ 457 0012 18       		.byte	24
+ 458 0013 30       		.byte	48
+ 459 0014 18       		.byte	24
+ 460 0015 30       		.byte	48
+ 461 0016 0C       		.byte	12
+ 462 0017 60       		.byte	96
+ 463 0018 0F       		.byte	15
+ 464 0019 C0       		.byte	-64
+ 465 001a 07       		.byte	7
+ 466 001b 80       		.byte	-128
+ 467 001c 00       		.byte	0
+ 468 001d 00       		.byte	0
+ 469 001e 00       		.byte	0
+ 470 001f 00       		.byte	0
+ 471              		.section	.rodata.three,"a"
+ 472              		.align	2
+ 475              	three:
+ 476 0000 00       		.byte	0
+ 477 0001 00       		.byte	0
+ 478 0002 03       		.byte	3
+ 479 0003 C0       		.byte	-64
+ 480 0004 07       		.byte	7
+ARM GAS  /tmp/ccsWmk0a.s 			page 9
 
 
- 479      00000000 
- 480              		.text
- 481              	.Letext0:
- 482              		.file 1 "Core/Inc/game_symbols.h"
- 483              		.file 2 "Core/Src/game_symbols.c"
- 484              		.file 3 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stdint.h"
-ARM GAS  /tmp/cc5pyIGS.s 			page 10
+ 481 0005 E0       		.byte	-32
+ 482 0006 0E       		.byte	14
+ 483 0007 70       		.byte	112
+ 484 0008 0C       		.byte	12
+ 485 0009 70       		.byte	112
+ 486 000a 0C       		.byte	12
+ 487 000b E0       		.byte	-32
+ 488 000c 01       		.byte	1
+ 489 000d C0       		.byte	-64
+ 490 000e 01       		.byte	1
+ 491 000f C0       		.byte	-64
+ 492 0010 00       		.byte	0
+ 493 0011 70       		.byte	112
+ 494 0012 00       		.byte	0
+ 495 0013 30       		.byte	48
+ 496 0014 0C       		.byte	12
+ 497 0015 30       		.byte	48
+ 498 0016 0C       		.byte	12
+ 499 0017 70       		.byte	112
+ 500 0018 0F       		.byte	15
+ 501 0019 E0       		.byte	-32
+ 502 001a 03       		.byte	3
+ 503 001b C0       		.byte	-64
+ 504 001c 00       		.byte	0
+ 505 001d 00       		.byte	0
+ 506 001e 00       		.byte	0
+ 507 001f 00       		.byte	0
+ 508              		.section	.rodata.two,"a"
+ 509              		.align	2
+ 512              	two:
+ 513 0000 00       		.byte	0
+ 514 0001 00       		.byte	0
+ 515 0002 03       		.byte	3
+ 516 0003 E0       		.byte	-32
+ 517 0004 07       		.byte	7
+ 518 0005 F0       		.byte	-16
+ 519 0006 0E       		.byte	14
+ 520 0007 70       		.byte	112
+ 521 0008 0C       		.byte	12
+ 522 0009 30       		.byte	48
+ 523 000a 0C       		.byte	12
+ 524 000b 30       		.byte	48
+ 525 000c 00       		.byte	0
+ 526 000d 70       		.byte	112
+ 527 000e 00       		.byte	0
+ 528 000f 60       		.byte	96
+ 529 0010 00       		.byte	0
+ 530 0011 E0       		.byte	-32
+ 531 0012 01       		.byte	1
+ 532 0013 C0       		.byte	-64
+ 533 0014 03       		.byte	3
+ 534 0015 80       		.byte	-128
+ 535 0016 0F       		.byte	15
+ 536 0017 00       		.byte	0
+ 537 0018 0F       		.byte	15
+ 538 0019 F0       		.byte	-16
+ 539 001a 0F       		.byte	15
+ARM GAS  /tmp/ccsWmk0a.s 			page 10
+
+
+ 540 001b F0       		.byte	-16
+ 541 001c 00       		.byte	0
+ 542 001d 00       		.byte	0
+ 543 001e 00       		.byte	0
+ 544 001f 00       		.byte	0
+ 545              		.section	.rodata.win_print,"a"
+ 546              		.align	2
+ 549              	win_print:
+ 550 0000 22       		.byte	34
+ 551 0001 0C       		.byte	12
+ 552 0002 22       		.byte	34
+ 553 0003 00       		.byte	0
+ 554 0004 22       		.byte	34
+ 555 0005 7E       		.byte	126
+ 556 0006 4C       		.byte	76
+ 557 0007 22       		.byte	34
+ 558 0008 12       		.byte	18
+ 559 0009 22       		.byte	34
+ 560 000a 00       		.byte	0
+ 561 000b 22       		.byte	34
+ 562 000c 04       		.byte	4
+ 563 000d 56       		.byte	86
+ 564 000e 22       		.byte	34
+ 565 000f 22       		.byte	34
+ 566 0010 46       		.byte	70
+ 567 0011 00       		.byte	0
+ 568 0012 22       		.byte	34
+ 569 0013 08       		.byte	8
+ 570 0014 32       		.byte	50
+ 571 0015 22       		.byte	34
+ 572 0016 62       		.byte	98
+ 573 0017 44       		.byte	68
+ 574 0018 00       		.byte	0
+ 575 0019 22       		.byte	34
+ 576 001a 08       		.byte	8
+ 577 001b 22       		.byte	34
+ 578 001c 14       		.byte	20
+ 579 001d 42       		.byte	66
+ 580 001e 44       		.byte	68
+ 581 001f 00       		.byte	0
+ 582 0020 42       		.byte	66
+ 583 0021 08       		.byte	8
+ 584 0022 24       		.byte	36
+ 585 0023 0C       		.byte	12
+ 586 0024 46       		.byte	70
+ 587 0025 4C       		.byte	76
+ 588 0026 00       		.byte	0
+ 589 0027 52       		.byte	82
+ 590 0028 10       		.byte	16
+ 591 0029 24       		.byte	36
+ 592 002a 18       		.byte	24
+ 593 002b 2C       		.byte	44
+ 594 002c 5A       		.byte	90
+ 595 002d 00       		.byte	0
+ 596 002e 6C       		.byte	108
+ 597 002f 10       		.byte	16
+ 598 0030 44       		.byte	68
+ARM GAS  /tmp/ccsWmk0a.s 			page 11
+
+
+ 599 0031 70       		.byte	112
+ 600 0032 38       		.byte	56
+ 601 0033 32       		.byte	50
+ 602 0034 00       		.byte	0
+ 603 0035 48       		.byte	72
+ 604 0036 7E       		.byte	126
+ 605 0037 44       		.byte	68
+ 606              		.section	.rodata.zero_cell,"a"
+ 607              		.align	2
+ 610              	zero_cell:
+ 611 0000 00000000 		.space	32
+ 611      00000000 
+ 611      00000000 
+ 611      00000000 
+ 611      00000000 
+ 612              		.text
+ 613              	.Letext0:
+ 614              		.file 1 "Core/Inc/game_symbols.h"
+ 615              		.file 2 "Core/Src/game_symbols.c"
+ 616              		.file 3 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stdint.h"
+ARM GAS  /tmp/ccsWmk0a.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 game_symbols.c
-     /tmp/cc5pyIGS.s:478    .rodata.zero_cell:0000000000000000 zero_cell
-     /tmp/cc5pyIGS.s:293    .rodata.selected_cell:0000000000000000 selected_cell
-     /tmp/cc5pyIGS.s:219    .rodata.not_opened_cell:0000000000000000 not_opened_cell
-     /tmp/cc5pyIGS.s:34     .rodata.bomb:0000000000000000 bomb
-     /tmp/cc5pyIGS.s:145    .rodata.flag:0000000000000000 flag
-     /tmp/cc5pyIGS.s:71     .rodata.eight:0000000000000000 eight
-     /tmp/cc5pyIGS.s:330    .rodata.seven:0000000000000000 seven
-     /tmp/cc5pyIGS.s:367    .rodata.six:0000000000000000 six
-     /tmp/cc5pyIGS.s:108    .rodata.five:0000000000000000 five
-     /tmp/cc5pyIGS.s:182    .rodata.four:0000000000000000 four
-     /tmp/cc5pyIGS.s:404    .rodata.three:0000000000000000 three
-     /tmp/cc5pyIGS.s:441    .rodata.two:0000000000000000 two
-     /tmp/cc5pyIGS.s:256    .rodata.one:0000000000000000 one
-     /tmp/cc5pyIGS.s:31     .rodata.bomb:0000000000000000 $d
-     /tmp/cc5pyIGS.s:68     .rodata.eight:0000000000000000 $d
-     /tmp/cc5pyIGS.s:105    .rodata.five:0000000000000000 $d
-     /tmp/cc5pyIGS.s:142    .rodata.flag:0000000000000000 $d
-     /tmp/cc5pyIGS.s:179    .rodata.four:0000000000000000 $d
-     /tmp/cc5pyIGS.s:216    .rodata.not_opened_cell:0000000000000000 $d
-     /tmp/cc5pyIGS.s:253    .rodata.one:0000000000000000 $d
-     /tmp/cc5pyIGS.s:290    .rodata.selected_cell:0000000000000000 $d
-     /tmp/cc5pyIGS.s:327    .rodata.seven:0000000000000000 $d
-     /tmp/cc5pyIGS.s:364    .rodata.six:0000000000000000 $d
-     /tmp/cc5pyIGS.s:401    .rodata.three:0000000000000000 $d
-     /tmp/cc5pyIGS.s:438    .rodata.two:0000000000000000 $d
-     /tmp/cc5pyIGS.s:475    .rodata.zero_cell:0000000000000000 $d
+     /tmp/ccsWmk0a.s:549    .rodata.win_print:0000000000000000 win_print
+     /tmp/ccsWmk0a.s:221    .rodata.lose_print:0000000000000000 lose_print
+     /tmp/ccsWmk0a.s:610    .rodata.zero_cell:0000000000000000 zero_cell
+     /tmp/ccsWmk0a.s:364    .rodata.selected_cell:0000000000000000 selected_cell
+     /tmp/ccsWmk0a.s:290    .rodata.not_opened_cell:0000000000000000 not_opened_cell
+     /tmp/ccsWmk0a.s:36     .rodata.bomb:0000000000000000 bomb
+     /tmp/ccsWmk0a.s:147    .rodata.flag:0000000000000000 flag
+     /tmp/ccsWmk0a.s:73     .rodata.eight:0000000000000000 eight
+     /tmp/ccsWmk0a.s:401    .rodata.seven:0000000000000000 seven
+     /tmp/ccsWmk0a.s:438    .rodata.six:0000000000000000 six
+     /tmp/ccsWmk0a.s:110    .rodata.five:0000000000000000 five
+     /tmp/ccsWmk0a.s:184    .rodata.four:0000000000000000 four
+     /tmp/ccsWmk0a.s:475    .rodata.three:0000000000000000 three
+     /tmp/ccsWmk0a.s:512    .rodata.two:0000000000000000 two
+     /tmp/ccsWmk0a.s:327    .rodata.one:0000000000000000 one
+     /tmp/ccsWmk0a.s:33     .rodata.bomb:0000000000000000 $d
+     /tmp/ccsWmk0a.s:70     .rodata.eight:0000000000000000 $d
+     /tmp/ccsWmk0a.s:107    .rodata.five:0000000000000000 $d
+     /tmp/ccsWmk0a.s:144    .rodata.flag:0000000000000000 $d
+     /tmp/ccsWmk0a.s:181    .rodata.four:0000000000000000 $d
+     /tmp/ccsWmk0a.s:218    .rodata.lose_print:0000000000000000 $d
+     /tmp/ccsWmk0a.s:287    .rodata.not_opened_cell:0000000000000000 $d
+     /tmp/ccsWmk0a.s:324    .rodata.one:0000000000000000 $d
+     /tmp/ccsWmk0a.s:361    .rodata.selected_cell:0000000000000000 $d
+     /tmp/ccsWmk0a.s:398    .rodata.seven:0000000000000000 $d
+     /tmp/ccsWmk0a.s:435    .rodata.six:0000000000000000 $d
+     /tmp/ccsWmk0a.s:472    .rodata.three:0000000000000000 $d
+     /tmp/ccsWmk0a.s:509    .rodata.two:0000000000000000 $d
+     /tmp/ccsWmk0a.s:546    .rodata.win_print:0000000000000000 $d
+     /tmp/ccsWmk0a.s:607    .rodata.zero_cell:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

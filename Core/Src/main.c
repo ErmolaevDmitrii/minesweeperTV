@@ -243,7 +243,7 @@ int main(void)
   //draw_picture(68, 156, 16, 16, selected_cell, &handle);
   */
 
-  game_handle game = {9, 9, game_field, &handle, };
+  game_handle game = {9, 9, game_field, &handle, HAL_GetTick};
   game_start(&game);
 
   /* USER CODE END 2 */

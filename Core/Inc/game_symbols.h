@@ -29,4 +29,8 @@ extern const uint8_t selected_cell[];
 
 extern const uint8_t zero_cell[];
 
+extern const uint8_t lose_print[];
+
+extern const uint8_t win_print[];
+
 #endif
