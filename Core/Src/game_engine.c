@@ -101,8 +101,8 @@ void game_player_open_cell(game_handle *handle) {
         uint16_t mines_count = 0;
 
         while(mines_count <= handle->mines_count) {
-            uint8_t mine_x = (rand() % (handle->field_width + 1));
-            uint8_t mine_y = (rand() % (handle->field_height + 1));
+            uint8_t mine_x = (rand() % (handle->field_width));
+            uint8_t mine_y = (rand() % (handle->field_height));
 
             if(game_get_cell_value(mine_x, mine_y, handle) == 10 ||
               (mine_x == handle->player_pos_x && mine_y == handle->player_pos_y)) {
@@ -128,19 +128,17 @@ void game_player_open_cell(game_handle *handle) {
 
     }
 
-    /*for(uint8_t i = 0; i < handle->field_width; ++i) {
-        for(uint8_t j = 0; j < handle->field_height; ++j) {
-            draw_cell(i, j, handle);
-        }
-    }*/
-
     uint8_t x = handle->player_pos_x, y = handle->player_pos_y;
-    game_open_cells_recursive(x, y, handle);
-    /*if(game_is_cell_under_flag(x, y, handle)) {
+
+    if(x >= handle->field_width || y >= handle->field_height) {
         return;
     }
 
-    if(game_is_cell_open(x, y, handle)) {
+    if(game_is_cell_under_flag(x, y, handle)) {
+        return;
+    }
+
+    if(game_is_cell_around_opened_neighbours(x, y, handle)) {
         return;
     }
 
@@ -150,8 +148,8 @@ void game_player_open_cell(game_handle *handle) {
     }
 
     ++handle->openings;
-    game_set_cell_opened(handle->player_pos_x, handle->player_pos_y, handle);
-    if(handle->openings == (handle->width * handle->height - handle->mines_count)) {
+    game_set_cell_opened(x, y, handle);
+    if(handle->openings == (handle->field_width * handle->field_height - handle->mines_count)) {
         handle->game_state = 1;
         return;
     }
@@ -162,8 +160,8 @@ void game_player_open_cell(game_handle *handle) {
     {
         for(int16_t i = y - 1; i < (y + 2); ++i) {
             for(int16_t j = x - 1;  j < (x + 2); ++j) {
-                if(i < 0 || j < 0 || j >= handle->field_width ||
-                    i >= handle->field_height || (i == y && j == x)) {
+                if((i < 0) || (j < 0) || (j >= handle->field_width) ||
+                    (i >= handle->field_height) || (i == y && j == x)) {
                     continue;
                 }
 
@@ -171,12 +169,12 @@ void game_player_open_cell(game_handle *handle) {
                     continue;
                 }
 
-                game_open_cells_recursive(x, y, handle);
+                game_open_cells_recursive(j, i, handle);
             }
         }
     }
 
-    return;*/
+    return;
 }
 
 uint8_t game_is_cell_around_opened_neighbours(uint8_t x, uint8_t y, game_handle *handle) {
@@ -201,6 +199,9 @@ uint8_t game_is_cell_around_opened_neighbours(uint8_t x, uint8_t y, game_handle 
     }
 
     if((x == 0) || (x == (handle->field_width - 1))) {
+        /*if((y == 0) || (y == (handle->field_height - 1))) {
+            return (opened_neighbours == 3);
+        }*/
         return (opened_neighbours == 5);
     }
 
@@ -213,11 +214,15 @@ void game_open_cells_recursive(uint8_t x, uint8_t y, game_handle *handle) {
 
     //draw_cell(x, y, handle);
 
+    if(x >= handle->field_width || y >= handle->field_height) {
+        return;
+    }
+
     if(game_is_cell_under_flag(x, y, handle)) {
         return;
     }
 
-    if(/*game_is_cell_around_opened_neighbours*/game_is_cell_opened(x, y, handle)) {
+    if(game_is_cell_opened(x, y, handle)) {
         return;
     }
 
@@ -237,8 +242,8 @@ void game_open_cells_recursive(uint8_t x, uint8_t y, game_handle *handle) {
        game_get_cell_value(x, y, handle) ==
        game_calculate_flags_around_cell(x, y, handle))
     {
-        for(uint16_t i = y - 1; i < (y + 2); ++i) {
-            for(uint16_t j = x - 1;  j < (x + 2); ++j) {
+        for(int16_t i = y - 1; i < (y + 2); ++i) {
+            for(int16_t j = x - 1;  j < (x + 2); ++j) {
                 if((i < 0) || (j < 0) || (j >= handle->field_width) ||
                     (i >= handle->field_height) || (i == y && j == x)) {
                     continue;
@@ -265,11 +270,11 @@ uint8_t game_calculate_flags_around_cell(uint8_t x, uint8_t y, game_handle *hand
                (i >= handle->field_height) || (i == y && j == x)) {
                 continue;
             }
-            flags_count += game_is_cell_under_flag(x, y, handle);
+            flags_count += game_is_cell_under_flag(j, i, handle);
         }
     }
 
-    return /*flags_count*/3;
+    return flags_count;
 }
 
 void game_set_cell_value(uint8_t x, uint8_t y, uint8_t value, game_handle *handle) {

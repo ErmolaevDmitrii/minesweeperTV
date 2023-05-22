@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccebuQop.s 			page 1
+ARM GAS  /tmp/ccfR4ERA.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  /tmp/ccebuQop.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 2
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"gdi.c"
@@ -19,456 +19,670 @@ ARM GAS  /tmp/ccebuQop.s 			page 1
   16              		.cfi_sections	.debug_frame
   17              		.section	.text.set_pixel,"ax",%progbits
   18              		.align	1
-  19              		.global	set_pixel
-  20              		.arch armv7e-m
-  21              		.syntax unified
-  22              		.thumb
-  23              		.thumb_func
-  24              		.fpu fpv4-sp-d16
-  26              	set_pixel:
-  27              	.LVL0:
-  28              	.LFB0:
-  29              		.file 1 "Core/Src/gdi.c"
+  19              		.p2align 2,,3
+  20              		.global	set_pixel
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	set_pixel:
+  28              	.LVL0:
+  29              	.LFB0:
+  30              		.file 1 "Core/Src/gdi.c"
    1:Core/Src/gdi.c **** #include "gdi.h"
    2:Core/Src/gdi.c **** 
    3:Core/Src/gdi.c **** void set_pixel(uint16_t x, uint16_t y, uint8_t color, gdi_handle *handle) {
-  30              		.loc 1 3 75 view -0
-  31              		.cfi_startproc
-  32              		@ args = 0, pretend = 0, frame = 0
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		@ link register save eliminated.
-  35              		.loc 1 3 75 is_stmt 0 view .LVU1
-  36 0000 30B4     		push	{r4, r5}
-  37              	.LCFI0:
-  38              		.cfi_def_cfa_offset 8
-  39              		.cfi_offset 4, -8
-  40              		.cfi_offset 5, -4
+  31              		.loc 1 3 75 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
    4:Core/Src/gdi.c ****     if(handle->width <= x || handle->height <= y) {
-  41              		.loc 1 4 5 is_stmt 1 view .LVU2
-  42              		.loc 1 4 14 is_stmt 0 view .LVU3
-  43 0002 9C88     		ldrh	r4, [r3, #4]
-  44              		.loc 1 4 7 view .LVU4
-  45 0004 8442     		cmp	r4, r0
-  46 0006 14D9     		bls	.L1
-  47              		.loc 1 4 36 discriminator 1 view .LVU5
-  48 0008 DD88     		ldrh	r5, [r3, #6]
-  49              		.loc 1 4 27 discriminator 1 view .LVU6
-  50 000a 8D42     		cmp	r5, r1
-  51 000c 11D9     		bls	.L1
+  36              		.loc 1 4 5 view .LVU1
+   3:Core/Src/gdi.c ****     if(handle->width <= x || handle->height <= y) {
+  37              		.loc 1 3 75 is_stmt 0 view .LVU2
+  38 0000 70B4     		push	{r4, r5, r6}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 12
+  41              		.cfi_offset 4, -12
+  42              		.cfi_offset 5, -8
+  43              		.cfi_offset 6, -4
+  44              		.loc 1 4 14 view .LVU3
+  45 0002 9C88     		ldrh	r4, [r3, #4]
+  46              		.loc 1 4 7 view .LVU4
+  47 0004 8442     		cmp	r4, r0
+  48 0006 12D9     		bls	.L1
+  49              		.loc 1 4 27 discriminator 1 view .LVU5
+  50 0008 DD88     		ldrh	r5, [r3, #6]
+  51 000a 8D42     		cmp	r5, r1
+  52 000c 0FD9     		bls	.L1
    5:Core/Src/gdi.c ****         return;
+ARM GAS  /tmp/ccfR4ERA.s 			page 2
+
+
    6:Core/Src/gdi.c ****     }
    7:Core/Src/gdi.c **** 
-ARM GAS  /tmp/ccebuQop.s 			page 2
-
-
    8:Core/Src/gdi.c ****     uint8_t *cell = handle->image + y * (handle->width / 8) + x / 8;
-  52              		.loc 1 8 5 is_stmt 1 view .LVU7
-  53              		.loc 1 8 27 is_stmt 0 view .LVU8
-  54 000e 1D68     		ldr	r5, [r3]
-  55              		.loc 1 8 56 view .LVU9
-  56 0010 E408     		lsrs	r4, r4, #3
-  57              		.loc 1 8 65 view .LVU10
-  58 0012 C308     		lsrs	r3, r0, #3
-  59              	.LVL1:
-  60              		.loc 1 8 61 view .LVU11
-  61 0014 04FB0131 		mla	r1, r4, r1, r3
-  62              	.LVL2:
+  53              		.loc 1 8 5 is_stmt 1 view .LVU6
+  54              		.loc 1 8 56 is_stmt 0 view .LVU7
+  55 000e E408     		lsrs	r4, r4, #3
+  56              		.loc 1 8 65 view .LVU8
+  57 0010 C608     		lsrs	r6, r0, #3
+  58              		.loc 1 8 61 view .LVU9
+  59 0012 01FB0461 		mla	r1, r1, r4, r6
+  60              	.LVL1:
+  61              		.loc 1 8 14 view .LVU10
+  62 0016 1D68     		ldr	r5, [r3]
+  63              	.LVL2:
    9:Core/Src/gdi.c ****     *cell ^= (- color ^ *cell) & (1 << (x % 8));
-  63              		.loc 1 9 5 is_stmt 1 view .LVU12
-  64              		.loc 1 9 11 is_stmt 0 view .LVU13
-  65 0018 6B56     		ldrsb	r3, [r5, r1]
-  66              		.loc 1 9 23 view .LVU14
-  67 001a 5242     		rsbs	r2, r2, #0
-  68              	.LVL3:
-  69              		.loc 1 9 23 view .LVU15
-  70 001c 5A40     		eors	r2, r2, r3
-  71 001e 52B2     		sxtb	r2, r2
-  72              		.loc 1 9 43 view .LVU16
-  73 0020 00F00700 		and	r0, r0, #7
-  74              	.LVL4:
-  75              		.loc 1 9 37 view .LVU17
-  76 0024 0124     		movs	r4, #1
-  77 0026 04FA00F0 		lsl	r0, r4, r0
-  78              		.loc 1 9 32 view .LVU18
-  79 002a 0240     		ands	r2, r2, r0
-  80 002c 52B2     		sxtb	r2, r2
-  81              		.loc 1 9 11 view .LVU19
-  82 002e 5A40     		eors	r2, r2, r3
-  83 0030 6A54     		strb	r2, [r5, r1]
+  64              		.loc 1 9 5 is_stmt 1 view .LVU11
+  65              		.loc 1 9 11 is_stmt 0 view .LVU12
+  66 0018 6B56     		ldrsb	r3, [r5, r1]
+  67              	.LVL3:
+  68              		.loc 1 9 23 view .LVU13
+  69 001a 5242     		rsbs	r2, r2, #0
+  70              	.LVL4:
+  71              		.loc 1 9 43 view .LVU14
+  72 001c 00F00700 		and	r0, r0, #7
+  73              	.LVL5:
+  74              		.loc 1 9 37 view .LVU15
+  75 0020 0124     		movs	r4, #1
+  76 0022 04FA00F0 		lsl	r0, r4, r0
+  77              		.loc 1 9 23 view .LVU16
+  78 0026 5A40     		eors	r2, r2, r3
+  79              		.loc 1 9 32 view .LVU17
+  80 0028 0240     		ands	r2, r2, r0
+  81              		.loc 1 9 11 view .LVU18
+  82 002a 5A40     		eors	r2, r2, r3
+  83 002c 6A54     		strb	r2, [r5, r1]
   10:Core/Src/gdi.c **** 
   11:Core/Src/gdi.c ****     return;
-  84              		.loc 1 11 5 is_stmt 1 view .LVU20
-  85              	.LVL5:
+  84              		.loc 1 11 5 is_stmt 1 view .LVU19
+  85              	.LVL6:
   86              	.L1:
   12:Core/Src/gdi.c **** }
-  87              		.loc 1 12 1 is_stmt 0 view .LVU21
-  88 0032 30BC     		pop	{r4, r5}
+  87              		.loc 1 12 1 is_stmt 0 view .LVU20
+  88 002e 70BC     		pop	{r4, r5, r6}
   89              	.LCFI1:
-  90              		.cfi_restore 5
-  91              		.cfi_restore 4
-  92              		.cfi_def_cfa_offset 0
-  93 0034 7047     		bx	lr
-  94              		.cfi_endproc
-  95              	.LFE0:
-  97              		.section	.text.draw_picture,"ax",%progbits
-  98              		.align	1
-  99              		.global	draw_picture
- 100              		.syntax unified
- 101              		.thumb
- 102              		.thumb_func
- 103              		.fpu fpv4-sp-d16
- 105              	draw_picture:
-ARM GAS  /tmp/ccebuQop.s 			page 3
+  90              		.cfi_restore 6
+  91              		.cfi_restore 5
+  92              		.cfi_restore 4
+  93              		.cfi_def_cfa_offset 0
+  94 0030 7047     		bx	lr
+  95              		.cfi_endproc
+  96              	.LFE0:
+  98 0032 00BF     		.section	.text.draw_picture,"ax",%progbits
+  99              		.align	1
+ 100              		.p2align 2,,3
+ 101              		.global	draw_picture
+ 102              		.syntax unified
+ 103              		.thumb
+ARM GAS  /tmp/ccfR4ERA.s 			page 3
 
 
- 106              	.LVL6:
- 107              	.LFB1:
+ 104              		.thumb_func
+ 105              		.fpu fpv4-sp-d16
+ 107              	draw_picture:
+ 108              	.LVL7:
+ 109              	.LFB1:
   13:Core/Src/gdi.c **** 
   14:Core/Src/gdi.c **** void draw_picture(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t *picture, gdi_ha
- 108              		.loc 1 14 114 is_stmt 1 view -0
- 109              		.cfi_startproc
- 110              		@ args = 8, pretend = 0, frame = 0
- 111              		@ frame_needed = 0, uses_anonymous_args = 0
- 112              		.loc 1 14 114 is_stmt 0 view .LVU23
- 113 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 114              	.LCFI2:
- 115              		.cfi_def_cfa_offset 40
- 116              		.cfi_offset 3, -40
- 117              		.cfi_offset 4, -36
- 118              		.cfi_offset 5, -32
- 119              		.cfi_offset 6, -28
- 120              		.cfi_offset 7, -24
- 121              		.cfi_offset 8, -20
- 122              		.cfi_offset 9, -16
- 123              		.cfi_offset 10, -12
- 124              		.cfi_offset 11, -8
- 125              		.cfi_offset 14, -4
- 126 0004 DDF828A0 		ldr	r10, [sp, #40]
+ 110              		.loc 1 14 114 is_stmt 1 view -0
+ 111              		.cfi_startproc
+ 112              		@ args = 8, pretend = 0, frame = 24
+ 113              		@ frame_needed = 0, uses_anonymous_args = 0
   15:Core/Src/gdi.c ****     if(x + width >= handle->width || y + height >= handle->height) {
- 127              		.loc 1 15 5 is_stmt 1 view .LVU24
- 128              		.loc 1 15 10 is_stmt 0 view .LVU25
- 129 0008 8518     		adds	r5, r0, r2
- 130              		.loc 1 15 27 view .LVU26
- 131 000a 0B9C     		ldr	r4, [sp, #44]
- 132 000c A488     		ldrh	r4, [r4, #4]
- 133              		.loc 1 15 7 view .LVU27
- 134 000e A542     		cmp	r5, r4
- 135 0010 2EDA     		bge	.L4
- 136              		.loc 1 15 40 discriminator 1 view .LVU28
- 137 0012 CC18     		adds	r4, r1, r3
- 138              		.loc 1 15 58 discriminator 1 view .LVU29
- 139 0014 0B9D     		ldr	r5, [sp, #44]
- 140 0016 ED88     		ldrh	r5, [r5, #6]
- 141              		.loc 1 15 35 discriminator 1 view .LVU30
- 142 0018 AC42     		cmp	r4, r5
- 143 001a 29DA     		bge	.L4
- 144 001c 9B46     		mov	fp, r3
- 145 001e 1646     		mov	r6, r2
- 146 0020 8846     		mov	r8, r1
- 147 0022 0746     		mov	r7, r0
+ 114              		.loc 1 15 5 view .LVU22
+  14:Core/Src/gdi.c ****     if(x + width >= handle->width || y + height >= handle->height) {
+ 115              		.loc 1 14 114 is_stmt 0 view .LVU23
+ 116 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 117              	.LCFI2:
+ 118              		.cfi_def_cfa_offset 36
+ 119              		.cfi_offset 4, -36
+ 120              		.cfi_offset 5, -32
+ 121              		.cfi_offset 6, -28
+ 122              		.cfi_offset 7, -24
+ 123              		.cfi_offset 8, -20
+ 124              		.cfi_offset 9, -16
+ 125              		.cfi_offset 10, -12
+ 126              		.cfi_offset 11, -8
+ 127              		.cfi_offset 14, -4
+ 128 0004 87B0     		sub	sp, sp, #28
+ 129              	.LCFI3:
+ 130              		.cfi_def_cfa_offset 64
+  14:Core/Src/gdi.c ****     if(x + width >= handle->width || y + height >= handle->height) {
+ 131              		.loc 1 14 114 view .LVU24
+ 132 0006 DDF844E0 		ldr	lr, [sp, #68]
+ 133 000a 0390     		str	r0, [sp, #12]
+ 134              		.loc 1 15 27 view .LVU25
+ 135 000c BEF80440 		ldrh	r4, [lr, #4]
+  14:Core/Src/gdi.c ****     if(x + width >= handle->width || y + height >= handle->height) {
+ 136              		.loc 1 14 114 view .LVU26
+ 137 0010 0491     		str	r1, [sp, #16]
+ 138              		.loc 1 15 10 view .LVU27
+ 139 0012 1044     		add	r0, r0, r2
+ 140              	.LVL8:
+ 141              		.loc 1 15 7 view .LVU28
+ 142 0014 A042     		cmp	r0, r4
+  14:Core/Src/gdi.c ****     if(x + width >= handle->width || y + height >= handle->height) {
+ 143              		.loc 1 14 114 view .LVU29
+ 144 0016 0293     		str	r3, [sp, #8]
+ 145              		.loc 1 15 7 view .LVU30
+ 146 0018 59DA     		bge	.L5
+ 147 001a 1D46     		mov	r5, r3
+ 148              		.loc 1 15 58 discriminator 1 view .LVU31
+ 149 001c BEF80630 		ldrh	r3, [lr, #6]
+ 150              	.LVL9:
+ 151              		.loc 1 15 40 discriminator 1 view .LVU32
+ 152 0020 2944     		add	r1, r1, r5
+ 153              	.LVL10:
+ 154              		.loc 1 15 35 discriminator 1 view .LVU33
+ARM GAS  /tmp/ccfR4ERA.s 			page 4
+
+
+ 155 0022 9942     		cmp	r1, r3
+ 156 0024 53DA     		bge	.L5
   16:Core/Src/gdi.c ****         return;
   17:Core/Src/gdi.c ****     }
   18:Core/Src/gdi.c **** 
   19:Core/Src/gdi.c ****     uint16_t bytes_in_line = width / 8 + (width % 8 == 0 ? 0 : 1);
- 148              		.loc 1 19 5 is_stmt 1 view .LVU31
- 149              		.loc 1 19 62 is_stmt 0 view .LVU32
- 150 0024 12F00709 		ands	r9, r2, #7
- 151 0028 18BF     		it	ne
- 152 002a 4FF00109 		movne	r9, #1
- 153              		.loc 1 19 14 view .LVU33
- 154 002e 09EBD209 		add	r9, r9, r2, lsr #3
- 155              	.LVL7:
-ARM GAS  /tmp/ccebuQop.s 			page 4
-
-
+ 157              		.loc 1 19 5 is_stmt 1 view .LVU34
+ 158              		.loc 1 19 62 is_stmt 0 view .LVU35
+ 159 0026 12F00703 		ands	r3, r2, #7
+ 160 002a 18BF     		it	ne
+ 161 002c 0123     		movne	r3, #1
+ 162              		.loc 1 19 14 view .LVU36
+ 163 002e 03EBD203 		add	r3, r3, r2, lsr #3
+ 164 0032 0593     		str	r3, [sp, #20]
+ 165              	.LVL11:
   20:Core/Src/gdi.c **** 
   21:Core/Src/gdi.c ****     for(uint16_t i = 0; i < height; ++i) {
- 156              		.loc 1 21 5 is_stmt 1 view .LVU34
- 157              	.LBB2:
- 158              		.loc 1 21 9 view .LVU35
- 159              		.loc 1 21 18 is_stmt 0 view .LVU36
- 160 0032 0025     		movs	r5, #0
- 161              		.loc 1 21 5 view .LVU37
- 162 0034 01E0     		b	.L6
- 163              	.LVL8:
- 164              	.L11:
- 165              		.loc 1 21 37 discriminator 2 view .LVU38
- 166 0036 0135     		adds	r5, r5, #1
- 167              	.LVL9:
- 168              		.loc 1 21 37 discriminator 2 view .LVU39
- 169 0038 ADB2     		uxth	r5, r5
- 170              	.LVL10:
- 171              	.L6:
- 172              		.loc 1 21 5 discriminator 1 view .LVU40
- 173 003a 5D45     		cmp	r5, fp
- 174 003c 18D2     		bcs	.L4
- 175              	.LBB3:
+ 166              		.loc 1 21 5 is_stmt 1 view .LVU37
+ 167              	.LBB11:
+ 168              		.loc 1 21 9 view .LVU38
+ 169              		.loc 1 21 5 is_stmt 0 view .LVU39
+ 170 0034 002D     		cmp	r5, #0
+ 171 0036 4AD0     		beq	.L5
+ 172              		.loc 1 21 18 view .LVU40
+ 173 0038 4FF0000B 		mov	fp, #0
+ 174              	.LBB12:
+ 175              	.LBB13:
+ 176              	.LBB14:
+   9:Core/Src/gdi.c **** 
+ 177              		.loc 1 9 37 view .LVU41
+ 178 003c 4FF0010A 		mov	r10, #1
+ 179              	.LVL12:
+ 180              	.L7:
+   9:Core/Src/gdi.c **** 
+ 181              		.loc 1 9 37 view .LVU42
+ 182              	.LBE14:
+ 183              	.LBE13:
   22:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
- 176              		.loc 1 22 22 view .LVU41
- 177 003e 0024     		movs	r4, #0
- 178              	.L8:
- 179              	.LVL11:
- 180              		.loc 1 22 9 discriminator 1 view .LVU42
- 181 0040 B442     		cmp	r4, r6
- 182 0042 F8D2     		bcs	.L11
+ 184              		.loc 1 22 9 view .LVU43
+ 185 0040 002A     		cmp	r2, #0
+ 186 0042 3DD0     		beq	.L11
+ 187 0044 049B     		ldr	r3, [sp, #16]
   23:Core/Src/gdi.c ****             set_pixel(x + j, y + i, (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1, handle
- 183              		.loc 1 23 13 is_stmt 1 discriminator 3 view .LVU43
- 184              		.loc 1 23 68 is_stmt 0 discriminator 3 view .LVU44
- 185 0044 E308     		lsrs	r3, r4, #3
- 186              		.loc 1 23 64 discriminator 3 view .LVU45
- 187 0046 09FB0533 		mla	r3, r9, r5, r3
- 188              		.loc 1 23 45 discriminator 3 view .LVU46
- 189 004a 1AF80320 		ldrb	r2, [r10, r3]	@ zero_extendqisi2
- 190              		.loc 1 23 79 discriminator 3 view .LVU47
- 191 004e E343     		mvns	r3, r4
- 192 0050 03F00703 		and	r3, r3, #7
- 193              		.loc 1 23 73 discriminator 3 view .LVU48
- 194 0054 1A41     		asrs	r2, r2, r3
- 195              		.loc 1 23 13 discriminator 3 view .LVU49
- 196 0056 05EB0801 		add	r1, r5, r8
- 197 005a E019     		adds	r0, r4, r7
- 198 005c 0B9B     		ldr	r3, [sp, #44]
- 199 005e 02F00102 		and	r2, r2, #1
- 200 0062 89B2     		uxth	r1, r1
- 201 0064 80B2     		uxth	r0, r0
- 202 0066 FFF7FEFF 		bl	set_pixel
- 203              	.LVL12:
-  22:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
- 204              		.loc 1 22 40 discriminator 3 view .LVU50
- 205 006a 0134     		adds	r4, r4, #1
- 206              	.LVL13:
-  22:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
-ARM GAS  /tmp/ccebuQop.s 			page 5
+ 188              		.loc 1 23 45 view .LVU44
+ 189 0046 0598     		ldr	r0, [sp, #20]
+ 190 0048 109C     		ldr	r4, [sp, #64]
+ 191 004a CDF804B0 		str	fp, [sp, #4]
+ 192 004e 03EB0B0C 		add	ip, r3, fp
+ 193              		.loc 1 23 48 view .LVU45
+ 194 0052 0021     		movs	r1, #0
+ 195              		.loc 1 23 45 view .LVU46
+ 196 0054 00FB0B40 		mla	r0, r0, fp, r4
+ 197              		.loc 1 23 48 view .LVU47
+ 198 0058 039B     		ldr	r3, [sp, #12]
+ 199 005a 1FFA8CFC 		uxth	ip, ip
+ 200 005e 0E46     		mov	r6, r1
+ 201              		.loc 1 23 45 view .LVU48
+ARM GAS  /tmp/ccfR4ERA.s 			page 5
 
 
- 207              		.loc 1 22 40 discriminator 3 view .LVU51
- 208 006c A4B2     		uxth	r4, r4
- 209              	.LVL14:
-  22:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
- 210              		.loc 1 22 40 discriminator 3 view .LVU52
- 211 006e E7E7     		b	.L8
- 212              	.LVL15:
- 213              	.L4:
-  22:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
- 214              		.loc 1 22 40 discriminator 3 view .LVU53
- 215              	.LBE3:
- 216              	.LBE2:
+ 202 0060 8346     		mov	fp, r0
+ 203              	.LVL13:
+ 204              	.L9:
+ 205              		.loc 1 23 13 is_stmt 1 discriminator 3 view .LVU49
+ 206              	.LBB20:
+ 207              	.LBI13:
+   3:Core/Src/gdi.c ****     if(handle->width <= x || handle->height <= y) {
+ 208              		.loc 1 3 6 discriminator 3 view .LVU50
+ 209              	.LBB15:
+   4:Core/Src/gdi.c ****         return;
+ 210              		.loc 1 4 5 discriminator 3 view .LVU51
+   8:Core/Src/gdi.c ****     *cell ^= (- color ^ *cell) & (1 << (x % 8));
+ 211              		.loc 1 8 5 discriminator 3 view .LVU52
+   4:Core/Src/gdi.c ****         return;
+ 212              		.loc 1 4 14 is_stmt 0 discriminator 3 view .LVU53
+ 213 0062 BEF80470 		ldrh	r7, [lr, #4]
+   8:Core/Src/gdi.c ****     *cell ^= (- color ^ *cell) & (1 << (x % 8));
+ 214              		.loc 1 8 65 discriminator 3 view .LVU54
+ 215 0066 D808     		lsrs	r0, r3, #3
+   8:Core/Src/gdi.c ****     *cell ^= (- color ^ *cell) & (1 << (x % 8));
+ 216              		.loc 1 8 56 discriminator 3 view .LVU55
+ 217 0068 FC08     		lsrs	r4, r7, #3
+ 218              	.LBE15:
+ 219              	.LBE20:
+ 220              		.loc 1 23 79 discriminator 3 view .LVU56
+ 221 006a CD43     		mvns	r5, r1
+ 222              	.LBB21:
+ 223              	.LBB16:
+   8:Core/Src/gdi.c ****     *cell ^= (- color ^ *cell) & (1 << (x % 8));
+ 224              		.loc 1 8 61 discriminator 3 view .LVU57
+ 225 006c 0CFB0400 		mla	r0, ip, r4, r0
+ 226 0070 0131     		adds	r1, r1, #1
+   9:Core/Src/gdi.c **** 
+ 227              		.loc 1 9 43 discriminator 3 view .LVU58
+ 228 0072 03F00704 		and	r4, r3, #7
+ 229 0076 03F10108 		add	r8, r3, #1
+   4:Core/Src/gdi.c ****         return;
+ 230              		.loc 1 4 7 discriminator 3 view .LVU59
+ 231 007a 9F42     		cmp	r7, r3
+ 232              	.LBE16:
+ 233              	.LBE21:
+ 234              		.loc 1 23 68 discriminator 3 view .LVU60
+ 235 007c 4FEAD609 		lsr	r9, r6, #3
+ 236              		.loc 1 23 79 discriminator 3 view .LVU61
+ 237 0080 05F00705 		and	r5, r5, #7
+  22:Core/Src/gdi.c ****             set_pixel(x + j, y + i, (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1, handle
+ 238              		.loc 1 22 9 discriminator 3 view .LVU62
+ 239 0084 8EB2     		uxth	r6, r1
+ 240              	.LBB22:
+ 241              	.LBB17:
+   9:Core/Src/gdi.c **** 
+ 242              		.loc 1 9 37 discriminator 3 view .LVU63
+ 243 0086 0AFA04F4 		lsl	r4, r10, r4
+ 244 008a 1FFA88F3 		uxth	r3, r8
+   4:Core/Src/gdi.c ****         return;
+ 245              		.loc 1 4 7 discriminator 3 view .LVU64
+ 246 008e 13D9     		bls	.L8
+ARM GAS  /tmp/ccfR4ERA.s 			page 6
+
+
+   4:Core/Src/gdi.c ****         return;
+ 247              		.loc 1 4 27 view .LVU65
+ 248 0090 BEF80670 		ldrh	r7, [lr, #6]
+ 249 0094 6745     		cmp	r7, ip
+ 250 0096 0FD9     		bls	.L8
+ 251              	.LBE17:
+ 252              	.LBE22:
+ 253              		.loc 1 23 45 view .LVU66
+ 254 0098 1BF80980 		ldrb	r8, [fp, r9]	@ zero_extendqisi2
+ 255              	.LBB23:
+ 256              	.LBB18:
+   8:Core/Src/gdi.c ****     *cell ^= (- color ^ *cell) & (1 << (x % 8));
+ 257              		.loc 1 8 14 view .LVU67
+ 258 009c DEF80070 		ldr	r7, [lr]
+ 259              	.LVL14:
+   9:Core/Src/gdi.c **** 
+ 260              		.loc 1 9 5 is_stmt 1 view .LVU68
+ 261              	.LBE18:
+ 262              	.LBE23:
+ 263              		.loc 1 23 73 is_stmt 0 view .LVU69
+ 264 00a0 48FA05F5 		asr	r5, r8, r5
+ 265              	.LBB24:
+ 266              	.LBB19:
+   9:Core/Src/gdi.c **** 
+ 267              		.loc 1 9 11 view .LVU70
+ 268 00a4 17F90080 		ldrsb	r8, [r7, r0]
+   9:Core/Src/gdi.c **** 
+ 269              		.loc 1 9 23 view .LVU71
+ 270 00a8 45F30005 		sbfx	r5, r5, #0, #1
+ 271 00ac 88EA0505 		eor	r5, r8, r5
+   9:Core/Src/gdi.c **** 
+ 272              		.loc 1 9 32 view .LVU72
+ 273 00b0 2C40     		ands	r4, r4, r5
+   9:Core/Src/gdi.c **** 
+ 274              		.loc 1 9 11 view .LVU73
+ 275 00b2 88EA0404 		eor	r4, r8, r4
+ 276 00b6 3C54     		strb	r4, [r7, r0]
+  11:Core/Src/gdi.c **** }
+ 277              		.loc 1 11 5 is_stmt 1 view .LVU74
+ 278              	.LVL15:
+ 279              	.L8:
+  11:Core/Src/gdi.c **** }
+ 280              		.loc 1 11 5 is_stmt 0 view .LVU75
+ 281              	.LBE19:
+ 282              	.LBE24:
+  22:Core/Src/gdi.c ****             set_pixel(x + j, y + i, (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1, handle
+ 283              		.loc 1 22 9 view .LVU76
+ 284 00b8 B242     		cmp	r2, r6
+ 285 00ba D2D8     		bhi	.L9
+ 286 00bc DDF804B0 		ldr	fp, [sp, #4]
+ 287              	.L11:
+  22:Core/Src/gdi.c ****             set_pixel(x + j, y + i, (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1, handle
+ 288              		.loc 1 22 9 view .LVU77
+ 289              	.LBE12:
+  21:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
+ 290              		.loc 1 21 5 view .LVU78
+ 291 00c0 029B     		ldr	r3, [sp, #8]
+ARM GAS  /tmp/ccfR4ERA.s 			page 7
+
+
+  21:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
+ 292              		.loc 1 21 37 view .LVU79
+ 293 00c2 0BF1010B 		add	fp, fp, #1
+ 294 00c6 1FFA8BFB 		uxth	fp, fp
+ 295              	.LVL16:
+  21:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
+ 296              		.loc 1 21 5 view .LVU80
+ 297 00ca 5B45     		cmp	r3, fp
+ 298 00cc B8D8     		bhi	.L7
+ 299              	.LVL17:
+ 300              	.L5:
+  21:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
+ 301              		.loc 1 21 5 view .LVU81
+ 302              	.LBE11:
   24:Core/Src/gdi.c ****         }
   25:Core/Src/gdi.c ****     }
   26:Core/Src/gdi.c **** 
   27:Core/Src/gdi.c ****     return;
   28:Core/Src/gdi.c **** }
- 217              		.loc 1 28 1 view .LVU54
- 218 0070 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 219              		.loc 1 28 1 view .LVU55
- 220              		.cfi_endproc
- 221              	.LFE1:
- 223              		.section	.text.draw_picture_blend,"ax",%progbits
- 224              		.align	1
- 225              		.global	draw_picture_blend
- 226              		.syntax unified
- 227              		.thumb
- 228              		.thumb_func
- 229              		.fpu fpv4-sp-d16
- 231              	draw_picture_blend:
- 232              	.LVL16:
- 233              	.LFB2:
+ 303              		.loc 1 28 1 view .LVU82
+ 304 00ce 07B0     		add	sp, sp, #28
+ 305              	.LCFI4:
+ 306              		.cfi_def_cfa_offset 36
+ 307              		@ sp needed
+ 308 00d0 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 309              		.loc 1 28 1 view .LVU83
+ 310              		.cfi_endproc
+ 311              	.LFE1:
+ 313              		.section	.text.draw_picture_blend,"ax",%progbits
+ 314              		.align	1
+ 315              		.p2align 2,,3
+ 316              		.global	draw_picture_blend
+ 317              		.syntax unified
+ 318              		.thumb
+ 319              		.thumb_func
+ 320              		.fpu fpv4-sp-d16
+ 322              	draw_picture_blend:
+ 323              	.LVL18:
+ 324              	.LFB2:
   29:Core/Src/gdi.c **** 
   30:Core/Src/gdi.c **** void draw_picture_blend(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t *picture, 
- 234              		.loc 1 30 120 is_stmt 1 view -0
- 235              		.cfi_startproc
- 236              		@ args = 8, pretend = 0, frame = 0
- 237              		@ frame_needed = 0, uses_anonymous_args = 0
- 238              		.loc 1 30 120 is_stmt 0 view .LVU57
- 239 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 240              	.LCFI3:
- 241              		.cfi_def_cfa_offset 40
- 242              		.cfi_offset 3, -40
- 243              		.cfi_offset 4, -36
- 244              		.cfi_offset 5, -32
- 245              		.cfi_offset 6, -28
- 246              		.cfi_offset 7, -24
- 247              		.cfi_offset 8, -20
- 248              		.cfi_offset 9, -16
- 249              		.cfi_offset 10, -12
- 250              		.cfi_offset 11, -8
- 251              		.cfi_offset 14, -4
- 252 0004 DDF82880 		ldr	r8, [sp, #40]
+ 325              		.loc 1 30 120 is_stmt 1 view -0
+ 326              		.cfi_startproc
+ 327              		@ args = 8, pretend = 0, frame = 8
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
   31:Core/Src/gdi.c ****     if(x + width >= handle->width || y + height >= handle->height) {
- 253              		.loc 1 31 5 is_stmt 1 view .LVU58
- 254              		.loc 1 31 10 is_stmt 0 view .LVU59
- 255 0008 8518     		adds	r5, r0, r2
-ARM GAS  /tmp/ccebuQop.s 			page 6
+ 329              		.loc 1 31 5 view .LVU85
+  30:Core/Src/gdi.c ****     if(x + width >= handle->width || y + height >= handle->height) {
+ 330              		.loc 1 30 120 is_stmt 0 view .LVU86
+ 331 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 332              	.LCFI5:
+ 333              		.cfi_def_cfa_offset 36
+ 334              		.cfi_offset 4, -36
+ 335              		.cfi_offset 5, -32
+ 336              		.cfi_offset 6, -28
+ 337              		.cfi_offset 7, -24
+ 338              		.cfi_offset 8, -20
+ARM GAS  /tmp/ccfR4ERA.s 			page 8
 
 
- 256              		.loc 1 31 27 view .LVU60
- 257 000a 0B9C     		ldr	r4, [sp, #44]
- 258 000c A488     		ldrh	r4, [r4, #4]
- 259              		.loc 1 31 7 view .LVU61
- 260 000e A542     		cmp	r5, r4
- 261 0010 30DA     		bge	.L12
- 262              		.loc 1 31 40 discriminator 1 view .LVU62
- 263 0012 CC18     		adds	r4, r1, r3
- 264              		.loc 1 31 58 discriminator 1 view .LVU63
- 265 0014 0B9D     		ldr	r5, [sp, #44]
- 266 0016 ED88     		ldrh	r5, [r5, #6]
- 267              		.loc 1 31 35 discriminator 1 view .LVU64
- 268 0018 AC42     		cmp	r4, r5
- 269 001a 2BDA     		bge	.L12
- 270 001c 9B46     		mov	fp, r3
- 271 001e 1646     		mov	r6, r2
- 272 0020 8A46     		mov	r10, r1
- 273 0022 8146     		mov	r9, r0
+ 339              		.cfi_offset 9, -16
+ 340              		.cfi_offset 10, -12
+ 341              		.cfi_offset 11, -8
+ 342              		.cfi_offset 14, -4
+ 343 0004 83B0     		sub	sp, sp, #12
+ 344              	.LCFI6:
+ 345              		.cfi_def_cfa_offset 48
+ 346              		.loc 1 31 10 view .LVU87
+ 347 0006 8518     		adds	r5, r0, r2
+  30:Core/Src/gdi.c ****     if(x + width >= handle->width || y + height >= handle->height) {
+ 348              		.loc 1 30 120 view .LVU88
+ 349 0008 DDF83480 		ldr	r8, [sp, #52]
+ 350 000c 0091     		str	r1, [sp]
+ 351              		.loc 1 31 27 view .LVU89
+ 352 000e B8F80440 		ldrh	r4, [r8, #4]
+ 353              		.loc 1 31 7 view .LVU90
+ 354 0012 A542     		cmp	r5, r4
+ 355 0014 4EDA     		bge	.L15
+ 356 0016 0E46     		mov	r6, r1
+ 357              		.loc 1 31 40 discriminator 1 view .LVU91
+ 358 0018 3446     		mov	r4, r6
+ 359              		.loc 1 31 58 discriminator 1 view .LVU92
+ 360 001a B8F80610 		ldrh	r1, [r8, #6]
+ 361              	.LVL19:
+ 362              		.loc 1 31 40 discriminator 1 view .LVU93
+ 363 001e 1C44     		add	r4, r4, r3
+ 364              		.loc 1 31 35 discriminator 1 view .LVU94
+ 365 0020 8C42     		cmp	r4, r1
+ 366 0022 47DA     		bge	.L15
   32:Core/Src/gdi.c ****         return;
   33:Core/Src/gdi.c ****     }
   34:Core/Src/gdi.c **** 
   35:Core/Src/gdi.c ****     uint16_t bytes_in_line = width / 8 + (width % 8 == 0 ? 0 : 1);
- 274              		.loc 1 35 5 is_stmt 1 view .LVU65
- 275              		.loc 1 35 62 is_stmt 0 view .LVU66
- 276 0024 12F00707 		ands	r7, r2, #7
- 277 0028 18BF     		it	ne
- 278 002a 0127     		movne	r7, #1
- 279              		.loc 1 35 14 view .LVU67
- 280 002c 07EBD207 		add	r7, r7, r2, lsr #3
- 281              	.LVL17:
+ 367              		.loc 1 35 5 is_stmt 1 view .LVU95
+ 368              		.loc 1 35 62 is_stmt 0 view .LVU96
+ 369 0024 12F00701 		ands	r1, r2, #7
+ 370 0028 18BF     		it	ne
+ 371 002a 0121     		movne	r1, #1
+ 372              		.loc 1 35 14 view .LVU97
+ 373 002c 01EBD201 		add	r1, r1, r2, lsr #3
+ 374 0030 0191     		str	r1, [sp, #4]
+ 375              	.LVL20:
   36:Core/Src/gdi.c **** 
   37:Core/Src/gdi.c ****     for(uint16_t i = 0; i < height; ++i) {
- 282              		.loc 1 37 5 is_stmt 1 view .LVU68
- 283              	.LBB4:
- 284              		.loc 1 37 9 view .LVU69
- 285              		.loc 1 37 18 is_stmt 0 view .LVU70
- 286 0030 0025     		movs	r5, #0
- 287              		.loc 1 37 5 view .LVU71
- 288 0032 1BE0     		b	.L14
- 289              	.LVL18:
- 290              	.L21:
- 291              	.LBB5:
- 292              	.LBB6:
+ 376              		.loc 1 37 5 is_stmt 1 view .LVU98
+ 377              	.LBB25:
+ 378              		.loc 1 37 9 view .LVU99
+ 379              		.loc 1 37 5 is_stmt 0 view .LVU100
+ 380 0032 002B     		cmp	r3, #0
+ 381 0034 3ED0     		beq	.L15
+ 382              		.loc 1 37 18 view .LVU101
+ 383 0036 4FF0000A 		mov	r10, #0
+ 384              	.LBB26:
+ 385              	.LBB27:
+ 386              	.LBB28:
+ 387              	.LBB29:
+   9:Core/Src/gdi.c **** 
+ARM GAS  /tmp/ccfR4ERA.s 			page 9
+
+
+ 388              		.loc 1 9 37 view .LVU102
+ 389 003a 4FF0010B 		mov	fp, #1
+ 390              	.LVL21:
+ 391              	.L17:
+   9:Core/Src/gdi.c **** 
+ 392              		.loc 1 9 37 view .LVU103
+ 393              	.LBE29:
+ 394              	.LBE28:
+ 395              	.LBE27:
   38:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
+ 396              		.loc 1 38 9 view .LVU104
+ 397 003e 9AB3     		cbz	r2, .L21
+ 398              	.LBB34:
   39:Core/Src/gdi.c ****             //uint8_t cell = (handle->image[(y + i) * (handle->width / 8) + (x + j) / 8]
   40:Core/Src/gdi.c ****              //              >> (7 - j % 8)) & 1;
   41:Core/Src/gdi.c ****             uint8_t cell = (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1;
-  42:Core/Src/gdi.c ****             if(!cell) {
-  43:Core/Src/gdi.c ****                 set_pixel(x + j, y + i, (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1, ha
- 293              		.loc 1 43 17 is_stmt 1 view .LVU72
- 294 0034 05EB0A01 		add	r1, r5, r10
- 295 0038 04EB0900 		add	r0, r4, r9
- 296 003c 0B9B     		ldr	r3, [sp, #44]
- 297              	.LVL19:
- 298              		.loc 1 43 17 is_stmt 0 view .LVU73
- 299 003e 89B2     		uxth	r1, r1
- 300 0040 80B2     		uxth	r0, r0
-ARM GAS  /tmp/ccebuQop.s 			page 7
+  42:Core/Src/gdi.c ****             if(cell) {
+  43:Core/Src/gdi.c ****                 set_pixel(x + j, y + i, /*(picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1*/
+ 399              		.loc 1 43 17 view .LVU105
+ 400 0040 0099     		ldr	r1, [sp]
+ 401 0042 0C9E     		ldr	r6, [sp, #48]
+ 402 0044 01EB0A0E 		add	lr, r1, r10
+ 403 0048 0199     		ldr	r1, [sp, #4]
+  41:Core/Src/gdi.c ****             if(cell) {
+ 404              		.loc 1 41 39 view .LVU106
+ 405 004a 0024     		movs	r4, #0
+ 406 004c 2546     		mov	r5, r4
+ 407              		.loc 1 43 17 view .LVU107
+ 408 004e 1FFA8EFE 		uxth	lr, lr
+ 409 0052 01FB0A69 		mla	r9, r1, r10, r6
+ 410              	.LVL22:
+ 411              	.L19:
+  41:Core/Src/gdi.c ****             if(cell) {
+ 412              		.loc 1 41 13 is_stmt 1 view .LVU108
+  42:Core/Src/gdi.c ****                 set_pixel(x + j, y + i, /*(picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1*/
+ 413              		.loc 1 42 13 view .LVU109
+ 414              		.loc 1 43 17 view .LVU110
+  41:Core/Src/gdi.c ****             if(cell) {
+ 415              		.loc 1 41 59 is_stmt 0 view .LVU111
+ 416 0056 E908     		lsrs	r1, r5, #3
+  41:Core/Src/gdi.c ****             if(cell) {
+ 417              		.loc 1 41 70 view .LVU112
+ 418 0058 E743     		mvns	r7, r4
+  41:Core/Src/gdi.c ****             if(cell) {
+ 419              		.loc 1 41 36 view .LVU113
+ 420 005a 19F80160 		ldrb	r6, [r9, r1]	@ zero_extendqisi2
+  41:Core/Src/gdi.c ****             if(cell) {
+ 421              		.loc 1 41 70 view .LVU114
+ 422 005e 07F00707 		and	r7, r7, #7
+  41:Core/Src/gdi.c ****             if(cell) {
+ 423              		.loc 1 41 64 view .LVU115
+ 424 0062 3E41     		asrs	r6, r6, r7
+ 425 0064 4119     		adds	r1, r0, r5
+ 426 0066 0134     		adds	r4, r4, #1
+ 427              	.LVL23:
+  42:Core/Src/gdi.c ****                 set_pixel(x + j, y + i, /*(picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1*/
+ 428              		.loc 1 42 15 view .LVU116
+ARM GAS  /tmp/ccfR4ERA.s 			page 10
 
 
- 301 0042 FFF7FEFF 		bl	set_pixel
- 302              	.LVL20:
- 303              	.L15:
- 304              		.loc 1 43 17 view .LVU74
- 305              	.LBE6:
-  38:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
- 306              		.loc 1 38 40 discriminator 2 view .LVU75
- 307 0046 0134     		adds	r4, r4, #1
- 308              	.LVL21:
-  38:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
- 309              		.loc 1 38 40 discriminator 2 view .LVU76
- 310 0048 A4B2     		uxth	r4, r4
- 311              	.LVL22:
- 312              	.L17:
-  38:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
- 313              		.loc 1 38 9 discriminator 1 view .LVU77
- 314 004a B442     		cmp	r4, r6
- 315 004c 0CD2     		bcs	.L20
- 316              	.LBB7:
-  41:Core/Src/gdi.c ****             if(!cell) {
- 317              		.loc 1 41 13 is_stmt 1 view .LVU78
-  41:Core/Src/gdi.c ****             if(!cell) {
- 318              		.loc 1 41 59 is_stmt 0 view .LVU79
- 319 004e E308     		lsrs	r3, r4, #3
-  41:Core/Src/gdi.c ****             if(!cell) {
- 320              		.loc 1 41 55 view .LVU80
- 321 0050 07FB0533 		mla	r3, r7, r5, r3
-  41:Core/Src/gdi.c ****             if(!cell) {
- 322              		.loc 1 41 36 view .LVU81
- 323 0054 18F80320 		ldrb	r2, [r8, r3]	@ zero_extendqisi2
-  41:Core/Src/gdi.c ****             if(!cell) {
- 324              		.loc 1 41 70 view .LVU82
- 325 0058 E343     		mvns	r3, r4
- 326 005a 03F00703 		and	r3, r3, #7
-  41:Core/Src/gdi.c ****             if(!cell) {
- 327              		.loc 1 41 64 view .LVU83
- 328 005e 1A41     		asrs	r2, r2, r3
- 329              	.LVL23:
-  42:Core/Src/gdi.c ****                 set_pixel(x + j, y + i, (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1, ha
- 330              		.loc 1 42 13 is_stmt 1 view .LVU84
-  42:Core/Src/gdi.c ****                 set_pixel(x + j, y + i, (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1, ha
- 331              		.loc 1 42 15 is_stmt 0 view .LVU85
- 332 0060 12F00102 		ands	r2, r2, #1
- 333              	.LVL24:
-  42:Core/Src/gdi.c ****                 set_pixel(x + j, y + i, (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1, ha
- 334              		.loc 1 42 15 view .LVU86
- 335 0064 EFD1     		bne	.L15
-  42:Core/Src/gdi.c ****                 set_pixel(x + j, y + i, (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1, ha
- 336              		.loc 1 42 15 view .LVU87
- 337 0066 E5E7     		b	.L21
- 338              	.LVL25:
- 339              	.L20:
-  42:Core/Src/gdi.c ****                 set_pixel(x + j, y + i, (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1, ha
- 340              		.loc 1 42 15 view .LVU88
- 341              	.LBE7:
- 342              	.LBE5:
-  37:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
-ARM GAS  /tmp/ccebuQop.s 			page 8
-
-
- 343              		.loc 1 37 37 discriminator 2 view .LVU89
- 344 0068 0135     		adds	r5, r5, #1
- 345              	.LVL26:
-  37:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
- 346              		.loc 1 37 37 discriminator 2 view .LVU90
- 347 006a ADB2     		uxth	r5, r5
- 348              	.LVL27:
- 349              	.L14:
-  37:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
- 350              		.loc 1 37 5 discriminator 1 view .LVU91
- 351 006c 5D45     		cmp	r5, fp
- 352 006e 01D2     		bcs	.L12
- 353              	.LBB8:
+ 429 0068 F607     		lsls	r6, r6, #31
+ 430              	.LBE34:
   38:Core/Src/gdi.c ****             //uint8_t cell = (handle->image[(y + i) * (handle->width / 8) + (x + j) / 8]
- 354              		.loc 1 38 22 view .LVU92
- 355 0070 0024     		movs	r4, #0
- 356 0072 EAE7     		b	.L17
- 357              	.LVL28:
- 358              	.L12:
+ 431              		.loc 1 38 9 view .LVU117
+ 432 006a A5B2     		uxth	r5, r4
+ 433 006c 89B2     		uxth	r1, r1
+ 434              	.LVL24:
+ 435              	.LBB35:
+ 436              	.LBB32:
+ 437              	.LBI28:
+   3:Core/Src/gdi.c ****     if(handle->width <= x || handle->height <= y) {
+ 438              		.loc 1 3 6 is_stmt 1 view .LVU118
+ 439              	.LBB30:
+   4:Core/Src/gdi.c ****         return;
+ 440              		.loc 1 4 5 view .LVU119
+ 441              	.LBE30:
+ 442              	.LBE32:
+  42:Core/Src/gdi.c ****                 set_pixel(x + j, y + i, /*(picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1*/
+ 443              		.loc 1 42 15 is_stmt 0 view .LVU120
+ 444 006e 19D5     		bpl	.L18
+ 445              	.LBB33:
+ 446              	.LBB31:
+   8:Core/Src/gdi.c ****     *cell ^= (- color ^ *cell) & (1 << (x % 8));
+ 447              		.loc 1 8 5 is_stmt 1 view .LVU121
+   4:Core/Src/gdi.c ****         return;
+ 448              		.loc 1 4 14 is_stmt 0 view .LVU122
+ 449 0070 B8F804C0 		ldrh	ip, [r8, #4]
+   8:Core/Src/gdi.c ****     *cell ^= (- color ^ *cell) & (1 << (x % 8));
+ 450              		.loc 1 8 65 view .LVU123
+ 451 0074 CE08     		lsrs	r6, r1, #3
+   8:Core/Src/gdi.c ****     *cell ^= (- color ^ *cell) & (1 << (x % 8));
+ 452              		.loc 1 8 56 view .LVU124
+ 453 0076 4FEADC07 		lsr	r7, ip, #3
+   8:Core/Src/gdi.c ****     *cell ^= (- color ^ *cell) & (1 << (x % 8));
+ 454              		.loc 1 8 61 view .LVU125
+ 455 007a 0EFB0767 		mla	r7, lr, r7, r6
+   4:Core/Src/gdi.c ****         return;
+ 456              		.loc 1 4 7 view .LVU126
+ 457 007e 8C45     		cmp	ip, r1
+   9:Core/Src/gdi.c **** 
+ 458              		.loc 1 9 43 view .LVU127
+ 459 0080 01F00706 		and	r6, r1, #7
+   9:Core/Src/gdi.c **** 
+ 460              		.loc 1 9 37 view .LVU128
+ 461 0084 0BFA06F6 		lsl	r6, fp, r6
+   4:Core/Src/gdi.c ****         return;
+ 462              		.loc 1 4 7 view .LVU129
+ 463 0088 0CD9     		bls	.L18
+   4:Core/Src/gdi.c ****         return;
+ 464              		.loc 1 4 27 view .LVU130
+ 465 008a B8F80610 		ldrh	r1, [r8, #6]
+ 466              	.LVL25:
+   4:Core/Src/gdi.c ****         return;
+ 467              		.loc 1 4 27 view .LVU131
+ 468 008e 7145     		cmp	r1, lr
+ 469 0090 08D9     		bls	.L18
+   8:Core/Src/gdi.c ****     *cell ^= (- color ^ *cell) & (1 << (x % 8));
+ARM GAS  /tmp/ccfR4ERA.s 			page 11
+
+
+ 470              		.loc 1 8 14 view .LVU132
+ 471 0092 D8F800C0 		ldr	ip, [r8]
+ 472              	.LVL26:
+   9:Core/Src/gdi.c **** 
+ 473              		.loc 1 9 5 is_stmt 1 view .LVU133
+   9:Core/Src/gdi.c **** 
+ 474              		.loc 1 9 11 is_stmt 0 view .LVU134
+ 475 0096 1CF90710 		ldrsb	r1, [ip, r7]
+   9:Core/Src/gdi.c **** 
+ 476              		.loc 1 9 32 view .LVU135
+ 477 009a 26EA0106 		bic	r6, r6, r1
+   9:Core/Src/gdi.c **** 
+ 478              		.loc 1 9 11 view .LVU136
+ 479 009e 4E40     		eors	r6, r6, r1
+ 480 00a0 0CF80760 		strb	r6, [ip, r7]
+  11:Core/Src/gdi.c **** }
+ 481              		.loc 1 11 5 is_stmt 1 view .LVU137
+ 482              	.LVL27:
+ 483              	.L18:
+  11:Core/Src/gdi.c **** }
+ 484              		.loc 1 11 5 is_stmt 0 view .LVU138
+ 485              	.LBE31:
+ 486              	.LBE33:
+ 487              	.LBE35:
   38:Core/Src/gdi.c ****             //uint8_t cell = (handle->image[(y + i) * (handle->width / 8) + (x + j) / 8]
- 359              		.loc 1 38 22 view .LVU93
- 360              	.LBE8:
- 361              	.LBE4:
+ 488              		.loc 1 38 9 discriminator 2 view .LVU139
+ 489 00a4 AA42     		cmp	r2, r5
+ 490 00a6 D6D8     		bhi	.L19
+ 491              	.LVL28:
+ 492              	.L21:
+  38:Core/Src/gdi.c ****             //uint8_t cell = (handle->image[(y + i) * (handle->width / 8) + (x + j) / 8]
+ 493              		.loc 1 38 9 discriminator 2 view .LVU140
+ 494              	.LBE26:
+  37:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
+ 495              		.loc 1 37 37 view .LVU141
+ 496 00a8 0AF1010A 		add	r10, r10, #1
+ 497              	.LVL29:
+  37:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
+ 498              		.loc 1 37 37 view .LVU142
+ 499 00ac 1FFA8AFA 		uxth	r10, r10
+ 500              	.LVL30:
+  37:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
+ 501              		.loc 1 37 5 view .LVU143
+ 502 00b0 5345     		cmp	r3, r10
+ 503 00b2 C4D8     		bhi	.L17
+ 504              	.LVL31:
+ 505              	.L15:
+  37:Core/Src/gdi.c ****         for(uint16_t j = 0; j < width; ++j) {
+ 506              		.loc 1 37 5 view .LVU144
+ 507              	.LBE25:
   44:Core/Src/gdi.c ****             }
   45:Core/Src/gdi.c ****         }
   46:Core/Src/gdi.c ****     }
   47:Core/Src/gdi.c **** 
   48:Core/Src/gdi.c ****     return;
   49:Core/Src/gdi.c **** }
- 362              		.loc 1 49 1 view .LVU94
- 363 0074 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 364              		.loc 1 49 1 view .LVU95
- 365              		.cfi_endproc
- 366              	.LFE2:
- 368              		.text
- 369              	.Letext0:
- 370              		.file 2 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stdint.h"
- 371              		.file 3 "Core/Inc/gdi.h"
-ARM GAS  /tmp/ccebuQop.s 			page 9
+ 508              		.loc 1 49 1 view .LVU145
+ARM GAS  /tmp/ccfR4ERA.s 			page 12
+
+
+ 509 00b4 03B0     		add	sp, sp, #12
+ 510              	.LCFI7:
+ 511              		.cfi_def_cfa_offset 36
+ 512              		@ sp needed
+ 513 00b6 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 514              		.loc 1 49 1 view .LVU146
+ 515              		.cfi_endproc
+ 516              	.LFE2:
+ 518 00ba 00BF     		.text
+ 519              	.Letext0:
+ 520              		.file 2 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stdint.h"
+ 521              		.file 3 "Core/Inc/gdi.h"
+ARM GAS  /tmp/ccfR4ERA.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gdi.c
-     /tmp/ccebuQop.s:18     .text.set_pixel:0000000000000000 $t
-     /tmp/ccebuQop.s:26     .text.set_pixel:0000000000000000 set_pixel
-     /tmp/ccebuQop.s:98     .text.draw_picture:0000000000000000 $t
-     /tmp/ccebuQop.s:105    .text.draw_picture:0000000000000000 draw_picture
-     /tmp/ccebuQop.s:224    .text.draw_picture_blend:0000000000000000 $t
-     /tmp/ccebuQop.s:231    .text.draw_picture_blend:0000000000000000 draw_picture_blend
+     /tmp/ccfR4ERA.s:18     .text.set_pixel:0000000000000000 $t
+     /tmp/ccfR4ERA.s:27     .text.set_pixel:0000000000000000 set_pixel
+     /tmp/ccfR4ERA.s:99     .text.draw_picture:0000000000000000 $t
+     /tmp/ccfR4ERA.s:107    .text.draw_picture:0000000000000000 draw_picture
+     /tmp/ccfR4ERA.s:314    .text.draw_picture_blend:0000000000000000 $t
+     /tmp/ccfR4ERA.s:322    .text.draw_picture_blend:0000000000000000 draw_picture_blend
 
 NO UNDEFINED SYMBOLS

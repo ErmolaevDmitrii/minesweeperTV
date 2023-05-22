@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccvCiLVj.s 			page 1
+ARM GAS  /tmp/cc5pyIGS.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  /tmp/ccvCiLVj.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 2
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"game_symbols.c"
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccvCiLVj.s 			page 1
   57 0016 1B       		.byte	27
   58 0017 D8       		.byte	-40
   59 0018 19       		.byte	25
-ARM GAS  /tmp/ccvCiLVj.s 			page 2
+ARM GAS  /tmp/cc5pyIGS.s 			page 2
 
 
   60 0019 98       		.byte	-104
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccvCiLVj.s 			page 1
  118 0009 00       		.byte	0
  119 000a 06       		.byte	6
  120 000b 00       		.byte	0
-ARM GAS  /tmp/ccvCiLVj.s 			page 3
+ARM GAS  /tmp/cc5pyIGS.s 			page 3
 
 
  121 000c 07       		.byte	7
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccvCiLVj.s 			page 1
  177 001f 00       		.byte	0
  178              		.section	.rodata.four,"a"
  179              		.align	2
-ARM GAS  /tmp/ccvCiLVj.s 			page 4
+ARM GAS  /tmp/cc5pyIGS.s 			page 4
 
 
  182              	four:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccvCiLVj.s 			page 1
  238 0012 D2       		.byte	-46
  239 0013 4B       		.byte	75
  240 0014 E4       		.byte	-28
-ARM GAS  /tmp/ccvCiLVj.s 			page 5
+ARM GAS  /tmp/cc5pyIGS.s 			page 5
 
 
  241 0015 93       		.byte	-109
@@ -293,35 +293,35 @@ ARM GAS  /tmp/ccvCiLVj.s 			page 1
  294 0000 FF       		.byte	-1
  295 0001 FF       		.byte	-1
  296 0002 F0       		.byte	-16
- 297 0003 8F       		.byte	-113
- 298 0004 F1       		.byte	-15
- 299 0005 2F       		.byte	47
- 300 0006 F2       		.byte	-14
- 301 0007 4F       		.byte	79
-ARM GAS  /tmp/ccvCiLVj.s 			page 6
+ 297 0003 0F       		.byte	15
+ 298 0004 F0       		.byte	-16
+ 299 0005 0F       		.byte	15
+ 300 0006 F0       		.byte	-16
+ 301 0007 0F       		.byte	15
+ARM GAS  /tmp/cc5pyIGS.s 			page 6
 
 
- 302 0008 84       		.byte	-124
- 303 0009 93       		.byte	-109
- 304 000a 89       		.byte	-119
- 305 000b 25       		.byte	37
- 306 000c 92       		.byte	-110
- 307 000d 49       		.byte	73
- 308 000e A4       		.byte	-92
- 309 000f 93       		.byte	-109
- 310 0010 C9       		.byte	-55
- 311 0011 25       		.byte	37
- 312 0012 92       		.byte	-110
- 313 0013 49       		.byte	73
- 314 0014 A4       		.byte	-92
- 315 0015 91       		.byte	-111
- 316 0016 C9       		.byte	-55
- 317 0017 21       		.byte	33
- 318 0018 F2       		.byte	-14
- 319 0019 4F       		.byte	79
- 320 001a F4       		.byte	-12
- 321 001b 8F       		.byte	-113
- 322 001c F9       		.byte	-7
+ 302 0008 80       		.byte	-128
+ 303 0009 01       		.byte	1
+ 304 000a 80       		.byte	-128
+ 305 000b 01       		.byte	1
+ 306 000c 80       		.byte	-128
+ 307 000d 01       		.byte	1
+ 308 000e 80       		.byte	-128
+ 309 000f 01       		.byte	1
+ 310 0010 80       		.byte	-128
+ 311 0011 01       		.byte	1
+ 312 0012 80       		.byte	-128
+ 313 0013 01       		.byte	1
+ 314 0014 80       		.byte	-128
+ 315 0015 01       		.byte	1
+ 316 0016 80       		.byte	-128
+ 317 0017 01       		.byte	1
+ 318 0018 F0       		.byte	-16
+ 319 0019 0F       		.byte	15
+ 320 001a F0       		.byte	-16
+ 321 001b 0F       		.byte	15
+ 322 001c F0       		.byte	-16
  323 001d 0F       		.byte	15
  324 001e FF       		.byte	-1
  325 001f FF       		.byte	-1
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccvCiLVj.s 			page 1
  358 001b 00       		.byte	0
  359 001c 00       		.byte	0
  360 001d 00       		.byte	0
-ARM GAS  /tmp/ccvCiLVj.s 			page 7
+ARM GAS  /tmp/cc5pyIGS.s 			page 7
 
 
  361 001e 00       		.byte	0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccvCiLVj.s 			page 1
  419 000e 01       		.byte	1
  420 000f C0       		.byte	-64
  421 0010 00       		.byte	0
-ARM GAS  /tmp/ccvCiLVj.s 			page 8
+ARM GAS  /tmp/cc5pyIGS.s 			page 8
 
 
  422 0011 70       		.byte	112
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccvCiLVj.s 			page 1
  479      00000000 
  479      00000000 
  479      00000000 
-ARM GAS  /tmp/ccvCiLVj.s 			page 9
+ARM GAS  /tmp/cc5pyIGS.s 			page 9
 
 
  479      00000000 
@@ -487,36 +487,36 @@ ARM GAS  /tmp/ccvCiLVj.s 			page 1
  482              		.file 1 "Core/Inc/game_symbols.h"
  483              		.file 2 "Core/Src/game_symbols.c"
  484              		.file 3 "/usr/lib/gcc/arm-none-eabi/8.3.1/include/stdint.h"
-ARM GAS  /tmp/ccvCiLVj.s 			page 10
+ARM GAS  /tmp/cc5pyIGS.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 game_symbols.c
-     /tmp/ccvCiLVj.s:478    .rodata.zero_cell:0000000000000000 zero_cell
-     /tmp/ccvCiLVj.s:293    .rodata.selected_cell:0000000000000000 selected_cell
-     /tmp/ccvCiLVj.s:219    .rodata.not_opened_cell:0000000000000000 not_opened_cell
-     /tmp/ccvCiLVj.s:34     .rodata.bomb:0000000000000000 bomb
-     /tmp/ccvCiLVj.s:145    .rodata.flag:0000000000000000 flag
-     /tmp/ccvCiLVj.s:71     .rodata.eight:0000000000000000 eight
-     /tmp/ccvCiLVj.s:330    .rodata.seven:0000000000000000 seven
-     /tmp/ccvCiLVj.s:367    .rodata.six:0000000000000000 six
-     /tmp/ccvCiLVj.s:108    .rodata.five:0000000000000000 five
-     /tmp/ccvCiLVj.s:182    .rodata.four:0000000000000000 four
-     /tmp/ccvCiLVj.s:404    .rodata.three:0000000000000000 three
-     /tmp/ccvCiLVj.s:441    .rodata.two:0000000000000000 two
-     /tmp/ccvCiLVj.s:256    .rodata.one:0000000000000000 one
-     /tmp/ccvCiLVj.s:31     .rodata.bomb:0000000000000000 $d
-     /tmp/ccvCiLVj.s:68     .rodata.eight:0000000000000000 $d
-     /tmp/ccvCiLVj.s:105    .rodata.five:0000000000000000 $d
-     /tmp/ccvCiLVj.s:142    .rodata.flag:0000000000000000 $d
-     /tmp/ccvCiLVj.s:179    .rodata.four:0000000000000000 $d
-     /tmp/ccvCiLVj.s:216    .rodata.not_opened_cell:0000000000000000 $d
-     /tmp/ccvCiLVj.s:253    .rodata.one:0000000000000000 $d
-     /tmp/ccvCiLVj.s:290    .rodata.selected_cell:0000000000000000 $d
-     /tmp/ccvCiLVj.s:327    .rodata.seven:0000000000000000 $d
-     /tmp/ccvCiLVj.s:364    .rodata.six:0000000000000000 $d
-     /tmp/ccvCiLVj.s:401    .rodata.three:0000000000000000 $d
-     /tmp/ccvCiLVj.s:438    .rodata.two:0000000000000000 $d
-     /tmp/ccvCiLVj.s:475    .rodata.zero_cell:0000000000000000 $d
+     /tmp/cc5pyIGS.s:478    .rodata.zero_cell:0000000000000000 zero_cell
+     /tmp/cc5pyIGS.s:293    .rodata.selected_cell:0000000000000000 selected_cell
+     /tmp/cc5pyIGS.s:219    .rodata.not_opened_cell:0000000000000000 not_opened_cell
+     /tmp/cc5pyIGS.s:34     .rodata.bomb:0000000000000000 bomb
+     /tmp/cc5pyIGS.s:145    .rodata.flag:0000000000000000 flag
+     /tmp/cc5pyIGS.s:71     .rodata.eight:0000000000000000 eight
+     /tmp/cc5pyIGS.s:330    .rodata.seven:0000000000000000 seven
+     /tmp/cc5pyIGS.s:367    .rodata.six:0000000000000000 six
+     /tmp/cc5pyIGS.s:108    .rodata.five:0000000000000000 five
+     /tmp/cc5pyIGS.s:182    .rodata.four:0000000000000000 four
+     /tmp/cc5pyIGS.s:404    .rodata.three:0000000000000000 three
+     /tmp/cc5pyIGS.s:441    .rodata.two:0000000000000000 two
+     /tmp/cc5pyIGS.s:256    .rodata.one:0000000000000000 one
+     /tmp/cc5pyIGS.s:31     .rodata.bomb:0000000000000000 $d
+     /tmp/cc5pyIGS.s:68     .rodata.eight:0000000000000000 $d
+     /tmp/cc5pyIGS.s:105    .rodata.five:0000000000000000 $d
+     /tmp/cc5pyIGS.s:142    .rodata.flag:0000000000000000 $d
+     /tmp/cc5pyIGS.s:179    .rodata.four:0000000000000000 $d
+     /tmp/cc5pyIGS.s:216    .rodata.not_opened_cell:0000000000000000 $d
+     /tmp/cc5pyIGS.s:253    .rodata.one:0000000000000000 $d
+     /tmp/cc5pyIGS.s:290    .rodata.selected_cell:0000000000000000 $d
+     /tmp/cc5pyIGS.s:327    .rodata.seven:0000000000000000 $d
+     /tmp/cc5pyIGS.s:364    .rodata.six:0000000000000000 $d
+     /tmp/cc5pyIGS.s:401    .rodata.three:0000000000000000 $d
+     /tmp/cc5pyIGS.s:438    .rodata.two:0000000000000000 $d
+     /tmp/cc5pyIGS.s:475    .rodata.zero_cell:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

@@ -39,8 +39,8 @@ void draw_picture_blend(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
             //uint8_t cell = (handle->image[(y + i) * (handle->width / 8) + (x + j) / 8]
              //              >> (7 - j % 8)) & 1;
             uint8_t cell = (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1;
-            if(!cell) {
-                set_pixel(x + j, y + i, (picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1, handle);
+            if(cell) {
+                set_pixel(x + j, y + i, /*(picture[i * bytes_in_line + j / 8] >> (7 - j % 8)) & 1*/ cell, handle);
             }
         }
     }
