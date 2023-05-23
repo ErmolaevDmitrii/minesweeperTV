@@ -152,9 +152,17 @@ void game_player_open_cell(game_handle *handle) {
         return;
     }
 
-    ++handle->openings;
-    game_set_cell_opened(x, y, handle);
+    if(!game_is_cell_opened(x, y, handle)) {
+        game_set_cell_opened(x, y, handle);
+        ++handle->openings;
+    }
 
+
+    if(handle->openings >= (handle->field_width * handle->field_height - handle->mines_count - 1)) {
+        handle->game_state = 1;
+        game_win(handle);
+        return;
+    }
 
     if(game_get_cell_value(x, y, handle) == 0 ||
        game_get_cell_value(x, y, handle) ==
@@ -172,11 +180,7 @@ void game_player_open_cell(game_handle *handle) {
         }
     }
 
-    if(handle->openings == (handle->field_width * handle->field_height - handle->mines_count)) {
-        handle->game_state = 1;
-        game_win(handle);
-        return;
-    }
+
 
     return;
 }
